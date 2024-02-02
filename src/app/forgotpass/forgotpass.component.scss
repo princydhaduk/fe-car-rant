@@ -1,0 +1,141 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container-fuild{
+  width: 100%;
+  height: 100vh;
+  background-color: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+h3{
+  margin-bottom: 20px;
+}
+.content-title{
+  width: 80%;
+  margin-bottom: 20px;
+}
+.content-title p{
+  margin-left: 18%;
+  color: grey;
+}
+.example-form {
+  // min-width: 150px;
+  // max-width: 500px;
+  width: 100%;
+  background-color: #fff;
+  padding: 40px;
+  text-align: center;
+  margin-top: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.btn{
+  padding: 10px 20px;
+}
+
+.content{
+  background-color: #fff;
+  padding: 20px;
+  text-align: center;
+  margin-top: 10px;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+h4{
+  font-size: 25px;
+}
+.content .otc {
+	position: relative;
+	width: 320px;
+	margin: 0 auto;
+}
+
+.otc fieldset {
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+
+.otc fieldset div {
+	display: flex;
+	align-items: center;
+	justify-content: center
+}
+
+input[type="number"] {
+  width: .86em;
+  line-height: 1;
+  margin: .1em;
+  padding: 0px 0px 4px;
+  font-size: 2.65em;
+  text-align: center;
+  margin-bottom: 30px;
+  appearance: textfield;
+  -webkit-appearance: textfield;
+  border: 0;
+  background-color: rgb(235, 234, 234);
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* 2 groups of 3 items */
+input[type="number"]:nth-child(n+4) {
+	order: 2;
+}
+.otc div::before {
+	content: '';
+	height: 2px;
+	width: 12px;
+	margin: 0 .25em;
+	order: 1;
+	background: #fff;
+	border-radius: 2px;
+	opacity: .4;
+
+}
+
+.otc label {
+	border: 0 !important;
+	clip: rect(1px, 1px, 1px, 1px) !important;
+	-webkit-clip-path: inset(50%) !important;
+	clip-path: inset(50%) !important;
+	height: 1px !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	padding: 0 !important;
+	position: absolute !important;
+	width: 1px !important;
+	white-space: nowrap !important;
+
+}
+
+
+

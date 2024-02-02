@@ -1,0 +1,47 @@
+<div class="container-fulid forms">
+  <div class="form login">
+    <div class="form-content">
+      <h3> Login Now !</h3>
+
+      <form [formGroup]="loginForm">
+        <div class="field input-field">
+          <input type="email" placeholder="Email" formControlName="email">
+          <div class="error-content" *ngIf="emailValidators && emailValidators.invalid &&emailValidators.touched">
+            <span class="error"><i class='bx bx-error-circle'></i> Please fill up your Email..!</span>
+          </div>
+        </div>
+
+        <div class="field input-field">
+          <input [type]="show ? 'text' : 'password'" placeholder="Password" formControlName="password">
+            <i class='bx bx-hide eye-icon' (click)="onClick()" aria-hidden="true" *ngIf="!show"></i>
+            <i class='bx bx-show eye-icon' (click)="onClick()" aria-hidden="true" *ngIf="show"></i>
+            <div class="error-content" *ngIf="passValidators && passValidators.invalid &&passValidators.touched">
+              <span class="error"><i class='bx bx-error-circle'></i> Please fill up atleast any 6 character..!</span>
+            </div>
+        </div>
+
+        <div class="form-link">
+          <a [routerLink]="['/forgotpass']">Forgot Password?</a>
+        </div>
+
+        <div class="field button-field">
+          <button class="btn btn-primary" (click)="onSubmit()" [disabled]="loginForm.invalid">Login</button>
+        </div>
+
+      </form>
+      <div class="form-link">
+        <span>Don't have an account? <a [routerLink]="['/signup']" class="link login-link">Register</a></span>
+      </div>
+    </div>
+
+    <!-- <div class="line"></div>
+
+    <div class="media-options">
+      <a href="" class="field facebook">
+        <i class='bx bxl-facebook facebook-icon'></i>
+        <span>Login with Facebook</span>
+      </a>
+    </div> -->
+
+  </div>
+</div>

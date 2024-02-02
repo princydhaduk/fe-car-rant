@@ -1,0 +1,58 @@
+<div class="container-fuild">
+  <div class="">
+    <form class="example-form">
+      <h3>Forgot Password !</h3>
+      <div class="content-title">
+        <p>Enter the email address associated with your register account.</p>
+      </div>
+      <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" value="">
+      </mat-form-field>
+
+      <div class="example-button-row">
+        <button class="btn btn-primary ">Send OTP</button>
+      </div>
+    </form>
+  </div>
+
+<div class="content">
+  <form class="otc" name="one-time-code" action="#">
+    <h4>Email Verification !</h4>
+    <div class="content-title">
+      <p>Please Enter 6 digit code that send to your email address.</p>
+    </div>
+    <fieldset>
+      <label for="otc-1">Number 1</label>
+      <label for="otc-2">Number 2</label>
+      <label for="otc-3">Number 3</label>
+      <label for="otc-4">Number 4</label>
+      <label for="otc-5">Number 5</label>
+      <label for="otc-6">Number 6</label>
+
+      <div>
+        <input type="number" pattern="[0-9]*" value="" inputtype="numeric" autocomplete="one-time-code" id="otc-1"
+          required>
+
+        <!-- Autocomplete not to put on other input -->
+        <input type="number" pattern="[0-9]*" min="0" max="9" maxlength="1" value="" inputtype="numeric" id="otc-2"
+          required>
+        <input type="number" pattern="[0-9]*" min="0" max="9" maxlength="1" value="" inputtype="numeric" id="otc-3"
+          required>
+        <input type="number" pattern="[0-9]*" min="0" max="9" maxlength="1" value="" inputtype="numeric" id="otc-4"
+          required>
+        <input type="number" pattern="[0-9]*" min="0" max="9" maxlength="1" value="" inputtype="numeric" id="otc-5"
+          required>
+        <input type="number" pattern="[0-9]*" min="0" max="9" maxlength="1" value="" inputtype="numeric" id="otc-6"
+          required>
+      </div>
+      <div class="example-button-row">
+        <button class="btn btn-primary ">Verify Code</button>
+      </div>
+    </fieldset>
+  </form>
+</div>
+</div>
+
+
+
