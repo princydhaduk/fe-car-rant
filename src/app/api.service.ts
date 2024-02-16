@@ -1,0 +1,47 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ApiService {
+  constructor(private http: HttpClient) {
+  }
+
+  getPostData() {
+    // let url = '';
+    // return this.http.get(url);
+  }
+
+  saveData(payload: any) {
+    let url = 'http://localhost:5000/api/registrations';
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    const options = {
+      headers
+    };
+    return this.http.post(url, payload, options);
+  }
+
+  saveLoginData(payload:any) {
+    let url = 'http://localhost:5000/api/login';
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    const options = {
+      headers
+    };
+    return this.http.post(url,payload,options);
+  }
+
+  saveForgotEmail(payload:any){
+    let url = 'http://localhost:5000/api/ForgotPasswordEmail';
+    return this.http.post(url,payload);
+  }
+
+  saveForgetOtp(pyload:any){
+    let url = 'http://localhost:5000/api/ForgotPasswordOtp';
+    return this.http.post(url,pyload);
+  }
+}

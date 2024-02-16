@@ -11,7 +11,11 @@ import { ForgotpassComponent } from './forgotpass/forgotpass.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
-
+import { MatIconModule } from '@angular/material/icon';
+import { HttpClientModule } from '@angular/common/http';
+import { NgOtpInputModule } from 'ng-otp-input';
+// import { CountdownModule } from 'ngx-countdown';
+// import { ChartModule } from 'primeng/chart';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,6 @@ import { MatDividerModule } from '@angular/material/divider';
     LoginComponent,
     SignupComponent,
     ForgotpassComponent
-
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,12 @@ import { MatDividerModule } from '@angular/material/divider';
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatDividerModule
+    MatDividerModule,
+    MatIconModule,
+    HttpClientModule,
+    NgOtpInputModule,
+    // CountdownModule,
+    // ChartModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -48,7 +48,7 @@
   <div class="container">
     <h3>Register Now !</h3>
     <div class="content">
-      <form [formGroup]="signupForm">
+      <form [formGroup]="signupForm" >
         <div class="user-details">
           <div class="input-box">
             <input type="text" placeholder="First Name" formControlName="fname">
@@ -112,7 +112,7 @@
         </div>
       </form>
       <div class="form-link">
-        <span>Allready have an account? <a [routerLink]="['/login']" class="link signup-link">Login</a></span>
+        <span>Allready have an account? <a routerLink="/login" class="link signup-link">Login</a></span>
       </div>
     </div>
   </div>

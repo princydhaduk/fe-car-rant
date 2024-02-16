@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-login',
@@ -8,13 +9,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit{
 
-  loginForm:any;
-  // password:any;
-  // email:any;
+  loginForm!:FormGroup;
   arr:any = [];
   show:boolean = false;
 
-  constructor(){}
+  constructor(private api:ApiService){}
 
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -24,10 +23,23 @@ export class LoginComponent implements OnInit{
   }
 
   onSubmit(){
-    this.arr.push(this.loginForm.value)
-    this.loginForm.controls['email'].setValue('');
-    this.loginForm.controls['password'].setValue('');
-    console.log(this.arr);
+    // this.arr.push(this.loginForm.value)
+    // this.loginForm.controls['email'].setValue('');
+    // this.loginForm.controls['password'].setValue('');
+    // console.log(this.arr);
+
+    const payload = {
+      "email" : this.loginForm.value.email,
+      "password" : this.loginForm.value.password
+    }
+    this.api.saveLoginData(payload).subscribe((res:any) => {
+      if(res){
+        console.log("res ::===>> ",res);
+
+      }
+    });
+    console.log("payload ===>>>",payload);
+
   }
 
   get emailValidators(){
