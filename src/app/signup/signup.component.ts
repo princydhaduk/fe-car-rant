@@ -7,17 +7,15 @@ import { ApiService } from '../api.service';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
-export class SignupComponent implements OnInit{
-
+export class SignupComponent implements OnInit {
   show: boolean = false;
   showhide: boolean = false;
+  signupForm!: FormGroup;
   arr: any = [];
-  signupForm!:FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private api :ApiService) { }
+  constructor(private formBuilder: FormBuilder, private api: ApiService) { }
 
   ngOnInit(): void {
-
     this.signupForm = this.formBuilder.group({
       fname: ['', [Validators.required]],
       lname: ['', [Validators.required]],
@@ -31,14 +29,14 @@ export class SignupComponent implements OnInit{
     });
   }
 
-  onClick() {
+  onClick(): void {
     this.show = !this.show;
   }
-  onClickOn() {
+  onClickOn(): void {
     this.showhide = !this.showhide;
   }
 
-  onSubmit() {
+  onSubmit(): void {
     // this.arr.push(this.signupForm.value);
     // this.signupForm.controls['fname'].setValue('');
     // this.signupForm.controls['lname'].setValue('');
@@ -49,17 +47,6 @@ export class SignupComponent implements OnInit{
     // this.signupForm.controls['gender'].setValue('');
     // console.log("array : ",this.arr);
 
-    // let payload = {
-    //   "fname": this.arr[0]?.fname,
-    //   "lname": this.arr[0]?.lname,
-    //   "email": this.arr[0]?.email,
-    //   "mobile": this.arr[0]?.phoneno,
-    //   "password": this.arr[0]?.password,
-    //   "gender": this.arr[0]?.gender,
-    // }
-    // console.log("payload : ",payload);
-
-
     const payload = {
       "fname": this.signupForm.value.fname,
       "lname": this.signupForm.value.lname,
@@ -67,17 +54,12 @@ export class SignupComponent implements OnInit{
       "mobile": this.signupForm.value.phoneno,
       "password": this.signupForm.value.password,
       "gender": this.signupForm.value.gender
-  }
-
-  this.api.saveData(payload).subscribe((res:any) => {
-    if (res) {
-      // debugger
-      console.log(res);
-
     }
-  })
-    console.log("payloaad ===>>>>" , payload);
 
+    this.api.saveData(payload).subscribe((res: any) => {
+      if (res) {
+      }
+    })
   }
 
   get fnameValidators() {
@@ -103,12 +85,6 @@ export class SignupComponent implements OnInit{
     return (formGroup: FormGroup) => {
       const control = formGroup.controls[controlName];
       const matchcontrol = formGroup.controls[matchControlName];
-
-      // if(matchcontrol.errors && !matchcontrol.errors['MustMatch']){
-      //   debugger
-      //   return
-      // }
-
       if (control.value !== matchcontrol.value) {
         matchcontrol.setErrors({ MustMatch: true });
       }

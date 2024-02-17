@@ -40,8 +40,13 @@ export class ApiService {
     return this.http.post(url,payload);
   }
 
-  saveForgetOtp(pyload:any){
+  saveForgetOtp(payload:any){
     let url = 'http://localhost:5000/api/ForgotPasswordOtp';
-    return this.http.post(url,pyload);
+    return this.http.post(url,payload);
+  }
+
+  saveUpdatePass(payload:any){
+    let url = 'http://localhost:5000/api/updatePassword';
+    return this.http.post(url,payload)
   }
 }

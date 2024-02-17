@@ -46,38 +46,38 @@
   </div>
 
 
-
-
-
-
-
-
   <div class="example-container">
-    <form class="example-form" *ngIf="passDailogBox">
+    <form class="example-form" *ngIf="passDailogBox" [formGroup]="forgotEmail">
       <h3>Update Password !</h3>
       <div class="content-title">
         <p>Your new password must be different form prviouly used password..</p>
       </div>
       <mat-form-field class="full-width">
         <mat-label>Enter your password</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'">
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
         <button class="btn" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
           [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          <div class="error-content" *ngIf="passValidators && passValidators.invalid && passValidators.touched">
+            <span class="error"><i class='bx bx-error-circle'></i> Please fill up atleast any 6 character..!</span>
+          </div>
         </button>
       </mat-form-field>
       <br>
       <mat-form-field class="full-width">
         <mat-label>Enter Confirm password</mat-label>
-        <input matInput [type]="hideshow ? 'password' : 'text'">
+        <input matInput [type]="hideshow ? 'password' : 'text'" formControlName="cpassword">
         <button class="btn" mat-icon-button matSuffix (click)="hideshow = !hideshow" [attr.aria-label]="'Hide password'"
           [attr.aria-pressed]="hide">
           <mat-icon>{{hideshow ? 'visibility_off' : 'visibility'}}</mat-icon>
+          <div class="error-content" *ngIf="cpassValidators && cpassValidators.invalid && cpassValidators.touched">
+            <span class="error"><i class='bx bx-error-circle'></i> Don't match your password..!</span>
+          </div>
         </button>
       </mat-form-field>
 
       <div class="example-button-row">
-        <button class="btn btn-primary" [routerLink]="['/login']">Update Password</button>
+        <button class="btn btn-primary" (click)="updatePass()" [routerLink]="['/login']" [disabled]="forgotEmail.invalid">Update Password</button>
       </div>
 
       <!-- <div class="card flex justify-content-center">

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../api.service';
 
 @Component({
@@ -35,7 +35,9 @@ export class ForgotpassComponent implements OnInit {
 
   ngOnInit(): void {
     this.forgotEmail = new FormGroup({
-      email: new FormControl(''),
+      email: new FormControl('',[Validators.required,Validators.email]),
+      password: new FormControl('',[Validators.required,Validators.minLength(6)]),
+      cpassword: new FormControl('',Validators.required),
     })
     this.timer(1);
   }
@@ -96,7 +98,7 @@ export class ForgotpassComponent implements OnInit {
       "otp": this.otp,
     }
     this.api.saveForgetOtp(payload).subscribe((res: any) => {
-      if (res) {
+      if(res) {
         this.dailogBox = false;
         this.otpDailogBox = false;
         this.passDailogBox = true;
@@ -104,6 +106,26 @@ export class ForgotpassComponent implements OnInit {
     })
   }
 
+  updatePass(): void{
+    this.forgotDialog();
+    const payload = {
+      "email" : this.forgotEmail.value.email,
+      "newpassword" : this.forgotEmail.value.password,
+      "confirmpassword": this.forgotEmail.value.cpassword,
+    }
+    this.api.saveUpdatePass(payload).subscribe((res:any) => {
+      if(res){
+        console.log("res ---->>",res);
+      }
+    })
+    console.log("payload===>>>", payload);
+  }
+  get passValidators() {
+    return this.forgotEmail.get('password');
+  }
+  get cpassValidators() {
+    return this.forgotEmail.get('cpassword');
+  }
 }
 
 

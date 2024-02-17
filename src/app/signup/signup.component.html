@@ -1,76 +1,31 @@
-<!-- <div class="container-fulid">
-  <div class="form login">
-    <div class="form-content">
-      <h3> Signup Now !</h3>
-
-      <form [formGroup]="signupForm">
-        <div class="two-field input-field">
-          <input type="text" placeholder="First Name">
-          <input type="text" placeholder="Last Name">
-        </div>
-
-        <div class="field input-field">
-          <input type="date" placeholder="Birth Date">
-        </div>
-
-        <div class="field input-field">
-          <input type="password" placeholder="Phone Number">
-        </div>
-
-        <div class="field input-field">
-          <input type="email"  placeholder="email">
-        </div>
-
-        <div class="form-gender">
-          <input type="radio" name="gender" value="male"> Male
-          <input type="radio" name="gender" value="female"> Female
-        </div>
-
-        <div class="form-checkbox">
-          <input type="checkbox" class="check-box">
-          <span> I accept all terms & conditions</span>
-        </div>
-
-        <div class="field button-field">
-          <button class="btn btn-primary">Signup</button>
-        </div>
-
-      </form>
-      <div class="form-link">
-        <span>Allready have an account? <a [routerLink]="['/login']" class="link signup-link">Login</a></span>
-      </div>
-    </div>
-
-  </div>
-</div> -->
-
 <body>
   <div class="container">
     <h3>Register Now !</h3>
     <div class="content">
-      <form [formGroup]="signupForm" >
+      <form [formGroup]="signupForm">
         <div class="user-details">
           <div class="input-box">
             <input type="text" placeholder="First Name" formControlName="fname">
-            <div  class="error-content" *ngIf="fnameValidators && fnameValidators.invalid && fnameValidators.touched">
+            <div class="error-content" *ngIf="fnameValidators && fnameValidators.invalid && fnameValidators.touched">
               <span class="error"><i class='bx bx-error-circle'></i> Please fill up your First name..!</span>
             </div>
           </div>
           <div class="input-box">
             <input type="text" placeholder="Last Name" formControlName="lname">
-            <div  class="error-content" *ngIf="lnameValidators && lnameValidators.invalid && lnameValidators.touched">
+            <div class="error-content" *ngIf="lnameValidators && lnameValidators.invalid && lnameValidators.touched">
               <span class="error"><i class='bx bx-error-circle'></i> Please fill up your Last name..!</span>
             </div>
           </div>
           <div class="input-box">
             <input type="text" placeholder="Email" formControlName="email">
-            <div  class="error-content" *ngIf="emailValidators && emailValidators.invalid && emailValidators.touched">
+            <div class="error-content" *ngIf="emailValidators && emailValidators.invalid && emailValidators.touched">
               <span class="error"><i class='bx bx-error-circle'></i> Please fill up your email address..!</span>
             </div>
           </div>
           <div class="input-box">
             <input type="text" placeholder="Phone number" formControlName="phoneno">
-            <div  class="error-content" *ngIf="phonenoValidators && phonenoValidators.invalid && phonenoValidators.touched">
+            <div class="error-content"
+              *ngIf="phonenoValidators && phonenoValidators.invalid && phonenoValidators.touched">
               <span class="error"><i class='bx bx-error-circle'></i> Please fill up your phone no..!</span>
             </div>
           </div>
@@ -79,7 +34,7 @@
               name="password">
             <i class='bx bx-hide eye-icon' (click)="onClick()" aria-hidden="true" *ngIf="!show"></i>
             <i class='bx bx-show eye-icon' (click)="onClick()" aria-hidden="true" *ngIf="show"></i>
-            <div  class="error-content" *ngIf="passValidators && passValidators.invalid && passValidators.touched">
+            <div class="error-content" *ngIf="passValidators && passValidators.invalid && passValidators.touched">
               <span class="error"><i class='bx bx-error-circle'></i> Please fill up atleast any 6 character..!</span>
             </div>
           </div>
@@ -88,7 +43,7 @@
               name="cpassword">
             <i class='bx bx-hide eye-icon' (click)="onClickOn()" aria-hidden="true" *ngIf="!showhide"></i>
             <i class='bx bx-show eye-icon' (click)="onClickOn()" aria-hidden="true" *ngIf="showhide"></i>
-            <div  class="error-content" *ngIf="cpassValidators && cpassValidators.invalid && cpassValidators.touched">
+            <div class="error-content" *ngIf="cpassValidators && cpassValidators.invalid && cpassValidators.touched">
               <span class="error"><i class='bx bx-error-circle'></i> Don't match your password..!</span>
             </div>
           </div>
@@ -108,7 +63,8 @@
           </div>
         </div>
         <div class="button">
-          <input type="submit" value="Register" class="btn btn-primary button" (click)="onSubmit()" [disabled]="signupForm.invalid">
+          <input type="submit" value="Register" class="btn btn-primary button" (click)="onSubmit()"
+            [disabled]="signupForm.invalid">
         </div>
       </form>
       <div class="form-link">
