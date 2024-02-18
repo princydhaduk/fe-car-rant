@@ -14,6 +14,14 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { NgOtpInputModule } from 'ng-otp-input';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { ServiceComponent } from './service/service.component';
+import { CarComponent } from './car/car.component';
+import { CarSingleComponent } from './car-single/car-single.component';
+import { BlogComponent } from './blog/blog.component';
+import { ContactComponent } from './contact/contact.component';
+import { BlogSingleComponent } from './blog-single/blog-single.component';
 // import { CountdownModule } from 'ngx-countdown';
 // import { ChartModule } from 'primeng/chart';
 
@@ -22,7 +30,15 @@ import { NgOtpInputModule } from 'ng-otp-input';
     AppComponent,
     LoginComponent,
     SignupComponent,
-    ForgotpassComponent
+    ForgotpassComponent,
+    HomeComponent,
+    AboutComponent,
+    ServiceComponent,
+    CarComponent,
+    CarSingleComponent,
+    BlogComponent,
+    ContactComponent,
+    BlogSingleComponent,
   ],
   imports: [
     BrowserModule,
