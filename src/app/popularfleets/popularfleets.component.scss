@@ -422,6 +422,10 @@ $black-color: #000;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
   border-radius: 10px;
   overflow: hidden;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 
 .fleet-title,
@@ -429,6 +433,9 @@ $black-color: #000;
   margin: 10px 0;
 }
 
+.fleet-title h6{
+  margin-bottom: 30px;
+}
 .fleet-specs {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

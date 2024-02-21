@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../api.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-forgotpass',
@@ -16,6 +18,7 @@ export class ForgotpassComponent implements OnInit {
   otpDailogBox: boolean = false;
   passDailogBox: boolean = false;
   forgotEmail!: FormGroup;
+  updatePassword!: FormGroup;
   arr: any = [];
   otp: string = '';
   display: string = '';
@@ -31,15 +34,17 @@ export class ForgotpassComponent implements OnInit {
     }
   };
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private toastr:ToastrService, private router:Router) { }
 
   ngOnInit(): void {
     this.forgotEmail = new FormGroup({
       email: new FormControl('',[Validators.required,Validators.email]),
-      password: new FormControl('',[Validators.required,Validators.minLength(6)]),
-      cpassword: new FormControl('',Validators.required),
     })
-    this.timer(1);
+
+    this.updatePassword = new FormGroup({
+      password: new FormControl('',[Validators.required,Validators.minLength(6)]),
+      cpassword: new FormControl('',[Validators.required])
+    })
   }
 
   forgotDialog(): void {
@@ -51,8 +56,13 @@ export class ForgotpassComponent implements OnInit {
         this.otpDailogBox = true;
         this.dailogBox = false;
         this.passDailogBox = false;
+
+        console.log("res---",res);
+
       }
-    })
+    });
+    console.log("payload===>>",payload);
+    this.timer(1);
   }
 
   onOtpChange(otp: any): void {
@@ -88,7 +98,7 @@ export class ForgotpassComponent implements OnInit {
 
   isOtpVerify(): void {
     this.isOtp = true;
-    this.forgotDialog()
+    this.forgotDialog();
     this.timer(1);
   }
 
@@ -98,27 +108,35 @@ export class ForgotpassComponent implements OnInit {
       "otp": this.otp,
     }
     this.api.saveForgetOtp(payload).subscribe((res: any) => {
-      if(res) {
+      if(res.message) {
         this.dailogBox = false;
         this.otpDailogBox = false;
         this.passDailogBox = true;
+        this.toastr.success(res.message);
+        console.log("res---",res);
       }
+      else{
+        this.toastr.error(res.message);
+      }
+      console.log("payload===>",payload);
     })
   }
 
   updatePass(): void{
     this.forgotDialog();
+    // debugger
     const payload = {
       "email" : this.forgotEmail.value.email,
       "newpassword" : this.forgotEmail.value.password,
-      "confirmpassword": this.forgotEmail.value.cpassword,
     }
     this.api.saveUpdatePass(payload).subscribe((res:any) => {
       if(res){
-        console.log("res ---->>",res);
+        this.router.navigate(['/login']);
+        this.toastr.success(res.message);
+        console.log("res---",res);
       }
+      console.log("payload===>",payload);
     })
-    console.log("payload===>>>", payload);
   }
   get passValidators() {
     return this.forgotEmail.get('password');

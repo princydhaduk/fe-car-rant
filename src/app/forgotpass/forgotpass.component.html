@@ -11,7 +11,7 @@
       </mat-form-field>
 
       <div class="example-button-row">
-        <button class="btn btn-primary" (click)="forgotDialog()">Send OTP</button>
+        <button class="btn btn-primary" (click)="forgotDialog()" [disabled]="forgotEmail.invalid">Send OTP</button>
       </div>
     </form>
   </div>
@@ -47,7 +47,7 @@
 
 
   <div class="example-container">
-    <form class="example-form" *ngIf="passDailogBox" [formGroup]="forgotEmail">
+    <form class="example-form" *ngIf="passDailogBox" [formGroup]="updatePassword">
       <h3>Update Password !</h3>
       <div class="content-title">
         <p>Your new password must be different form prviouly used password..</p>

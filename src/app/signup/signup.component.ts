@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../api.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-signup',
@@ -13,7 +14,7 @@ export class SignupComponent implements OnInit {
   signupForm!: FormGroup;
   arr: any = [];
 
-  constructor(private formBuilder: FormBuilder, private api: ApiService) { }
+  constructor(private formBuilder: FormBuilder, private api: ApiService, private toastr:ToastrService) { }
 
   ngOnInit(): void {
     this.signupForm = this.formBuilder.group({
@@ -57,7 +58,8 @@ export class SignupComponent implements OnInit {
     }
 
     this.api.saveData(payload).subscribe((res: any) => {
-      if (res) {
+      if (res.message) {
+        this.toastr.success(res.message);
       }
     })
   }

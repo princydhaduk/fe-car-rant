@@ -22,6 +22,8 @@ import { CarSingleComponent } from './car-single/car-single.component';
 import { BlogComponent } from './blog/blog.component';
 import { ContactComponent } from './contact/contact.component';
 import { BlogSingleComponent } from './blog-single/blog-single.component';
+import { ToastrModule } from 'ngx-toastr';
+import { PopularfleetsComponent } from './popularfleets/popularfleets.component';
 // import { CountdownModule } from 'ngx-countdown';
 // import { ChartModule } from 'primeng/chart';
 
@@ -39,6 +41,7 @@ import { BlogSingleComponent } from './blog-single/blog-single.component';
     BlogComponent,
     ContactComponent,
     BlogSingleComponent,
+    PopularfleetsComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +55,7 @@ import { BlogSingleComponent } from './blog-single/blog-single.component';
     MatIconModule,
     HttpClientModule,
     NgOtpInputModule,
+    ToastrModule.forRoot()
     // CountdownModule,
     // ChartModule,
   ],

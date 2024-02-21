@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   show: boolean = false;
 
-  constructor(private api: ApiService,private router:Router) { }
+  constructor(private api: ApiService,private router:Router, private toastr:ToastrService) { }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -28,8 +29,12 @@ export class LoginComponent implements OnInit {
       "password": this.loginForm.value.password
     }
     this.api.saveLoginData(payload).subscribe((res: any) => {
-      if (res) {
+      if (res && res.message === "login successfully..!!") {
         this.router.navigate(['/home']);
+        this.toastr.success(res.message);
+      }
+      else{
+        this.toastr.error(res.message);
       }
     });
 
