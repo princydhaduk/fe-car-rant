@@ -1,3 +1,208 @@
+<!-- <head>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11454521178"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-11454521178');
+</script>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d6eb9c3718.js" crossorigin="anonymous"></script>
+
+    <title>Book Now - Jain Car Rentals</title>
+</head>
+<body>
+<section id="navbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 d-flex" style="justify-content: space-between; align-items: center;">
+                    <div class="logo">
+                        <a href="index.php">
+                        <img src="./images/logo.png" class="img-fluid" style="height: 50px;">
+                        </a>
+                    </div>
+                    <div class="side-nav">
+                      <ul style="display: flex; justify-content: center;">
+
+                          <li><a [routerLink]="['/home']" class="side-nav-link">home</a></li>
+                          <li><a [routerLink]="['/about']" class="side-nav-link">About us</a></li>
+                          <li><a [routerLink]="['/popularfleets']"class="side-nav-link">Popuplar Fleets</a></li>
+                          <li><a [routerLink]="['/booking']" class="side-nav-link">Book Now</a></li>
+                          <li><a [routerLink]="" class="side-nav-link">Self Drive</a></li>
+                          <li><a [routerLink]="['/contact']" class="side-nav-link">Contact us</a></li>
+                      </ul>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section id="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h2>Book Now</h2>
+                <h6>Book Your Ride Today!!!</h6>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="booking">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-sm-12">
+              <section class = "banner">
+                <div class = "card-container">
+                    <div class = "card-img">
+
+                    </div>
+
+                    <div class = "card-content">
+                        <h3> Book Your Ride Now</h3>
+                        <form>
+                            <div class = "form-row">
+                                <input type="text" placeholder="Your Name">
+                                <input type="text" placeholder="Your Mobile No.">
+                            </div>
+
+                            <div class = "form-row">
+                                <input type = "text" placeholder="Full Address">
+                            </div>
+
+                            <div class = "form-row">
+                              <input type = "email" placeholder="Email Id">
+                          </div>
+
+                            <div class = "form-row">
+                                <input type = "number" placeholder="How Many Persons?" min = "1">
+                              </div>
+                              <input type = "submit" value = "BOOK CAR">
+                        </form>
+                    </div>
+                </div>
+            </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="testimonials">
+        <div class="container">
+            <div class="row pt-5 pb-5">
+                <div class="col-sm-12 text-center">
+                    <h2 class="text-light">Testimonials</h2>
+                    <h4 class="text-light mb-4">What Our Customer Says's</h4>
+                    <div id="carouselExample" class="carousel slide">
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <div class="testimonial-box">
+                                <p>
+                                <i class="fa fa-quote-left"></i>
+                                We have booked our cab from Mumbai to Pune from Jain Car Rental & I must say they have provided best services. Clean cars, polite drivers, excellent support all are their plus points...</p>
+                                <h6>Rajeev thakur</h6>
+                                <p style="font-weight: 700;">Mumbai, Maharashtra</p>
+                            </div>
+                          </div>
+                          <div class="carousel-item">
+                            <div class="testimonial-box">
+                                <p>
+                                <i class="fa fa-quote-left"></i>
+                                I want a car for self drive. I need a thar of hill station, so I booked my car with Jain Car Rental. I got the best deal & well maintained car for my tour. Excellent service...</p>
+                                <h6>Pankaj Kumar</h6>
+                                <p style="font-weight: 700;">Manali, Himachal Pradesh</p>
+                            </div>
+                          </div>
+                          <div class="carousel-item">
+                            <div class="testimonial-box">
+                                <p>
+                                <i class="fa fa-quote-left"></i>
+                                I am going for a vacation with my family. So I was searching for a tempo traveler for 15 persons. They provide me the tempo traveler @ best prices. Thank you Jain Car Rental...</p>
+                                <h6>Abhishek Ranjan</h6>
+                                <p style="font-weight: 700;">Jaipur, Rajasthan</p>
+                            </div>
+                          </div>
+
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<section id="footer">
+    <a href="tel:+918167540298" class="btn-call"><i class="fa fa-phone"></i></a>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h4 class="footer-title">Working Hours</h4>
+                    <h6 class="footer-title-primary">Monday-Saturday</h6>
+                    <p>9:00 AM - 10:00 PM</p>
+
+                    <h6 class="footer-title-primary">Sunday</h6>
+                    <p>10:00 AM - 9:00 PM</p>
+                </div>
+
+                <div class="col-sm-3">
+                    <h4 class="footer-title">Usefull Links</h4>
+                    <a href="about-us.php" class="footer-link">About us</a>
+                    <a href="popular-fleets.php" class="footer-link">Popular Fleets</a>
+                    <a href="self-drive.php" class="footer-link">Self Drive</a>
+                    <a href="pay-now.php" class="footer-link">Pay Now</a>
+                    <a href="contact-us.php" class="footer-link">Contact Us</a>
+                </div>
+
+                <div class="col-sm-3">
+                    <h4 class="footer-title">Head Office</h4>
+                    <h6 class="footer-title-primary">Location:</h6>
+                    <p>Lala Devidayal Rd, Mulund West, Mumbai, Maharashtra - 400080</p>
+                    <h6 class="footer-title-primary">Join us</h6>
+                    <p>info@jaincarrentals.com</p>
+                    <p><a href="tel:+917063086847" style="color: #fff; text-decoration: none;">+91-8167540298</a></p>
+                </div>
+
+                <div class="col-sm-3">
+                    <h4 class="footer-title">Newsletter</h4>
+                    <form action="#" method="post">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" placeholder="Email address" class="form-control" required>
+
+                        <button class="btn btn-custom-primary mt-2" style="width: 100%;">Subscribe Now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="footer-anim">
+        <img src="../../assets/images/truck-1.png" class="img-fluid truck-1">
+        <img src="../../assets/images/truck-2.png" class="img-fluid truck-2">
+        <img src="../../assets/images/truck-3.png" class="img-fluid truck-3">
+    </section>
+    <section id="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <p>&copy; Copyright 2012-2023 | All Right Reserved</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body> -->
+
 <body>
 
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
@@ -7,17 +212,32 @@
         <span class="oi oi-menu"></span> Menu
       </button>
 
-      <div class="collapse navbar-collapse" id="ftco-nav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-          <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
-          <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
-          <li class="nav-item"><a href="car.html" class="nav-link">Cars</a></li>
-          <li class="nav-item active"><a href="blog.html" class="nav-link">Blog</a></li>
-          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+      <div class="side-nav">
+        <ul style="display: flex; justify-content: center;">
+            <!-- <div class="close">&times;</div> -->
+            <li><a [routerLink]="['/home']" class="side-nav-link">Home</a></li>
+            <li class="dropdown a">
+              <a [routerLink]="['/about']" class="side-nav-link">Pages</a>
+              <div class="dropdown-main">
+                <a href="">About</a>
+                <a href="">Services</a>
+                <a href="">Payment</a>
+            </div>
+            </li>
+
+            <li><a [routerLink]="['/blogdetails']" class="side-nav-link">Blog Details</a></li>
+            <li class="dropdown a">
+              <a [routerLink]="['/blog']" class="side-nav-link">Blogs</a>
+              <!-- <i class="fa-solid fa-chevron-down" style="color: #000;"></i> -->
+              <div class="dropdown-main">
+                <a href="">Blog List</a>
+                <a href="">Blog Details</a>
+              </div>
+            </li>
+            <li><a [routerLink]="['/popularfleets']"class="side-nav-link">Popuplar Fleets</a></li>
+            <li><a [routerLink]="['/contact']" class="side-nav-link">Contact us</a></li>
         </ul>
-      </div>
+    </div>
     </div>
   </nav>
   <!-- END nav -->

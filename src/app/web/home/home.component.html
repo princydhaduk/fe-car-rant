@@ -21,58 +21,75 @@
           <div class="row">
               <div class="col-sm-12 d-flex" style="justify-content: space-between; align-items: center;">
                   <div class="logo">
-                      <a [routerLink]="['/home']">
+                      <a [routerLink]="['/web/home']">
                       <img src="../../assets/images/loc.png" class="img-fluid" style="height: 50px;">
                       </a>
                   </div>
-                  <!-- <div class="hamburger">
-                      <span class="line line-1"></span>
-                      <span class="line line-2"></span>
-                      <span class="line line-3"></span>
-                  </div> -->
+
                   <div class="side-nav">
                       <ul style="display: flex; justify-content: center;">
-                          <!-- <div class="close">&times;</div> -->
-                          <li><a [routerLink]="['/home']" class="side-nav-link">home</a></li>
-                          <li><a [routerLink]="['/about']" class="side-nav-link">About us</a></li>
+
+                          <li><a [routerLink]="['/home']" class="side-nav-link">Home</a></li>
+
+                          <li class="dropdown a">
+                            <a [routerLink]="" class="side-nav-link">Pages</a>
+                            <div class="dropdown-main">
+                              <a [routerLink]="['/web/pages/about']">About</a>
+                              <a [routerLink]="['/web/pages/services']">Services</a>
+                              <a [routerLink]="['/web/pages/payment']">Payment</a>
+                          </div>
+                          </li>
+
+                          <li><a [routerLink]="['/blogdetails']" class="side-nav-link">Blog Details</a></li>
+
+                          <li class="dropdown a">
+                            <a [routerLink]="" class="side-nav-link">Blogs</a>
+                            <div class="dropdown-main">
+                              <a [routerLink]="['/web/blog/bloglist']">Blog List</a>
+                              <a href="['/web/blog/blogdetails']">Blog Details</a>
+                            </div>
+                          </li>
+
                           <li><a [routerLink]="['/popularfleets']"class="side-nav-link">Popuplar Fleets</a></li>
-                          <li><a [routerLink]="" class="side-nav-link">Self Drive</a></li>
-                          <li><a [routerLink]="" class="side-nav-link">Book Now</a></li>
                           <li><a [routerLink]="['/contact']" class="side-nav-link">Contact us</a></li>
                       </ul>
                   </div>
               </div>
           </div>
       </div>
-  </section>
+    </section>
+    <router-outlet></router-outlet>
   <section id="hero-img">
       <div class="container py-5">
           <div class="row">
-              <div class="col-sm-8">
+              <div class="col-sm-7">
                   <h4 class="heading-4-light">Discover Convenience on the Go!</h4>
                   <h2 class="heading-2-light">24/7 Accessibility</h2>
-                  <p class="text-light">Book a ride anytime, anywhere – our services are available round the clock</p>
+                  <p class="text-light">Book a ride anytime, anywhere – our services are available round the clock,Car rental services provide individuals or businesses with the option to temporarily use a vehicle for a specified period, typically ranging from a few hours to several days or weeks.</p>
                   <a href="" class="btn btn-custom-primary">Book Now</a>
               </div>
 
-              <div class="col-sm-4">
+              <div class="col-sm-5">
                   <div class="form">
                     <form action="thanks" method="post">
                     <h4 class="text-center">Book Now!!!</h4>
-                      <label>Full Name *</label>
-                      <input type="text" name="name" class="form-control" placeholder="Enter your full name" required=""><br>
+                      <label>Pickup Location *</label>
+                      <input type="text" name="name" class="form-control" placeholder="Car pickup location" required="">
 
-                      <label>Phone Number *</label>
-                      <input type="tel" name="phone" class="form-control" placeholder="Enter you phone number" required=""><br>
+                      <label>Drop off Location *</label>
+                      <input type="tel" name="phone" class="form-control" placeholder="Car pickup location" required="">
 
-                      <label>Pickup Point *</label>
-                      <input type="text" class="form-control" name="starting_point" placeholder="Enter your pickup point" required=""><br>
+                      <label>Pickup Date *</label>
+                      <input type="date" class="form-control" name="starting_point" placeholder="Enter car pickup date" required="">
 
-                      <label>Drop off Point *</label>
-                      <input type="text" class="form-control" name="ending_point" placeholder="Enter your drop-off point" required=""><br>
+                      <label>Drop off Date *</label>
+                      <input type="date" class="form-control" name="ending_point" placeholder="Enter car drop-off datr" required="">
 
-                      <label>Date* </label>
-                      <input type="date" class="form-control" name="booking_date" required=""><br>
+                      <label>Pickup Time* </label>
+                      <input type="time" class="form-control" name="booking_date" required="">
+
+                      <label>Return Time* </label>
+                      <input type="time" class="form-control" name="booking_date" required=""><br>
 
                       <button type="submit" name="submit" class="btn btn-custom-dark mt-3">PROCEED</button>
               </form>

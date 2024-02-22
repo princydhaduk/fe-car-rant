@@ -62,6 +62,7 @@ export class SignupComponent implements OnInit {
         this.toastr.success(res.message);
       }
     })
+    this.signupForm.reset();
   }
 
   get fnameValidators() {

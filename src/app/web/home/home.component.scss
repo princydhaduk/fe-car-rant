@@ -1,0 +1,520 @@
+$primary-color: #5380fc;
+$secondary-color: #ff3f34;
+$light-color: #eff7ff;
+$dark-color: #1e272e;
+$white-color: #fff;
+$primary-rgba: rgba(255, 211, 42, 0.6);
+$secondary-rgba: rgba(255, 63, 52, 0.6);
+$black-color: #000;
+
+
+#navbar {
+  background: $light-color;
+  padding: 10px 0;
+}
+
+.dropdown-main a {
+  display: block;
+}
+
+.dropdown-main i {
+  background-color: $black-color;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-main {
+  background-color: $light-color;
+  position: absolute;
+  width: 150px;
+  left: 0px;
+  top: 50px;
+  border: 1px solid $primary-color;
+}
+
+.dropdown-main {
+  display: none;
+}
+
+.dropdown-main a {
+  margin: 20px;
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+}
+.dropdown-main a:hover{
+  color: $primary-color;
+}
+.dropdown:hover .dropdown-main {
+  display: block;
+  z-index: 1;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+
+}
+
+.a::after {
+  position: absolute;
+  content: "\f078";
+  font: normal 16px/1 FontAwesome;
+  left: 71px;
+  top: 7px;
+  color: #000;
+  font-size: 12px;
+}
+
+.side-nav {
+  color: #fff;
+  margin-top: 18px;
+}
+
+.side-bar ul {
+  display: flex !important;
+  margin: 20px;
+}
+
+.active.side-nav {
+  transform: translateX(0);
+}
+
+.side-nav ul li {
+  list-style: none;
+}
+
+.side-nav-link {
+  color: $white-color;
+  text-decoration: none;
+  color: $dark-color;
+  /* border-top: 1px solid var(--white-color); */
+  /* border-bottom: 1px solid var(--white-color); */
+  margin: 10px 0;
+  padding: 5px 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.side-nav-link:hover {
+  color: $primary-color;
+}
+
+.heading-4-light {
+  color: $white-color;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.heading-2-light {
+  color: $white-color;
+  font-size: 48px;
+  text-transform: uppercase;
+}
+
+.btn-custom-primary {
+  background: $primary-color;
+  color: $white-color;
+  padding: 14px 48px;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: 0.4s linear ease-in;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+
+.btn-custom-primary:hover {
+  background-color: $white-color;
+  color: $black-color;
+}
+
+.btn-custom-dark {
+  background: $dark-color;
+  color: $white-color;
+  padding: 14px 48px;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: 0.4s linear ease-in;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+
+.btn-custom-dark:hover {
+  background-color: $white-color;
+  color: $black-color;
+}
+
+#hero-img {
+  background: url('../../../assets/images/nature-car.jpg');
+  background-size: 100% 100%;
+
+}
+
+.col-sm-7 {
+  flex: 0 0 auto;
+  width: 66.66666667;
+  // align-content: center;
+}
+
+.form {
+  background: $light-color;
+  margin-bottom: 30px;
+  padding: 20px 50px;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+
+.form label {
+  padding-top: 10px;
+}
+
+.form h4 {
+  padding: 15px;
+}
+
+#services {
+  background: $light-color;
+}
+
+.service-box {
+  background: $light-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  cursor: pointer;
+  /* border-radius: 10px; */
+  transition: 0.3s linear;
+}
+
+.service-img {
+  width: 90%;
+  /* margin-top: -20px; */
+  margin-bottom: 10px;
+  transform: translateY(-20px);
+  transition: 0.3s linear;
+}
+
+.service-box .img-fluid {
+  border-radius: 10px;
+}
+
+.service-box-body {
+  padding: 10px 30px;
+  margin-top: -20px;
+}
+
+.service-box:hover .service-img {
+  /* margin-top: -40px; */
+  transform: translateY(-40px);
+}
+
+#cta {
+  background: linear-gradient(to right, rgba(255, 211, 42, 0.6), rgba(255, 211, 42, 0.6)), url('../../../assets/images/cta-map.png');
+  padding: 100px 0 80px 0;
+  background-size: cover;
+}
+
+.why-us-box {
+  background: $light-color;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  margin: 10px 0;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 20px 30px;
+  cursor: pointer;
+}
+
+.why-us-box .icon {
+  background: $dark-color;
+  width: 60px;
+  height: 60px;
+  color: $white-color;
+  border-radius: 60px;
+  position: relative;
+  left: 50%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 10px;
+  transform: translateX(-50%);
+}
+
+.about-specs {
+  background: $light-color;
+  margin: 10px 0;
+  /* display: flex; */
+  justify-content: flex-start;
+  align-items: center;
+  padding: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.about-specs .icon {
+  background: $dark-color;
+  color: $primary-color;
+  height: 36px;
+  width: 36px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-specs p {
+  font-size: 16px;
+  line-height: 10px;
+  margin-top: 13px;
+}
+
+#about img {
+  transform: scaleX(-1)
+}
+
+#testimonials {
+  background: linear-gradient(to right, $primary-rgba, $secondary-rgba), url('../../../assets/images/slider-bg.jpg');
+  clip-path: polygon(0 10%, 100% 0%, 100% 90%, 0% 100%);
+  padding: 50px 0 100px 0;
+  /* color: var(--white-color); */
+}
+
+.testimonial-box {
+  width: 70vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  padding: 30px;
+  border-radius: 10px;
+  /* opacity: 0.7; */
+}
+
+.testimonial-box i {
+  font-size: 30px;
+  display: block;
+  background: $secondary-color;
+  width: 60px;
+  height: 60px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  border-radius: 60px;
+  color: var(--white-color);
+}
+
+.testimonial-box h6 {
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+#footer {
+  background: $dark-color;
+  margin-top: -100px;
+  padding: 150px 0 50px 0;
+  color: $white-color;
+}
+
+.footer-title {
+  font-size: 20px;
+  color: $white-color;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+.footer-title-primary {
+  color: $primary-color;
+}
+
+.footer-link {
+  color: $white-color;
+  display: block;
+  text-decoration: none;
+  margin: 10px 0;
+}
+
+#footer-anim {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('../../../assets/images/city-skiline.png');
+  height: 200px;
+  background-size: cover;
+  background-position: bottom;
+  position: relative;
+  overflow: hidden;
+}
+
+.truck-1 {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  height: 60px;
+  animation: truckOneAnim 10s linear infinite;
+  animation-delay: 1s;
+}
+
+.truck-2 {
+  position: absolute;
+  bottom: 0;
+  right: 150px;
+  height: 60px;
+  animation: truckOneAnim 10s linear infinite;
+  animation-delay: 4s;
+}
+
+.truck-3 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 60px;
+  animation: truckTwoAnim 10s linear infinite;
+}
+
+@keyframes truckOneAnim {
+  0% {
+    right: 0;
+  }
+
+  100% {
+    right: 100%;
+  }
+}
+
+@keyframes truckTwoAnim {
+  0% {
+    left: 0;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+#copyright {
+  background: $black-color;
+  padding: 20px 0 10px 0;
+  color: $white-color;
+}
+
+#download {
+  background: $dark-color;
+  color: $white-color;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+#download img {
+  height: 20px;
+}
+
+.btn-download {
+  background: $primary-color;
+  width: 100%;
+  border-radius: 0;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: $white-color;
+  text-align: center;
+  transition: 0.3s linear;
+  animation: downloadAnim 2s linear infinite;
+}
+
+.btn-download:hover {
+  background: $secondary-color;
+  color: $white-color;
+}
+
+@keyframes downloadAnim {
+  0% {
+    transform: scale(0.8);
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    -o-transform: scale(0.8);
+  }
+
+  50% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.8);
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    -o-transform: scale(0.8);
+  }
+}
+
+#page-header {
+  background: url('../../../assets/images/slider-bg.jpg');
+  background-size: cover;
+  padding: 100px 0;
+  color: $white-color;
+  background-position: center center;
+}
+
+.divider {
+  padding: 50px 0;
+}
+
+.fleet-box {
+  background: $light-color;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.fleet-title,
+.fleet-button {
+  margin: 10px 0;
+}
+
+.fleet-specs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+
+@media only screen and (max-width: 600px) {
+
+  .col-sm-4,
+  .col-sm-6,
+  .col-sm-3 {
+    margin: 10px 0;
+  }
+
+  .truck-2 {
+    display: none;
+  }
+}
