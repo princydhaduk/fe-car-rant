@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     }
     this.api.saveLoginData(payload).subscribe((res: any) => {
       if (res && res.message === "login successfully..!!") {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/web/home']);
         this.toastr.success(res.message);
       }
       else{

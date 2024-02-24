@@ -22,11 +22,12 @@
       <div class="row">
         <div class="col-sm-12 d-flex" style="justify-content: space-between; align-items: center;">
           <div class="logo">
-            <a href="index.php">
+            <a [routerLink]="['/web/home']">
               <img src="../../assets/images/loc.png" class="img-fluid" style="height: 50px;">
             </a>
           </div>
-           <div class="side-nav">
+
+          <div class="side-nav">
             <ul style="display: flex; justify-content: center;">
 
               <li><a [routerLink]="['/web/home']" class="side-nav-link">Home</a></li>
@@ -36,6 +37,8 @@
                 <mat-menu #menu="matMenu" class="matmenu">
                   <button mat-menu-item [routerLink]="['/web/about']">ABOUT</button>
                   <button mat-menu-item [routerLink]="['/web/services']">SERVICES</button>
+                  <button mat-menu-item [routerLink]="['/web/term-condition']">TERMS
+                    & CONDITION</button>
                   <button mat-menu-item [routerLink]="['/web/payment']">PAYMENT</button>
                 </mat-menu>
               </li>
@@ -49,7 +52,7 @@
               </li>
 
               <li><a [routerLink]="['/web/popularfleets']" class="side-nav-link">Popuplar Fleets</a></li>
-              <li><a [routerLink]="['/web/contact']" class="side-nav-link">Contact </a></li>
+              <li><a [routerLink]="['/web/contact']" class="side-nav-link">Contact</a></li>
             </ul>
           </div>
         </div>
@@ -61,51 +64,72 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-12 text-center">
-          <h2>About</h2>
-          <h6>Who We Are?</h6>
+          <h2>Terms & Condition</h2>
+          <h6>Agreement Trems and Condition</h6>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="about">
-    <div class="container pt-5">
+  <div class="privacy-section">
+    <div class="container">
       <div class="row">
-        <div class="col-sm-6">
-          <h1>About us</h1>
-          <h4>Welcome To Jain Car Rental</h4>
-          <p>At Jain Car Rental we believe in letting our services do the talking for they are our most potent
-            testament. It is our endeavour to set such high standard of quality, professional services that would be an
-            example for other companies to emulate. Customer Delight is the most crucial ingredient for the success of
-            our company and it is the most cherished of our goals.</p>
-
-          <div class="about-specs d-flex" style="gap: 10px;"><span class="icon">&rarr;</span>
-            <p>We are a trusted name</p>
+        <div class="col-lg-12">
+          <div class="terms-policy">
+            <p data-aos="fade-down">The Company may make special provisions as long as they do not violate the purport of this Agreement, laws and regulations, administrative issuances, and common practice. If a special provision is made, such provision shall take precedence over this Agreement.
+              If the Renter has designated another Driver as described in Article 7, Paragraph 1, then the Renter shall ensure that the other Driver understands and complies with the provisions of this Agreement that concern the Driver.</p><br>
+            <p data-aos="fade-down">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+              doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
+              beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
+              fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
+              est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi
+              tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. </p><br>
+            <p data-aos="fade-down">If the Renter has agreed to rent a Substitute Rental Car in the cases mentioned in the preceding two paragraphs, the
+              Company shall rent out a Substitute Rental Car under the same Rental Conditions set at the time of reservation, except
+              for the model or vehicle class; provided, however, that when the rental fee for the Substitute Rental Car is lower than
+              that of the model or vehicle class reserved, the rental fee for the model or vehicle class of the Substitute Rental Car
+              shall apply</p><br>
+            <ul data-aos="fade-down">
+              <li><span><i class="fa-solid fa-circle-check"></i></span>At vero eos et accusamus et iusto odio
+                dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et </li>
+              <li><span><i class="fa-solid fa-circle-check"></i></span>Sed ut perspiciatis unde omnis iste natus error
+                sit voluptatem accusantium doloremque laudantium, </li>
+              <li><span><i class="fa-solid fa-circle-check"></i></span>Nemo enim ipsam voluptatem quia voluptas sit
+                aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi
+                nesciunt.</li>
+              <li><span><i class="fa-solid fa-circle-check"></i></span>At vero eos et accusamus et iusto odio
+                dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et </li>
+              <li><span><i class="fa-solid fa-circle-check"></i></span>Sed ut perspiciatis unde omnis iste natus error
+                sit voluptatem accusantium doloremque laudantium, </li>
+              <li><span><i class="fa-solid fa-circle-check"></i></span>Nemo enim ipsam voluptatem quia voluptas sit
+                aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi
+                nesciunt.</li>
+            </ul><br>
+            <p data-aos="fade-down">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+              doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
+              beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
+              fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
+              est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi
+              tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. </p><br>
+            <p class="mb-0" data-aos="fade-down">If the Renter has agreed to rent a Substitute Rental Car in the cases mentioned in the preceding two paragraphs, the
+              Company shall rent out a Substitute Rental Car under the same Rental Conditions set at the time of reservation, except
+              for the model or vehicle class; provided, however, that when the rental fee for the Substitute Rental Car is lower than
+              that of the model or vehicle class reserved, the rental fee for the model or vehicle class of the Substitute Rental Car
+              shall apply</p><br>
           </div>
-          <div class="about-specs d-flex" style="gap: 10px;"><span class="icon">&rarr;</span>
-            <p>Have a wide range of cars</p>
-          </div>
-          <div class="about-specs d-flex" style="gap: 10px;"><span class="icon">&rarr;</span>
-            <p>We deals in all brands</p>
-          </div>
-          <div class="about-specs d-flex" style="gap: 10px;"><span class="icon">&rarr;</span>
-            <p>We also have luxury cars available</p>
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <img src="../../assets/images/cta-men.png" alt="" class="img-fluid">
         </div>
       </div>
     </div>
-  </section>
+  </div>
+
   <section id="cta">
     <div class="container">
       <div class="row">
         <div class="col-sm-8">
-          <h2>Feel your journey with ridek taxi service!</h2>
+          <h2>Feel your journey with unique service!</h2>
           <p>"Effortless travel with on-demand cabs & luxury car rentals. 24/7 accessibility, transparent pricing, and
             safety-first."</p>
-          <a href="book-now.php" class="btn btn-custom-dark">Book Now</a>
+          <a [routerLink]="['/web/home']" class="btn btn-custom-dark">Book Now</a>
         </div>
         <div class="col-sm-4">
           <div><span class="icon">&rarr;</span> Easy payment systems.</div><br>
@@ -116,9 +140,8 @@
       </div>
     </div>
   </section>
-  <div class="divider"></div>
+
   <section id="footer">
-    <!-- <a href="tel:+918167540298" class="btn-call"><i class="fa fa-phone"></i></a> -->
     <div class="container">
       <div class="row">
         <div class="col-sm-3">
@@ -132,7 +155,7 @@
 
         <div class="col-sm-3">
           <h4 class="footer-title">Usefull Links</h4>
-          <a [routerLink]="[]" class="footer-link">About us</a>
+          <!-- <a [routerLink]="['/about']" class="footer-link">About us</a> -->
           <a href="popular-fleets.php" class="footer-link">Popular Fleets</a>
           <a href="self-drive.php" class="footer-link">Self Drive</a>
           <a href="pay-now.php" class="footer-link">Pay Now</a>
@@ -174,7 +197,7 @@
       </div>
     </div>
   </section>
+
   <script src="js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>

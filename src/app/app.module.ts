@@ -17,8 +17,6 @@ import { NgOtpInputModule } from 'ng-otp-input';
 import { WebComponent } from './web/web.component';
 import { ToastrModule } from 'ngx-toastr';
 import { ApiService } from './api.service';
-// import { CountdownModule } from 'ngx-countdown';
-// import { ChartModule } from 'primeng/chart';
 
 @NgModule({
   declarations: [
@@ -27,6 +25,7 @@ import { ApiService } from './api.service';
     SignupComponent,
     ForgotpassComponent,
     WebComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -41,7 +40,6 @@ import { ApiService } from './api.service';
     HttpClientModule,
     NgOtpInputModule,
     ToastrModule.forRoot(),
-
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

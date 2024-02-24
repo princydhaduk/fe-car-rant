@@ -12,7 +12,18 @@ $black-color: #000;
   background: $light-color;
   padding: 10px 0;
 }
-
+.main-matmenu{
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: -6px;
+  font-weight: 700;
+}
+.matmenu button{
+  color: $black-color;
+}
+button:hover{
+  color: $primary-color;
+}
 .side-nav {
   color: #fff;
   margin-top: 18px;
@@ -28,6 +39,7 @@ $black-color: #000;
 
 .side-nav ul li {
   list-style: none;
+  padding: 0px 15px;
 }
 
 .side-nav-link {
@@ -37,13 +49,20 @@ $black-color: #000;
   /* border-top: 1px solid var(--white-color); */
   /* border-bottom: 1px solid var(--white-color); */
   margin: 10px 0;
-  padding: 5px 15px;
-  font-weight: 600;
+  padding: 5px 8px;
+  font-weight: 700;
   text-transform: uppercase;
   text-align: center;
 }
 .side-nav-link:hover{
   color: $primary-color;
+  background-color: rgba(224, 224, 224, 0.466);
+  padding: 8px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
 }
 
 .heading-4-light {
@@ -92,14 +111,72 @@ $black-color: #000;
   color: $black-color;
 }
 #hero-img {
-  background: url('../../assets/images/slider-bg.jpg');
+  background: url('../../../assets/images/slider-bg.jpg');
   background-size: cover;
 }
 .col-sm-8 {
   flex: 0 0 auto;
   width: 66.66666667%;
 }
-
+.contact-section {
+  position: relative;
+  padding: 100px 0px 50px 0px;
+}
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-.5 * var(--bs-gutter-x));
+  margin-left: calc(-.5 * var(--bs-gutter-x));
+}
+.contact-section .contact-info-area .single-contact-info {
+  text-align: center;
+  background: #ffffff;
+  border: 2px solid #F4F4F4;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 10px;
+  padding: 20px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.flex-fill {
+  flex: 1 1 auto!important;
+}
+// .feather-phone-call:before {
+//   content: "\e9a8";
+// }
+.contact-section .contact-info-area .single-contact-info i {
+  color: #ffffff;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  font-size: 26px;
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 15px;
+  line-height: 73px;
+  background: $primary-color;
+  border-radius: 50%;
+}
+.contact-section .contact-info-area .single-contact-info h3 {
+  font-weight: 500;
+  font-size: 20px;
+  margin: 0 0 10px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.contact-section .contact-info-area .single-contact-info a {
+    font-size: 16px;
+    color: #737373;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-transition: all 0.5s  ;
+    transition: all 0.5s  ;
+    -moz-transition: all 0.5s  ;
+    -ms-transition: all 0.5s  ;
+    -o-transition: all 0.5s  ;
+}
 .form {
   background: $light-color;
   margin-bottom: 30px;
@@ -152,7 +229,7 @@ $black-color: #000;
 }
 
 #cta {
-  background: linear-gradient(to right, rgba(255, 211, 42, 0.6), rgba(255, 211, 42, 0.6)), url('../../assets/images/cta-map.png');
+  background: linear-gradient(to right, rgba(255, 211, 42, 0.6), rgba(255, 211, 42, 0.6)), url('../../../assets/images/cta-map.png');
   padding: 100px 0 80px 0;
   background-size: cover;
 }
@@ -220,7 +297,7 @@ $black-color: #000;
 }
 
 #testimonials {
-  background: linear-gradient(to right, $primary-rgba, $secondary-rgba), url('../../assets/images/slider-bg.jpg');
+  background: linear-gradient(to right, $primary-rgba, $secondary-rgba), url('../../../assets/images/slider-bg.jpg');
   clip-path: polygon(0 10%, 100% 0%, 100% 90%, 0% 100%);
   padding: 50px 0 100px 0;
   /* color: var(--white-color); */
@@ -262,7 +339,7 @@ $black-color: #000;
 #footer {
   background: $dark-color;
   margin-top: -100px;
-  padding: 150px 0 50px 0;
+  padding: 80px 0 70px 0;
   color: $white-color;
 }
 
@@ -286,7 +363,7 @@ $black-color: #000;
 }
 
 #footer-anim {
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('../../assets/images/city-skiline.png');
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('../../../assets/images/city-skiline.png');
   height: 200px;
   background-size: cover;
   background-position: bottom;
@@ -406,7 +483,7 @@ $black-color: #000;
 }
 
 #page-header {
-  background: url('../../assets/images/slider-bg.jpg');
+  background: url('../../../assets/images/slider-bg.jpg');
   background-size: cover;
   padding: 100px 0;
   color: $white-color;
@@ -446,4 +523,111 @@ $black-color: #000;
   .truck-2 {
     display: none;
   }
+}
+
+// body{
+// 	height: 100vh;
+// 	width: 100%;
+// }
+
+.container{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	-ms-border-radius: 6px;
+	-o-border-radius: 6px;
+}
+.contact-div{
+  display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.contact-box{
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0px 0px 19px 5px rgba(0,0,0,0.19);
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+
+.left{
+	background: url("../../../assets/images/contact_img.jpg") no-repeat center;
+	background-size: 100% 100%;
+	height: 100%;
+}
+
+.right{
+	padding: 25px 40px;
+}
+
+h2{
+	position: relative;
+	padding: 0 0 10px;
+	margin-bottom: 10px;
+}
+
+.field{
+  width: 100%;
+  border: 2px solid rgba(0, 0, 0, 0);
+  outline: none;
+  background-color: rgba(230, 230, 230, 0.6);
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  margin-bottom: 22px;
+  transition: .3s;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+
+
+.field:hover{
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+textarea{
+	min-height: 150px;
+}
+
+.btn{
+	width: 100%;
+	padding: 0.5rem 1rem;
+	background-color: $primary-color;
+	color: $white-color;
+	font-size: 1.1rem;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	transition: .3s;
+}
+
+.btn:hover{
+    background-color: $light-color;
+    color: $black-color;
+}
+
+.field:focus{
+    border: 2px solid rgba(30,85,250,0.47);
+    background-color: #fff;
+}
+
+@media screen and (max-width: 880px){
+	.contact-box{
+		grid-template-columns: 1fr;
+	}
+	.left{
+		height: 200px;
+	}
 }

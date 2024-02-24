@@ -4,24 +4,35 @@
         <div class="row">
             <div class="col-sm-12 d-flex" style="justify-content: space-between; align-items: center;">
                 <div class="logo">
-                    <a [routerLink]="['/home']">
+                    <!-- <a [routerLink]="['web/home']"> -->
                     <img src="../../assets/images/loc.png" class="img-fluid" style="height: 50px;">
-                    </a>
+                    <!-- </a> -->
                 </div>
-                <!-- <div class="hamburger">
-                    <span class="line line-1"></span>
-                    <span class="line line-2"></span>
-                    <span class="line line-3"></span>
-                </div> -->
                 <div class="side-nav">
                     <ul style="display: flex; justify-content: center;">
-                        <!-- <div class="close">&times;</div> -->
-                        <li><a [routerLink]="['/home']" class="side-nav-link">home</a></li>
-                        <li><a [routerLink]="['/about']" class="side-nav-link">About us</a></li>
-                        <li><a [routerLink]="['/popularfleets']"class="side-nav-link">Popuplar Fleets</a></li>
-                        <li><a [routerLink]="['/booking']" class="side-nav-link">Book Now</a></li>
-                        <li><a [routerLink]="['/blog']" class="side-nav-link">Blog</a></li>
-                        <li><a [routerLink]="['/contact']" class="side-nav-link">Contact us</a></li>
+                      <li><a [routerLink]="['/web/home']" class="side-nav-link">Home</a></li>
+
+                      <li class="dropdown a">
+                        <button mat-button [matMenuTriggerFor]="menu" class="main-matmenu">Pages</button>
+                        <mat-menu #menu="matMenu" class="matmenu">
+                          <button mat-menu-item [routerLink]="['/web/about']">ABOUT</button>
+                          <button mat-menu-item [routerLink]="['/web/services']">SERVICES</button>
+                          <button mat-menu-item [routerLink]="['/web/payment']">PAYMENT</button>
+                        </mat-menu>
+                      </li>
+
+                      <!-- <li><a [routerLink]="['/blogdetails']" class="side-nav-link">Blog Details</a></li> -->
+
+                      <li class="dropdown a">
+                        <button mat-button [matMenuTriggerFor]="aboveMenu" class="main-matmenu">Blogs</button>
+                        <mat-menu #aboveMenu="matMenu" class="matmenu">
+                          <button mat-menu-item [routerLink]="['/web/bloglist']">BLOG LIST</button>
+                          <button mat-menu-item [routerLink]="['/web/blogdetail']">BLOG DETAILS</button>
+                        </mat-menu>
+                      </li>
+
+                      <li><a [routerLink]="['/web/popularfleets']" class="side-nav-link">Popuplar Fleets</a></li>
+                      <li><a [routerLink]="['/web/contact']" class="side-nav-link">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -29,16 +40,22 @@
     </div>
 </section>
 
-<section id="blog">
-  <div class="blog-heading">
-    <span>My Recent Posts</span>
-    <h3>My Blog</h3>
+<section id="page-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <h2>Blogs</h2>
+        <h6>Our Car Blog List</h6>
+      </div>
+    </div>
   </div>
+</section>
 
+
+<section id="blog">
 
   <div class="blog-container">
 
-    <!--box-1------------->
     <div class="blog-box">
       <div class="blog-img">
         <img alt="blog" src="../../assets/images/kia.jpg">
@@ -48,40 +65,35 @@
         <a href="#" class="blog-title">What Has Happened to All of the Web Design Ideas?</a>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate facilis modi veritatis adipisci omnis perferendis deleniti tempore quasi? Explicabo recusandae soluta vel cum perspiciatis consequuntur dolorum distinctio minima voluptate quae?</p>
         <div class="link">
-          <a href="#">Continue --> </a>
+          <a [routerLink]="['/web/blogdetail']">Continue --> </a>
         </div>
       </div>
     </div>
 
-    <!--box-2------------->
     <div class="blog-box">
       <div class="blog-img">
         <img alt="blog" src="../../assets/images/etios.png">
       </div>
       <div class="blog-text">
-        <span>18 July 2021 / Web Design</span>
+        <span>10 May 2022 / Web Design</span>
         <a href="#" class="blog-title">What Has Happened to All of the Web Design Ideas?</a>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate facilis modi veritatis adipisci omnis perferendis deleniti tempore quasi? Explicabo recusandae soluta vel cum perspiciatis consequuntur dolorum distinctio minima voluptate quae?</p>
         <div class="link">
-          <a href="#">Continue --> </a>
+          <a [routerLink]="['/web/blogdetail']">Continue --> </a>
         </div>
       </div>
     </div>
 
-
-
-
-    <!--box-3------------->
     <div class="blog-box">
       <div class="blog-img">
         <img alt="blog" src="../../assets/images/dzire.png">
       </div>
       <div class="blog-text">
-        <span>18 July 2021 / Web Design</span>
+        <span>20 July 2023 / Web Design</span>
         <a href="#" class="blog-title">What Has Happened to All of the Web Design Ideas?</a>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate facilis modi veritatis adipisci omnis perferendis deleniti tempore quasi? Explicabo recusandae soluta vel cum perspiciatis consequuntur dolorum distinctio minima voluptate quae?</p>
         <div class="link">
-        <a href="#">Continue --> </a>
+        <a [routerLink]="['/web/blogdetail']">Continue --> </a>
       </div>
       </div>
     </div>
@@ -89,7 +101,6 @@
 
 </section>
 <section id="footer">
-  <!-- <a href="tel:+918167540298" class="btn-call"><i class="fa fa-phone"></i></a> -->
       <div class="container">
           <div class="row">
               <div class="col-sm-3">

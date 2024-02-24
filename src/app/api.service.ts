@@ -49,4 +49,9 @@ export class ApiService {
     let url = 'http://localhost:5000/api/updatePassword';
     return this.http.post(url,payload)
   }
+
+  saveContact(payload:any){
+    let url = 'http://localhost:5000/api/contact';
+    return this.http.post(url,payload)
+  }
 }

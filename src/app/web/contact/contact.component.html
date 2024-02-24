@@ -1,151 +1,203 @@
-
-
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11454521178"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11454521178"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'AW-11454521178');
-</script>
-<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/d6eb9c3718.js" crossorigin="anonymous"></script>
-    <!-- <link rel="stylesheet" href="css/style.css"> -->
-      <title>Contact us</title>
+    gtag('config', 'AW-11454521178');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/d6eb9c3718.js" crossorigin="anonymous"></script>
+  <!-- <link rel="stylesheet" href="css/style.css"> -->
+  <title>Contact us</title>
 </head>
+
 <body>
-<section id="navbar">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 d-flex" style="justify-content: space-between; align-items: center;">
-                    <div class="logo">
-                        <a href="index.php">
-                        <img src="../../assets/images/loc.png" class="img-fluid" style="height: 50px;">
-                        </a>
-                    </div>
-                    <!-- <div class="hamburger">
-                        <span class="line line-1"></span>
-                        <span class="line line-2"></span>
-                        <span class="line line-3"></span>
-                    </div> -->
-                    <div class="side-nav">
-                      <ul style="display: flex; justify-content: center;">
-                            <!-- <div class="close">&times;</div> -->
-                            <li><a [routerLink]="['/home']" class="side-nav-link">home</a></li>
-                            <li><a [routerLink]="['/about']" class="side-nav-link">About us</a></li>
-                            <li><a [routerLink]="" class="side-nav-link">Popuplar Fleets</a></li>
-                            <li><a [routerLink]="" class="side-nav-link">Self Drive</a></li>
-                            <li><a [routerLink]="" class="side-nav-link">Book Now</a></li>
-                            <li><a [routerLink]="['/contact']" class="side-nav-link">Contact us</a></li>
-                      </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-<section id="page-header">
+  <section id="navbar">
     <div class="container">
-        <div class="row">
-            <div class="col-sm-12 text-center">
-                <h2>Contact us</h2>
-                <h6>Get in Touch With Us!!!</h6>
-            </div>
-        </div>
-    </div>
-</section>
+      <div class="row">
+        <div class="col-sm-12 d-flex" style="justify-content: space-between; align-items: center;">
+          <div class="logo">
+            <a href="index.php">
+              <img src="../../assets/images/loc.png" class="img-fluid" style="height: 50px;">
+            </a>
+          </div>
+          <div class="side-nav">
+            <ul style="display: flex; justify-content: center;">
+              <li><a [routerLink]="['/web/home']" class="side-nav-link">Home</a></li>
 
-<section id="booking">
-    <div class="container py-5">
+              <li class="dropdown a">
+                <button mat-button [matMenuTriggerFor]="menu" class="main-matmenu">Pages</button>
+                <mat-menu #menu="matMenu" class="matmenu">
+                  <button mat-menu-item [routerLink]="['/web/about']">ABOUT</button>
+                  <button mat-menu-item [routerLink]="['/web/services']">SERVICES</button>
+                  <button mat-menu-item [routerLink]="['/web/payment']">PAYMENT</button>
+                </mat-menu>
+              </li>
+
+              <li class="dropdown a">
+                <button mat-button [matMenuTriggerFor]="aboveMenu" class="main-matmenu">Blogs</button>
+                <mat-menu #aboveMenu="matMenu" class="matmenu">
+                  <button mat-menu-item [routerLink]="['/web/bloglist']">BLOG LIST</button>
+                  <button mat-menu-item [routerLink]="['/web/blogdetail']">BLOG DETAILS</button>
+                </mat-menu>
+              </li>
+
+              <li><a [routerLink]="['/web/popularfleets']" class="side-nav-link">Popuplar Fleets</a></li>
+              <li><a [routerLink]="['web/contact']" class="side-nav-link">Contact </a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="page-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <h2>Contact</h2>
+          <h6>Have Any Question, Get in Touch Now.</h6>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-info-area">
         <div class="row">
+          <div class="col-lg-3 col-md-6 col-12 d-flex" data-aos="fade-down" data-aos-duration="1200"
+            data-aos-delay="0.1">
+            <div class="single-contact-info flex-fill">
+              <span><i class="fa-solid fa-phone-volume"></i></span>
+              <h3>Phone Number</h3>
+              <a href="tel:(888)888-8888">(888) 888-8888</a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-12 d-flex" data-aos="fade-down" data-aos-duration="1200"
+            data-aos-delay="0.2">
+            <div class="single-contact-info flex-fill">
+              <span><i class="fa-regular fa-envelope"></i></span>
+              <h3>Email Address</h3>
+              <!-- <a href="/cdn-cgi/l/email-protection#0b616463657866627f634b6e736a667b676e25686466"><span
+                  class="__cf_email__"
+                  data-cfemail="6f050007011c02061b072f0a170e021f030a410c0002">[email&#160;protected]</span></a> -->
+                  <a href="">car_renatal_Info@gmail.com</a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-12 d-flex" data-aos="fade-down" data-aos-duration="1200"
+            data-aos-delay="0.3">
+            <div class="single-contact-info flex-fill">
+              <span><i class="fa-solid fa-location-dot"></i></span>
+              <h3>Location</h3>
+              <a href="javascript:void(0);">367 Hillcrest Lane,Surat</a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-12 d-flex" data-aos="fade-down" data-aos-duration="1200"
+            data-aos-delay="0.4">
+            <div class="single-contact-info flex-fill">
+              <span><i class="fa-regular fa-clock"></i></span>
+              <h3>Opening Hours</h3>
+              <a href="javascript:void(0);">Mon - Sat (10.00AM - 06.30PM)</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="booking">
+        <div class="container py-5">
+          <div class="row">
             <div class="col-sm-12">
-            <h4 class="text-center">Have Any Question, Get in Touch Now.</h4>
-            <form action="thanks" target="_blank" method="post">
-                    <label>Full Name *</label>
-                    <input type="text" name="name" class="form-control" placeholder="Enter your full name" required="">
-
-                    <label>Phone Number *</label>
-                    <input type="tel" name="phone" class="form-control" placeholder="Enter you phone number" required="">
-
-                    <label>Email Address *</label>
-                    <input type="email" name="email" class="form-control" placeholder="Enter a valid Email Address" required="">
-
-                    <label for="">Message</label>
-                    <textarea name="message" placeholder="Write your message here" class="form-control"></textarea>
-
-                    <button type="submit" name="contact" class="btn btn-custom-dark mt-3">PROCEED</button>
-                </form>
+              <!-- <h4 class="text-center">Have Any Question, Get in Touch Now.</h4> -->
+              <div class="container contact-div">
+                <div class="contact-box">
+                  <div class="left"></div>
+                  <div class="right">
+                    <h2>Get in Touch !</h2>
+                    <form [formGroup]="contactForm">
+                    <input type="text" class="field" placeholder="Your Name" formControlName="name">
+                    <input type="email" class="field" placeholder="Your Email" formControlName="email">
+                    <input type="text" class="field" placeholder="Phone" formControlName="mobile_no">
+                    <textarea placeholder="Message" class="field" formControlName="message"></textarea>
+                    <button class="btn" (click)="sendMessage()">Send Enquiry </button>
+                  </form>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</section>
+  </section>
 
-<div class="divider"></div>
+  <div class="divider"></div>
 
 
-<section id="footer">
-    <!-- <a href="tel:+918167540298" class="btn-call"><i class="fa fa-phone"></i></a> -->
+  <section id="footer">
+        <!-- <a href="tel:+918167540298" class="btn-call"><i class="fa fa-phone"></i></a> -->
         <div class="container">
-            <div class="row">
-                <div class="col-sm-3">
-                    <h4 class="footer-title">Working Hours</h4>
-                    <h6 class="footer-title-primary">Monday-Saturday</h6>
-                    <p>9:00 AM - 10:00 PM</p>
+          <div class="row">
+            <div class="col-sm-3">
+              <h4 class="footer-title">Working Hours</h4>
+              <h6 class="footer-title-primary">Monday-Saturday</h6>
+              <p>9:00 AM - 10:00 PM</p>
 
-                    <h6 class="footer-title-primary">Sunday</h6>
-                    <p>10:00 AM - 9:00 PM</p>
-                </div>
-
-                <div class="col-sm-3">
-                    <h4 class="footer-title">Usefull Links</h4>
-                    <a [routerLink]="['/about']" class="footer-link">About us</a>
-                  <a href="popular-fleets.php" class="footer-link">Popular Fleets</a>
-                  <a href="self-drive.php" class="footer-link">Self Drive</a>
-                  <a href="pay-now.php" class="footer-link">Pay Now</a>
-                  <a href="contact-us.php" class="footer-link">Contact Us</a>
-                </div>
-
-                <div class="col-sm-3">
-                    <h4 class="footer-title">Head Office</h4>
-                    <h6 class="footer-title-primary">Location:</h6>
-                    <p>Lala Devidayal Rd, Mulund West, Mumbai, Maharashtra - 400080</p>
-                    <h6 class="footer-title-primary">Join us</h6>
-                    <p>info@jaincarrentals.com</p>
-                    <p><a href="tel:+917063086847" style="color: #fff; text-decoration: none;">+91-8167540298</a></p>
-                </div>
-
-                <div class="col-sm-3">
-                    <h4 class="footer-title">Newsletter</h4>
-                    <form action="#" method="post">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" placeholder="Email address" class="form-control" required>
-
-                        <button class="btn btn-custom-primary mt-2" style="width: 100%;">Subscribe Now</button>
-                    </form>
-                </div>
+              <h6 class="footer-title-primary">Sunday</h6>
+              <p>10:00 AM - 9:00 PM</p>
             </div>
+
+            <div class="col-sm-3">
+              <h4 class="footer-title">Usefull Links</h4>
+              <!-- <a [routerLink]="['/about']" class="footer-link">About us</a> -->
+              <a href="popular-fleets.php" class="footer-link">Popular Fleets</a>
+              <a href="self-drive.php" class="footer-link">Self Drive</a>
+              <a href="pay-now.php" class="footer-link">Pay Now</a>
+              <a href="contact-us.php" class="footer-link">Contact Us</a>
+            </div>
+
+            <div class="col-sm-3">
+              <h4 class="footer-title">Head Office</h4>
+              <h6 class="footer-title-primary">Location:</h6>
+              <p>Lala Devidayal Rd, Mulund West, Mumbai, Maharashtra - 400080</p>
+              <h6 class="footer-title-primary">Join us</h6>
+              <p>info@jaincarrentals.com</p>
+              <p><a href="tel:+917063086847" style="color: #fff; text-decoration: none;">+91-8167540298</a></p>
+            </div>
+
+            <div class="col-sm-3">
+              <h4 class="footer-title">Newsletter</h4>
+              <form action="#" method="post">
+                <label for="email">Email</label>
+                <input type="email" name="email" placeholder="Email address" class="form-control" required>
+
+                <button class="btn btn-custom-primary mt-2" style="width: 100%;">Subscribe Now</button>
+              </form>
+            </div>
+          </div>
         </div>
-    </section>
-    <section id="footer-anim">
+  </section>
+  <section id="footer-anim">
         <img src="../../assets/images/truck-1.png" class="img-fluid truck-1">
         <img src="../../assets/images/truck-2.png" class="img-fluid truck-2">
         <img src="../../assets/images/truck-3.png" class="img-fluid truck-3">
-    </section>
-    <section id="copyright">
+  </section>
+  <section id="copyright">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-12 text-center">
-                    <p>&copy; Copyright 2012-2023 | All Right Reserved</p>
-                </div>
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <p>&copy; Copyright 2012-2023 | All Right Reserved</p>
             </div>
+          </div>
         </div>
-    </section>
-    <script src="js/main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </section>
+      <script src="js/main.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 
 </body>

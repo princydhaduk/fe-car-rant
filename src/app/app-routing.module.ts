@@ -1,9 +1,11 @@
-import { WebComponent } from './web/web.component';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ForgotpassComponent } from './forgotpass/forgotpass.component';
+import { HomeComponent } from './web/home/home.component';
+import { BlogDetailComponent } from './web/blog-detail/blog-detail.component';
+import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
   {
@@ -23,11 +25,18 @@ const routes: Routes = [
     path:'forgotpass',
     component:ForgotpassComponent
   },
-
   // {
-  //   path:'web',
-  //   loadChildren: () => import('./web/web.module').then(m => m.WebModule)
-  // }
+  //   path:'home',
+  //   component:HomeComponent
+  // },
+  {
+    path:'blogdetails',
+    component:BlogDetailComponent
+  },
+  {
+    path:'web',
+    loadChildren: () => import('./web/web.module').then(m => m.WebModule)
+  }
 
 ];
 

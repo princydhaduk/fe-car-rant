@@ -12,7 +12,18 @@ $black-color: #000;
   background: $light-color;
   padding: 10px 0;
 }
-
+.main-matmenu{
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: -6px;
+  font-weight: 700;
+}
+.matmenu button{
+  color: $black-color;
+}
+button:hover{
+  color: $primary-color;
+}
 .side-nav {
   color: #fff;
   margin-top: 18px;
@@ -28,6 +39,7 @@ $black-color: #000;
 
 .side-nav ul li {
   list-style: none;
+  padding: 0px 15px;
 }
 
 .side-nav-link {
@@ -37,13 +49,20 @@ $black-color: #000;
   /* border-top: 1px solid var(--white-color); */
   /* border-bottom: 1px solid var(--white-color); */
   margin: 10px 0;
-  padding: 5px 15px;
-  font-weight: 600;
+  padding: 5px 8px;
+  font-weight: 700;
   text-transform: uppercase;
   text-align: center;
 }
 .side-nav-link:hover{
   color: $primary-color;
+  background-color: rgba(224, 224, 224, 0.466);
+  padding: 8px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
 }
 
 .heading-4-light {
@@ -92,7 +111,7 @@ $black-color: #000;
   color: $black-color;
 }
 #hero-img {
-  background: url('../../assets/images/slider-bg.jpg');
+  background: url('../../../assets/images/slider-bg.jpg');
   background-size: cover;
 }
 .col-sm-8 {
@@ -152,7 +171,7 @@ $black-color: #000;
 }
 
 #cta {
-  background: linear-gradient(to right, rgba(255, 211, 42, 0.6), rgba(255, 211, 42, 0.6)), url('../../assets/images/cta-map.png');
+  background: linear-gradient(to right, rgba(255, 211, 42, 0.6), rgba(255, 211, 42, 0.6)), url('../../../assets/images/cta-map.png');
   padding: 100px 0 80px 0;
   background-size: cover;
 }
@@ -220,7 +239,7 @@ $black-color: #000;
 }
 
 #testimonials {
-  background: linear-gradient(to right, $primary-rgba, $secondary-rgba), url('../../assets/images/slider-bg.jpg');
+  background: linear-gradient(to right, $primary-rgba, $secondary-rgba), url('../../../assets/images/slider-bg.jpg');
   clip-path: polygon(0 10%, 100% 0%, 100% 90%, 0% 100%);
   padding: 50px 0 100px 0;
   /* color: var(--white-color); */
@@ -286,7 +305,7 @@ $black-color: #000;
 }
 
 #footer-anim {
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('../../assets/images/city-skiline.png');
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('../../../assets/images/city-skiline.png');
   height: 200px;
   background-size: cover;
   background-position: bottom;
@@ -406,7 +425,7 @@ $black-color: #000;
 }
 
 #page-header {
-  background: url('../../assets/images/slider-bg.jpg');
+  background: url('../../../assets/images/slider-bg.jpg');
   background-size: cover;
   padding: 100px 0;
   color: $white-color;

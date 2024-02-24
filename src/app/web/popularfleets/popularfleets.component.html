@@ -28,13 +28,27 @@
           </div>
           <div class="side-nav">
             <ul style="display: flex; justify-content: center;">
-              <!-- <div class="close">&times;</div> -->
-              <li><a [routerLink]="['/home']" class="side-nav-link">home</a></li>
-              <li><a [routerLink]="['/about']" class="side-nav-link">About us</a></li>
-              <li><a [routerLink]="['/popularfleets']" class="side-nav-link">Popuplar Fleets</a></li>
-              <li><a [routerLink]="" class="side-nav-link">Self Drive</a></li>
-              <li><a [routerLink]="" class="side-nav-link">Book Now</a></li>
-              <li><a [routerLink]="['/contact']" class="side-nav-link">Contact us</a></li>
+              <li><a [routerLink]="['/web/home']" class="side-nav-link">Home</a></li>
+
+              <li class="dropdown a">
+                <button mat-button [matMenuTriggerFor]="menu" class="main-matmenu">Pages</button>
+                <mat-menu #menu="matMenu" class="matmenu">
+                  <button mat-menu-item [routerLink]="['/web/about']">ABOUT</button>
+                  <button mat-menu-item [routerLink]="['/web/services']">SERVICES</button>
+                  <button mat-menu-item [routerLink]="['/web/payment']">PAYMENT</button>
+                </mat-menu>
+              </li>
+
+              <li class="dropdown a">
+                <button mat-button [matMenuTriggerFor]="aboveMenu" class="main-matmenu">Blogs</button>
+                <mat-menu #aboveMenu="matMenu" class="matmenu">
+                  <button mat-menu-item [routerLink]="['/web/bloglist']">BLOG LIST</button>
+                  <button mat-menu-item [routerLink]="['/web/blogdetail']">BLOG DETAILS</button>
+                </mat-menu>
+              </li>
+
+              <li><a [routerLink]="['/web/popularfleets']" class="side-nav-link">Popuplar Fleets</a></li>
+              <li><a [routerLink]="['/web/contact']" class="side-nav-link">Contact</a></li>
             </ul>
           </div>
         </div>
@@ -102,7 +116,7 @@
             </div>
 
             <div class="fleet-button">
-              <a href="book-now" class="btn btn-custom-primary">Book Now</a>
+              <a [routerLink]="['/web/home']" class="btn btn-custom-primary">Book Now</a>
             </div>
           </div>
         </div>
@@ -146,7 +160,7 @@
             </div>
 
             <div class="fleet-button">
-              <a href="book-now.php" class="btn btn-custom-primary">Book Now</a>
+              <a [routerLink]="['/web/home']" class="btn btn-custom-primary">Book Now</a>
             </div>
           </div>
         </div>
@@ -190,7 +204,7 @@
             </div>
 
             <div class="fleet-button">
-              <a href="book-now.php" class="btn btn-custom-primary">Book Now</a>
+              <a [routerLink]="['/web/home']" class="btn btn-custom-primary">Book Now</a>
             </div>
           </div>
         </div>
@@ -236,7 +250,7 @@
             </div>
 
             <div class="fleet-button">
-              <a href="book-now.php" class="btn btn-custom-primary">Book Now</a>
+              <a [routerLink]="['/web/home']"class="btn btn-custom-primary">Book Now</a>
             </div>
           </div>
         </div>
@@ -280,7 +294,7 @@
             </div>
 
             <div class="fleet-button">
-              <a href="book-now.php" class="btn btn-custom-primary">Book Now</a>
+              <a [routerLink]="['/web/home']" class="btn btn-custom-primary">Book Now</a>
             </div>
           </div>
         </div>
@@ -324,7 +338,7 @@
             </div>
 
             <div class="fleet-button">
-              <a href="book-now.php" class="btn btn-custom-primary">Book Now</a>
+              <a [routerLink]="['/web/home']" class="btn btn-custom-primary">Book Now</a>
             </div>
           </div>
         </div>
@@ -370,7 +384,7 @@
             </div>
 
             <div class="fleet-button">
-              <a href="book-now.php" class="btn btn-custom-primary">Book Now</a>
+              <a [routerLink]="['/web/home']" class="btn btn-custom-primary">Book Now</a>
             </div>
           </div>
         </div>
@@ -414,7 +428,7 @@
             </div>
 
             <div class="fleet-button">
-              <a href="book-now.php" class="btn btn-custom-primary">Book Now</a>
+              <a [routerLink]="['/web/home']" class="btn btn-custom-primary">Book Now</a>
             </div>
           </div>
         </div>
@@ -458,7 +472,7 @@
             </div>
 
             <div class="fleet-button">
-              <a href="book-now.php" class="btn btn-custom-primary">Book Now</a>
+              <a [routerLink]="['/web/home']" class="btn btn-custom-primary">Book Now</a>
             </div>
           </div>
         </div>
