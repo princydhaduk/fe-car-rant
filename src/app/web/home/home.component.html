@@ -22,8 +22,9 @@
       <div class="row">
         <div class="col-sm-12 d-flex" style="justify-content: space-between; align-items: center;">
           <div class="logo">
+            <h4>QUICK CARRENT</h4>
             <a [routerLink]="['/web/home']">
-              <img src="../../../assets/images/logo2.png" class="img-fluid" style="height: 50px;">
+              <!-- <img src="../../../assets/images/logo2.png" class="img-fluid" style="height: 50px;"> -->
             </a>
           </div>
 
@@ -38,7 +39,7 @@
                   <button mat-menu-item [routerLink]="['/web/about']">ABOUT</button>
                   <button mat-menu-item [routerLink]="['/web/services']">SERVICES</button>
                   <button mat-menu-item [routerLink]="['/web/term-condition']">TERMS
-                  & CONDITION</button>
+                    & CONDITION</button>
                   <button mat-menu-item [routerLink]="['/web/booking-detail']">BOOKING DETAILS</button>
                   <button mat-menu-item [routerLink]="['/web/payment']">PAYMENT</button>
                 </mat-menu>
@@ -70,33 +71,40 @@
           <p class="text-light">Book a ride anytime, anywhere – our services are available round the clock,Car rental
             services provide individuals or businesses with the option to temporarily use a vehicle for a specified
             period, typically ranging from a few hours to several days or weeks.</p>
-          <a href="" class="btn btn-custom-primary">Book Now</a>
+          <!-- <a href="" class="btn btn-custom-primary">Book Now</a> -->
         </div>
 
         <div class="col-sm-5">
           <div class="form">
             <form [formGroup]="bookForm">
               <h4 class="text-center">Book Now !!</h4>
-              <label>Pickup Location *</label>
-              <input type="text" name="name" class="form-control" placeholder="Car pickup location" formControlName="p_location">
+              <div class="row" style="width: 100%;">
+                <label class="">Pickup Location *</label>
+                <input type="text" name="name"  class="form-field" placeholder="Car pickup location" formControlName="p_location"
+                  />
+              </div>
 
-              <label>Drop off Location *</label>
-              <input type="tel" name="phone" class="form-control" placeholder="Car pickup location" formControlName="d_location">
+              <div class="row" style="width: 100%;">
+                <label>Drop off Location *</label>
+                <input type="tel" name="phone" class="form-field" placeholder="Car pickup location" formControlName="d_location"/>
+              </div>
 
-              <!-- <label>Pickup Date *</label>
-              <input type="date" class="form-control" name="starting_point" placeholder="Enter car pickup date"
-              formControlName="p_date">
+              <div class="row" style="width: 100%;">
+                <label>Pickup Time* </label><br><br>
+                <input type="time" class="form-field" name="booking_date" formControlName="p_time">
+              </div>
 
-              <label>Drop off Date *</label>
-              <input type="date" class="form-control" name="ending_point" placeholder="Enter car drop-off datr"
-              formControlName="d_date"> -->
+              <div class="row" style="width: 100%;">
+                <label>Return Time* </label><br>
+                <input type="time" name="booking_date"  class="form-field" formControlName="d_time">
+              </div>
 
               <label>Pickup - Dropoff Date *</label>
-              <mat-form-field appearance="fill" style="background-color: #fff;">
-                <mat-label >Enter a date range</mat-label>
-                <mat-date-range-input [rangePicker]="rangePicker" style="color: #000;">
-                  <input matStartDate placeholder="Start date">
-                  <input matEndDate placeholder="End date">
+              <mat-form-field appearance="outline">
+                <mat-label>Enter a date range</mat-label>
+                <mat-date-range-input [rangePicker]="rangePicker">
+                  <input matStartDate placeholder="Start date" formControlName="p_date">
+                  <input matEndDate placeholder="End date" formControlName="d_date">
                 </mat-date-range-input>
                 <mat-datepicker-toggle matSuffix [for]="rangePicker"></mat-datepicker-toggle>
                 <mat-date-range-picker #rangePicker>
@@ -107,13 +115,8 @@
                 </mat-date-range-picker>
               </mat-form-field>
 
-              <label>Pickup Time* </label>
-              <input type="time" class="form-control" name="booking_date" formControlName="p_time">
-
-              <label>Return Time* </label>
-              <input type="time" class="form-control" name="booking_date" formControlName="d_time"><br>
-
-              <button type="submit" name="submit" class="btn btn-custom-dark mt-3">PROCEED</button>
+              <button type="submit" name="submit" class="btn btn-custom-dark mt-3"
+                (click)="submitBooking()">PROCEED</button>
             </form>
           </div>
         </div>
@@ -209,7 +212,7 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-8">
-          <h2>Feel your journey with unique  service!</h2>
+          <h2>Feel your journey with unique service!</h2>
           <p>"Effortless travel with on-demand cabs & luxury car rentals. 24/7 accessibility, transparent pricing, and
             safety-first."</p>
           <a [routerLink]="['/web/home']" class="btn btn-custom-dark">Book Now</a>

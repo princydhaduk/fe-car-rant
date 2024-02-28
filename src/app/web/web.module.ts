@@ -17,7 +17,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TermConditionComponent } from './term-condition/term-condition.component';
 import { BookingDetailComponent } from './booking-detail/booking-detail.component';
-
+import {NgxMatTimepickerModule} from 'ngx-mat-timepicker';
 
 @NgModule({
   declarations: [
@@ -41,6 +41,8 @@ import { BookingDetailComponent } from './booking-detail/booking-detail.componen
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    NgxMatTimepickerModule,
+
   ]
 })
 export class WebModule { }
