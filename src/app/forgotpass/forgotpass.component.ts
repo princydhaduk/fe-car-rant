@@ -128,9 +128,10 @@ export class ForgotpassComponent implements OnInit {
     const payload = {
       "email" : this.forgotEmail.value.email,
       "newpassword" : this.forgotEmail.value.password,
+
     }
     this.api.saveUpdatePass(payload).subscribe((res:any) => {
-      if(res){
+      if(res && res.status === 200){
         this.router.navigate(['/login']);
         this.toastr.success(res.message);
         console.log("res---",res);
@@ -138,6 +139,7 @@ export class ForgotpassComponent implements OnInit {
       console.log("payload===>",payload);
     })
   }
+
   get passValidators() {
     return this.forgotEmail.get('password');
   }

@@ -22,12 +22,15 @@
       <div class="row">
         <div class="col-sm-12 d-flex" style="justify-content: space-between; align-items: center;">
           <div class="logo">
-            <a href="index.php">
-              <img src="./images/logo.png" class="img-fluid" style="height: 50px;">
+            <h4>QUICK CARRENT</h4>
+            <a [routerLink]="['/web/home']">
+              <!-- <img src="../../../assets/images/logo2.png" class="img-fluid" style="height: 50px;"> -->
             </a>
           </div>
+
           <div class="side-nav">
             <ul style="display: flex; justify-content: center;">
+
               <li><a [routerLink]="['/web/home']" class="side-nav-link">Home</a></li>
 
               <li class="dropdown a">
@@ -35,6 +38,9 @@
                 <mat-menu #menu="matMenu" class="matmenu">
                   <button mat-menu-item [routerLink]="['/web/about']">ABOUT</button>
                   <button mat-menu-item [routerLink]="['/web/services']">SERVICES</button>
+                  <button mat-menu-item [routerLink]="['/web/term-condition']">TERMS
+                    & CONDITION</button>
+                  <button mat-menu-item [routerLink]="['/web/booking-detail']">BOOKING DETAILS</button>
                   <button mat-menu-item [routerLink]="['/web/payment']">PAYMENT</button>
                 </mat-menu>
               </li>
@@ -47,8 +53,10 @@
                 </mat-menu>
               </li>
 
-              <li><a [routerLink]="['/web/popularfleets']" class="side-nav-link">Popuplar Fleets</a></li>
+              <li><a [routerLink]="['/web/cars']" class="side-nav-link">All Cars</a></li>
               <li><a [routerLink]="['/web/contact']" class="side-nav-link">Contact</a></li>
+              <li><a [routerLink]="['/login']" class="side-nav-link">Logout</a></li>
+              <li><a [routerLink]="['/web/cart']" style="color: black; font-size: 20px;"><i class="fa-solid fa-cart-plus"></i></a></li>
             </ul>
           </div>
         </div>
@@ -56,11 +64,12 @@
     </div>
   </section>
 
+
   <section id="page-header">
     <div class="container">
       <div class="row">
         <div class="col-sm-12 text-center">
-          <h2>Popular Fleets</h2>
+          <h2>Popular Cars</h2>
           <h6>Choose Fleets Suits Best For You</h6>
         </div>
       </div>
@@ -71,28 +80,35 @@
     <div class="container">
       <div class="row pt-5 pb-5">
         <div class="col-sm-12">
-          <h2 class="text-center">Popular Fleets</h2>
-          <p style="text-align: center; ">Each model has its own unique features and strengths, catering to different needs and preferences in the market.</p>
+          <h2 class="text-center">Popular Cars</h2>
+          <p style="text-align: center; ">Each model has its own unique features and strengths, catering to different
+            needs and preferences in the market.</p>
         </div>
       </div>
 
-      <div class="row pb-5">
-        <div class="col-sm-4 mb-2">
-          <div class="fleet-box text-center">
-            <div class="fleet-img">
-              <img src="../../assets/images/dzire.png" class="img-fluid">
+      <div class="row pb-5" >
+        <div class="col-sm-4 mb-2" *ngFor="let item of cars;">
+         <!-- vnksdjkfdjs {{ item }} -->
+         <div class="fleet-box text-center">
+            <div class="fleet-img" >
+              <img [src]="item.img" class="img-fluid">
             </div>
             <div class="fleet-title">
-              <h4 class="text-dark">Book Dzire</h4>
-              <h6 class="text-dark">Rs. 10/Per Km</h6>
+              <div class="title">
+                <h4 class="text-dark">{{item.model}}</h4>
+                <h6 class="text-dark">{{item.mileage}} KM</h6>
+              </div>
+              <div class="cart-icon">
+                <i class="fa-regular fa-heart"></i>
+              </div>
             </div>
             <div class="fleet-specs">
               <div class="fleet-icon">
                 <div class="icon">
-                  <i class="fa fa-user" aria-hidden="true"></i>
+                  <i class="fa-solid fa-gas-pump"></i>
                 </div>
                 <div class="text">
-                  <p>Experienced User</p>
+                  <p>{{item.fuel}}</p>
                 </div>
               </div>
 
@@ -101,42 +117,47 @@
                   <i class="fa fa-snowflake" aria-hidden="true"></i>
                 </div>
                 <div class="text">
-                  <p>Fully AC</p>
+                  <p>AC-{{item.Air_Conditioning_Availability}}</p>
                 </div>
               </div>
 
               <div class="fleet-icon">
                 <div class="icon">
-                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  <i class="fa-solid fa-suitcase-rolling"></i>
                 </div>
                 <div class="text">
-                  <p>GPS Enabled</p>
+                  <p>{{item.luggage}}</p>
                 </div>
               </div>
             </div>
 
             <div class="fleet-button">
-              <a [routerLink]="['/web/home']" class="btn btn-custom-primary">Book Now</a>
+              <a [routerLink]="['/web/home']" class="btn btn-custom-primary" (click)="sendBooking(item)">Book Now</a>
             </div>
           </div>
         </div>
-
+<!--
         <div class="col-sm-4 mb-2">
           <div class="fleet-box text-center">
             <div class="fleet-img">
               <img src="../../assets/images/etios.png" class="img-fluid">
             </div>
             <div class="fleet-title">
-              <h4 class="text-dark">Book Etios</h4>
-              <h6 class="text-dark">Rs. 10/Per Km</h6>
+              <div class="title">
+                <h4 class="text-dark">Book Dzire</h4>
+                <h6 class="text-dark">20,000 Km</h6>
+              </div>
+              <div class="cart-icon">
+                <i class="fa-regular fa-heart"></i>
+              </div>
             </div>
             <div class="fleet-specs">
               <div class="fleet-icon">
                 <div class="icon">
-                  <i class="fa fa-user" aria-hidden="true"></i>
+                  <i class="fa-solid fa-gas-pump"></i>
                 </div>
                 <div class="text">
-                  <p>Experienced User</p>
+                  <p>Car Fuel</p>
                 </div>
               </div>
 
@@ -151,10 +172,10 @@
 
               <div class="fleet-icon">
                 <div class="icon">
-                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  <i class="fa-solid fa-suitcase-rolling"></i>
                 </div>
                 <div class="text">
-                  <p>GPS Enabled</p>
+                  <p>Luggage</p>
                 </div>
               </div>
             </div>
@@ -171,16 +192,21 @@
               <img src="../../assets/images/ertiga.jpg" class="img-fluid">
             </div>
             <div class="fleet-title">
-              <h4 class="text-dark">Book Ertiga</h4>
-              <h6 class="text-dark">Rs. 14/Per Km</h6>
+              <div class="title">
+                <h4 class="text-dark">Book Dzire</h4>
+                <h6 class="text-dark">20,000 Km</h6>
+              </div>
+              <div class="cart-icon">
+                <i class="fa-regular fa-heart"></i>
+              </div>
             </div>
             <div class="fleet-specs">
               <div class="fleet-icon">
                 <div class="icon">
-                  <i class="fa fa-user" aria-hidden="true"></i>
+                  <i class="fa-solid fa-gas-pump"></i>
                 </div>
                 <div class="text">
-                  <p>Experienced User</p>
+                  <p>Car Fuel</p>
                 </div>
               </div>
 
@@ -195,10 +221,10 @@
 
               <div class="fleet-icon">
                 <div class="icon">
-                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  <i class="fa-solid fa-suitcase-rolling"></i>
                 </div>
                 <div class="text">
-                  <p>GPS Enabled</p>
+                  <p>Luggage</p>
                 </div>
               </div>
             </div>
@@ -207,26 +233,31 @@
               <a [routerLink]="['/web/home']" class="btn btn-custom-primary">Book Now</a>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
 
-      <div class="row pb-5">
+      <!-- <div class="row pb-5">
         <div class="col-sm-4 mb-2">
           <div class="fleet-box text-center">
             <div class="fleet-img">
               <img src="../../assets/images/honda.jpg" class="img-fluid">
             </div>
             <div class="fleet-title">
-              <h4 class="text-dark">Book Honda City</h4>
-              <h6 class="text-dark">Rs. 12/Per Km</h6>
+              <div class="title">
+                <h4 class="text-dark">Book Dzire</h4>
+                <h6 class="text-dark">20,000 Km</h6>
+              </div>
+              <div class="cart-icon">
+                <i class="fa-regular fa-heart"></i>
+              </div>
             </div>
             <div class="fleet-specs">
               <div class="fleet-icon">
                 <div class="icon">
-                  <i class="fa fa-user" aria-hidden="true"></i>
+                  <i class="fa-solid fa-gas-pump"></i>
                 </div>
                 <div class="text">
-                  <p>Experienced User</p>
+                  <p>Car Fuel</p>
                 </div>
               </div>
 
@@ -241,16 +272,16 @@
 
               <div class="fleet-icon">
                 <div class="icon">
-                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  <i class="fa-solid fa-suitcase-rolling"></i>
                 </div>
                 <div class="text">
-                  <p>GPS Enabled</p>
+                  <p>Luggage</p>
                 </div>
               </div>
             </div>
 
             <div class="fleet-button">
-              <a [routerLink]="['/web/home']"class="btn btn-custom-primary">Book Now</a>
+              <a [routerLink]="['/web/home']" class="btn btn-custom-primary">Book Now</a>
             </div>
           </div>
         </div>
@@ -261,16 +292,21 @@
               <img src="../../assets/images/amaze.jpg" class="img-fluid">
             </div>
             <div class="fleet-title">
-              <h4 class="text-dark">Book Honda Amaze</h4>
-              <h6 class="text-dark">Rs. 10/Per Km</h6>
+              <div class="title">
+                <h4 class="text-dark">Book Dzire</h4>
+                <h6 class="text-dark">20,000 Km</h6>
+              </div>
+              <div class="cart-icon">
+                <i class="fa-regular fa-heart"></i>
+              </div>
             </div>
             <div class="fleet-specs">
               <div class="fleet-icon">
                 <div class="icon">
-                  <i class="fa fa-user" aria-hidden="true"></i>
+                  <i class="fa-solid fa-gas-pump"></i>
                 </div>
                 <div class="text">
-                  <p>Experienced User</p>
+                  <p>Car Fuel</p>
                 </div>
               </div>
 
@@ -285,10 +321,10 @@
 
               <div class="fleet-icon">
                 <div class="icon">
-                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  <i class="fa-solid fa-suitcase-rolling"></i>
                 </div>
                 <div class="text">
-                  <p>GPS Enabled</p>
+                  <p>Luggage</p>
                 </div>
               </div>
             </div>
@@ -305,16 +341,21 @@
               <img src="../../assets/images/innova-crysta.jpg" class="img-fluid">
             </div>
             <div class="fleet-title">
-              <h4 class="text-dark">Book Innova Crysta</h4>
-              <h6 class="text-dark">Rs. 16/Per Km</h6>
+              <div class="title">
+                <h4 class="text-dark">Book Dzire</h4>
+                <h6 class="text-dark">20,000 Km</h6>
+              </div>
+              <div class="cart-icon">
+                <i class="fa-regular fa-heart"></i>
+              </div>
             </div>
             <div class="fleet-specs">
               <div class="fleet-icon">
                 <div class="icon">
-                  <i class="fa fa-user" aria-hidden="true"></i>
+                  <i class="fa-solid fa-gas-pump"></i>
                 </div>
                 <div class="text">
-                  <p>Experienced User</p>
+                  <p>Car Fuel</p>
                 </div>
               </div>
 
@@ -329,10 +370,10 @@
 
               <div class="fleet-icon">
                 <div class="icon">
-                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  <i class="fa-solid fa-suitcase-rolling"></i>
                 </div>
                 <div class="text">
-                  <p>GPS Enabled</p>
+                  <p>Luggage</p>
                 </div>
               </div>
             </div>
@@ -342,9 +383,9 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="row pb-5">
+      <!-- <div class="row pb-5">
         <div class="col-sm-4 mb-2">
           <div class="fleet-box text-center">
             <div class="fleet-img">
@@ -476,11 +517,13 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
 
     </div>
   </section>
+
+
 
   <section id="testimonials">
     <div class="container">

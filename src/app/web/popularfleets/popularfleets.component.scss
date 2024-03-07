@@ -11,6 +11,7 @@ $black-color: #000;
 #navbar {
   background: $light-color;
   padding: 10px 0;
+  font-family:Arial, Helvetica, sans-serif;
 }
 .main-matmenu{
   text-transform: uppercase;
@@ -438,7 +439,7 @@ button:hover{
 
 .fleet-box {
   background: $light-color;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 10px;
   overflow: hidden;
   -webkit-border-radius: 10px;
@@ -447,11 +448,19 @@ button:hover{
   -o-border-radius: 10px;
 }
 
-.fleet-title,
+.fleet-title{
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 43px;
+}
+.cart-icon{
+  font-size: 20px;
+  padding-top: 10px;
+}
 .fleet-button {
   margin: 10px 0;
 }
-
 .fleet-title h6{
   margin-bottom: 30px;
 }
@@ -459,7 +468,9 @@ button:hover{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
-
+.mb-2 {
+  margin-bottom: 4.5rem!important;
+}
 
 @media only screen and (max-width: 600px) {
 

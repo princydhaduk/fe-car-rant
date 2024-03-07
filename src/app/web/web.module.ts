@@ -18,6 +18,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TermConditionComponent } from './term-condition/term-condition.component';
 import { BookingDetailComponent } from './booking-detail/booking-detail.component';
 import {NgxMatTimepickerModule} from 'ngx-mat-timepicker';
+import { CartComponent } from './cart/cart.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -29,7 +35,8 @@ import {NgxMatTimepickerModule} from 'ngx-mat-timepicker';
     PopularfleetsComponent,
     ContactComponent,
     TermConditionComponent,
-    BookingDetailComponent
+    BookingDetailComponent,
+    CartComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +49,11 @@ import {NgxMatTimepickerModule} from 'ngx-mat-timepicker';
     MatDatepickerModule,
     MatNativeDateModule,
     NgxMatTimepickerModule,
-
+    MatCardModule,
+    MatTabsModule,
+    MatPaginatorModule,
+    MatIconModule,
+    MatTableModule,
   ]
 })
 export class WebModule { }

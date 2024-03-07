@@ -11,6 +11,7 @@ $black-color: #000;
 #navbar {
   background: $light-color;
   padding: 10px 0;
+  font-family:Arial, Helvetica, sans-serif;
 }
 .main-matmenu{
   text-transform: uppercase;
@@ -616,6 +617,7 @@ textarea{
 .btn:hover{
     background-color: $light-color;
     color: $black-color;
+    border: 1px solid $primary-color;
 }
 
 .field:focus{

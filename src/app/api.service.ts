@@ -1,10 +1,13 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
+
+  data:any;
   constructor(private http: HttpClient) {
   }
 
@@ -13,7 +16,7 @@ export class ApiService {
     // return this.http.get(url);
   }
 
-  saveData(payload: any) {
+  saveData(payload: any): Observable<any> {
     let url = 'http://localhost:5000/api/registrations';
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -24,10 +27,11 @@ export class ApiService {
     return this.http.post(url, payload, options);
   }
 
-  saveLoginData(payload:any) {
+  saveLoginData(payload:any): Observable<any> {
     let url = 'http://localhost:5000/api/login';
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem('token')}`,
     });
     const options = {
       headers
@@ -35,28 +39,47 @@ export class ApiService {
     return this.http.post(url,payload,options);
   }
 
-  saveForgotEmail(payload:any){
+  saveForgotEmail(payload:any): Observable<any>{
     let url = 'http://localhost:5000/api/ForgotPasswordEmail';
     return this.http.post(url,payload);
   }
 
-  saveForgetOtp(payload:any){
+  saveForgetOtp(payload:any): Observable<any>{
     let url = 'http://localhost:5000/api/ForgotPasswordOtp';
     return this.http.post(url,payload);
   }
 
-  saveUpdatePass(payload:any){
+  saveUpdatePass(payload:any): Observable<any>{
     let url = 'http://localhost:5000/api/updatePassword';
     return this.http.post(url,payload);
   }
 
-  saveContact(payload:any){
+  saveContact(payload:any): Observable<any>{
     let url = 'http://localhost:5000/api/contact';
     return this.http.post(url,payload);
   }
 
-  saveBooking(payload:any){
-    let url = '';
-    return this.http.post(url,payload);
+  saveBooking(payload:any): Observable<any>{
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('token')}`,
+    });
+    const options = {
+      headers
+    };
+    let url = 'http://localhost:5000/api/bookingcars';
+    return this.http.post(url,payload,options);
+  }
+
+  getCar(): Observable<any>{
+    let url = "http://localhost:5000/api/cardisplay";
+    return this.http.get(url);
+  }
+
+  set(item: any){
+    this.data = item;
+  }
+
+  get(){
+    return this.data;
   }
 }

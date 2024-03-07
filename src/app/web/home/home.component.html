@@ -22,9 +22,9 @@
       <div class="row">
         <div class="col-sm-12 d-flex" style="justify-content: space-between; align-items: center;">
           <div class="logo">
-            <h4>QUICK CARRENT</h4>
+            <!-- <h4>QUICK CARRENT</h4> -->
             <a [routerLink]="['/web/home']">
-              <!-- <img src="../../../assets/images/logo2.png" class="img-fluid" style="height: 50px;"> -->
+              <img src="../../../assets/images/Logo 02.png" class="img-fluid" style="height: 50px;">
             </a>
           </div>
 
@@ -53,8 +53,10 @@
                 </mat-menu>
               </li>
 
-              <li><a [routerLink]="['/web/popularfleets']" class="side-nav-link">Popuplar Fleets</a></li>
+              <li><a [routerLink]="['/web/cars']" class="side-nav-link">All Cars</a></li>
               <li><a [routerLink]="['/web/contact']" class="side-nav-link">Contact</a></li>
+              <li><a [routerLink]="['/login']" class="side-nav-link">Logout</a></li>
+              <li><a [routerLink]="['/web/cart']" style="color: black; font-size: 20px;"><i class="fa-solid fa-cart-plus"></i></a></li>
             </ul>
           </div>
         </div>
@@ -66,12 +68,16 @@
     <div class="container py-5">
       <div class="row">
         <div class="col-sm-7">
+          <p class="explore-text">
+            <span><i class="fa-solid fa-thumbs-up me-2"></i></span>
+            100% Trusted car rental platform in the World
+          </p>
           <h4 class="heading-4-light">Discover Convenience on the Go!</h4>
           <h2 class="heading-2-light">24/7 Accessibility</h2>
           <p class="text-light">Book a ride anytime, anywhere – our services are available round the clock,Car rental
             services provide individuals or businesses with the option to temporarily use a vehicle for a specified
             period, typically ranging from a few hours to several days or weeks.</p>
-          <!-- <a href="" class="btn btn-custom-primary">Book Now</a> -->
+          <a [routerLink]="['/web/cars']" class="btn btn-custom-primary">View all cars</a>
         </div>
 
         <div class="col-sm-5">
@@ -80,31 +86,35 @@
               <h4 class="text-center">Book Now !!</h4>
               <div class="row" style="width: 100%;">
                 <label class="">Pickup Location *</label>
-                <input type="text" name="name"  class="form-field" placeholder="Car pickup location" formControlName="p_location"
-                  />
+                <input type="text" name="p_location"  class="form-field" placeholder="Car pickup location" formControlName="p_location">
+                <span style="color: red; font-size: 13px;" *ngIf="p_locationControl && p_locationControl.invalid && p_locationControl.touched"> * PickUp location is required..!</span>
               </div>
 
               <div class="row" style="width: 100%;">
                 <label>Drop off Location *</label>
-                <input type="tel" name="phone" class="form-field" placeholder="Car pickup location" formControlName="d_location"/>
+                <input type="text" name="d_location" class="form-field" placeholder="Car pickup location" formControlName="d_location"/>
+                <span style="color: red; font-size: 13px;" *ngIf="d_locationControl && d_locationControl.touched"> * DropOff location is required..!</span>
               </div>
 
               <div class="row" style="width: 100%;">
-                <label>Pickup Time* </label><br><br>
-                <input type="time" class="form-field" name="booking_date" formControlName="p_time">
+                <label>Pickup Time* </label>
+                <input type="time" name="p_time" class="form-field" placeholder="HH:MM" formControlName="p_time">
+                <span style="color: red; font-size: 13px;" *ngIf="p_timeControl && p_timeControl.invalid && p_timeControl.touched"> *   pickUp time is required..!</span>
               </div>
 
               <div class="row" style="width: 100%;">
                 <label>Return Time* </label><br>
-                <input type="time" name="booking_date"  class="form-field" formControlName="d_time">
+                <input type="time" name="d_time"  class="form-field" formControlName="d_time">
+                <span style="color: red; font-size: 13px;" *ngIf="d_timeControl && d_timeControl.invalid && d_timeControl.touched"> *  DropOff time is required..!</span>
               </div>
 
               <label>Pickup - Dropoff Date *</label>
               <mat-form-field appearance="outline">
                 <mat-label>Enter a date range</mat-label>
-                <mat-date-range-input [rangePicker]="rangePicker">
-                  <input matStartDate placeholder="Start date" formControlName="p_date">
-                  <input matEndDate placeholder="End date" formControlName="d_date">
+                <mat-date-range-input [rangePicker]="rangePicker" >
+                  <input matStartDate placeholder="Pickup date" formControlName="p_date">
+                  <input matEndDate placeholder="Dropoff date" formControlName="d_date">
+                  <!-- <mat-error *ngIf="checkError('d_date', 'required')">DropOff date is required..!</mat-error> -->
                 </mat-date-range-input>
                 <mat-datepicker-toggle matSuffix [for]="rangePicker"></mat-datepicker-toggle>
                 <mat-date-range-picker #rangePicker>
@@ -113,6 +123,8 @@
                     <button mat-raised-button color="primary" matDateRangePickerApply>Apply</button>
                   </mat-date-range-picker-actions>
                 </mat-date-range-picker>
+
+                <mat-error *ngIf="checkError('p_date', 'required')">* Enter valid date range..!</mat-error>
               </mat-form-field>
 
               <button type="submit" name="submit" class="btn btn-custom-dark mt-3"

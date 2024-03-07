@@ -47,9 +47,11 @@
                 </mat-menu>
               </li>
 
-              <li><a [routerLink]="['/web/popularfleets']" class="side-nav-link">Popuplar Fleets</a></li>
+              <li><a [routerLink]="['/web/cars']" class="side-nav-link">All Cars</a></li>
               <li><a [routerLink]="['web/contact']" class="side-nav-link">Contact </a></li>
+              <li><a [routerLink]="['/login']" class="side-nav-link">Logout</a></li>
             </ul>
+
           </div>
         </div>
       </div>
@@ -122,10 +124,18 @@
                   <div class="right">
                     <h2>Get in Touch !</h2>
                     <form [formGroup]="contactForm">
+                      <span style="color: red; font-size: 13px;" *ngIf="fnameControl && fnameControl.invalid && fnameControl.touched"> * Name is required..!</span>
                     <input type="text" class="field" placeholder="Your Name" formControlName="name">
+
+                    <span style="color: red; font-size: 13px;" *ngIf="emailControl && emailControl.invalid && emailControl.touched"> * Please enter valid email..!</span>
                     <input type="email" class="field" placeholder="Your Email" formControlName="email">
+
+                    <span style="color: red; font-size: 13px;" *ngIf="mobileControl && mobileControl.invalid && mobileControl.touched"> * Please enter valid phone no..!</span>
                     <input type="text" class="field" placeholder="Phone" formControlName="mobile_no">
+
+                    <span style="color: red; font-size: 13px;" *ngIf="msgControl && msgControl.invalid && msgControl.touched"> * Message is required..!</span>
                     <textarea placeholder="Message" class="field" formControlName="message"></textarea>
+
                     <button class="btn" (click)="sendMessage()">Send Enquiry </button>
                   </form>
                   </div>

@@ -11,6 +11,7 @@ import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 import { PopularfleetsComponent } from './popularfleets/popularfleets.component';
 import { ContactComponent } from './contact/contact.component';
 import { BookingDetailComponent } from './booking-detail/booking-detail.component';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
   {
@@ -46,12 +47,16 @@ const routes: Routes = [
         component:BlogDetailComponent
       },
       {
-        path:'popularfleets',
+        path:'cars',
         component:PopularfleetsComponent
       },
       {
         path:'contact',
         component:ContactComponent
+      },
+      {
+        path:'cart',
+        component:CartComponent
       }
     ]
   }
