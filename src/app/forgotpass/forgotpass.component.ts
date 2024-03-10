@@ -119,7 +119,7 @@ export class ForgotpassComponent implements OnInit {
         this.toastr.error(res.message);
       }
       console.log("payload===>",payload);
-    })
+    });
   }
 
   updatePass(): void{
@@ -127,14 +127,18 @@ export class ForgotpassComponent implements OnInit {
     // debugger
     const payload = {
       "email" : this.forgotEmail.value.email,
-      "newpassword" : this.forgotEmail.value.password,
+      "newpassword" : this.updatePassword.value.password,
+      "conformPassword": this.updatePassword.value.cpassword,
 
     }
     this.api.saveUpdatePass(payload).subscribe((res:any) => {
       if(res && res.status === 200){
-        this.router.navigate(['/login']);
         this.toastr.success(res.message);
+        this.router.navigate(['/login']);
         console.log("res---",res);
+      }
+      else{
+        this.toastr.error(res.message);
       }
       console.log("payload===>",payload);
     })

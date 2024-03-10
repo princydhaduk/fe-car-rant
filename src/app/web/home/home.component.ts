@@ -12,9 +12,11 @@ import * as moment from 'moment/moment';
 export class HomeComponent implements OnInit {
   bookForm!: FormGroup;
   id = '';
+  img = '';
+  model = '';
+  brand = '';
 
-  constructor(private formBuilder: FormBuilder, private api:ApiService, private toastr:ToastrService) {
-  }
+  constructor(private formBuilder: FormBuilder, private api:ApiService, private toastr:ToastrService) { }
 
   ngOnInit(): void {
     this.bookForm = this.formBuilder.group({
@@ -25,7 +27,7 @@ export class HomeComponent implements OnInit {
       p_date: ['', Validators.required],
       d_date: ['', Validators.required],
     })
-    this.id = this.api.get()._id
+    this.id = this.api.get()._id;
     console.log("getdata--->",this.api.get());
     this.setValue();
   }
@@ -37,7 +39,6 @@ export class HomeComponent implements OnInit {
       this.bookForm.controls['d_time'].setValue('');
       this.bookForm.controls['p_date'].setValue('');
       this.bookForm.controls['d_date'].setValue('');
-
   }
   submitBooking(): void{
     // debugger
@@ -80,6 +81,5 @@ export class HomeComponent implements OnInit {
   get d_timeControl(){
     return this.bookForm.get('d_time')
   }
-
 
 }

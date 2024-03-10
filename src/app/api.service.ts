@@ -75,6 +75,32 @@ export class ApiService {
     return this.http.get(url);
   }
 
+  saveCommment(payload:any): Observable<any>{
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('token')}`,
+    });
+    const options = {
+      headers
+    };
+    let url = 'http://localhost:5000/api/addComments';
+    return this.http.post(url,payload,options);
+  }
+  getComment(): Observable<any>{
+    let url = "http://localhost:5000/api/displayComment";
+    return this.http.get(url);
+  }
+
+  getbooking(): Observable<any>{
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('token')}`,
+    });
+    const options = {
+      headers
+    };
+    let url = "http://localhost:5000/api/bookingdisplay";
+    return this.http.get(url,options);
+  }
+
   set(item: any){
     this.data = item;
   }
@@ -82,4 +108,5 @@ export class ApiService {
   get(){
     return this.data;
   }
+
 }

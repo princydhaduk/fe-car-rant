@@ -22,12 +22,15 @@
       <div class="row">
         <div class="col-sm-12 d-flex" style="justify-content: space-between; align-items: center;">
           <div class="logo">
-            <a href="index.php">
-              <img src="../../assets/images/loc.png" class="img-fluid" style="height: 50px;">
+            <h4>QUICK CARRENT</h4>
+            <a [routerLink]="['/web/home']">
+              <!-- <img src="../../../assets/images/Logo 02.png" class="img-fluid" style="height: 50px;"> -->
             </a>
           </div>
+
           <div class="side-nav">
             <ul style="display: flex; justify-content: center;">
+
               <li><a [routerLink]="['/web/home']" class="side-nav-link">Home</a></li>
 
               <li class="dropdown a">
@@ -35,6 +38,9 @@
                 <mat-menu #menu="matMenu" class="matmenu">
                   <button mat-menu-item [routerLink]="['/web/about']">ABOUT</button>
                   <button mat-menu-item [routerLink]="['/web/services']">SERVICES</button>
+                  <button mat-menu-item [routerLink]="['/web/term-condition']">TERMS
+                    & CONDITION</button>
+                  <button mat-menu-item [routerLink]="['/web/booking-detail']">MY BOOKING</button>
                   <button mat-menu-item [routerLink]="['/web/payment']">PAYMENT</button>
                 </mat-menu>
               </li>
@@ -48,10 +54,10 @@
               </li>
 
               <li><a [routerLink]="['/web/cars']" class="side-nav-link">All Cars</a></li>
-              <li><a [routerLink]="['web/contact']" class="side-nav-link">Contact </a></li>
+              <li><a [routerLink]="['/web/contact']" class="side-nav-link">Contact</a></li>
               <li><a [routerLink]="['/login']" class="side-nav-link">Logout</a></li>
+              <!-- <li><a [routerLink]="['/web/cart']" style="color: black; font-size: 20px;"><i class="fa-solid fa-cart-plus"></i></a></li> -->
             </ul>
-
           </div>
         </div>
       </div>

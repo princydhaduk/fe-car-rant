@@ -24,6 +24,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { MatTableModule } from '@angular/material/table';
     MatPaginatorModule,
     MatIconModule,
     MatTableModule,
+    MatInputModule,
   ]
 })
 export class WebModule { }

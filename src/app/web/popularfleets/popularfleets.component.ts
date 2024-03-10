@@ -29,7 +29,7 @@ export class PopularfleetsComponent implements OnInit {
   sendBooking(item: any): void {
     console.log("item--->>",item);
 
-    this.api.set(item)
+    this.api.set(item);
   }
 
 

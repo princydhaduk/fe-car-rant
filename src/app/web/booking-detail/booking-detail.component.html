@@ -6,7 +6,7 @@
           <div class="logo">
             <h4>QUICK CARRENT</h4>
             <a [routerLink]="['/web/home']">
-              <!-- <img src="../../../assets/images/logo2.png" class="img-fluid" style="height: 50px;"> -->
+              <!-- <img src="../../../assets/images/Logo 02.png" class="img-fluid" style="height: 50px;"> -->
             </a>
           </div>
 
@@ -22,7 +22,7 @@
                   <button mat-menu-item [routerLink]="['/web/services']">SERVICES</button>
                   <button mat-menu-item [routerLink]="['/web/term-condition']">TERMS
                     & CONDITION</button>
-                  <button mat-menu-item [routerLink]="['/web/booking-detail']">BOOKING DETAILS</button>
+                  <button mat-menu-item [routerLink]="['/web/booking-detail']">MY BOOKING</button>
                   <button mat-menu-item [routerLink]="['/web/payment']">PAYMENT</button>
                 </mat-menu>
               </li>
@@ -38,8 +38,7 @@
               <li><a [routerLink]="['/web/cars']" class="side-nav-link">All Cars</a></li>
               <li><a [routerLink]="['/web/contact']" class="side-nav-link">Contact</a></li>
               <li><a [routerLink]="['/login']" class="side-nav-link">Logout</a></li>
-              <li><a [routerLink]="['/web/cart']" style="color: black; font-size: 20px;"><i
-                    class="fa-solid fa-cart-plus"></i></a></li>
+              <!-- <li><a [routerLink]="['/web/cart']" style="color: black; font-size: 20px;"><i class="fa-solid fa-cart-plus"></i></a></li> -->
             </ul>
           </div>
         </div>
@@ -48,11 +47,124 @@
   </section>
 
 
-<div>
+  <!-- <div>
   knlinewfxFlexAlign="'mkf'"<br><br>
   verdfvsd<br><br>
   kenflqenfk<br>
-</div>
+</div> -->
+  <section class="display-table booking">
+    <div class="main-heading">
+      <div class="title">
+        <h4>My Booking</h4>
+      </div>
+    </div>
+    <mat-card class="cardWithShadow">
+      <mat-card-content class="p-24">
+        <div class="row justify-content-between">
+          <div class="col-lg-4">
+            <mat-form-field appearance="outline" class="w-100 hide-hint">
+              <input matInput placeholder="Search Employee" (keyup)="applyFilter($any($event.target).value)" />
+              <mat-icon matSuffix>
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </mat-icon>
+            </mat-form-field>
+          </div>
+          <!-- <div class="col-lg-4 d-flex align-items-center justify-content-end">
+            <button mat-flat-button (click)="openDialog('Add', {})" color="primary">
+              Add Employee
+            </button>
+          </div> -->
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="cardWithShadow">
+      <mat-card-content class="p-24">
+        <div class="table-responsive">
+          <table mat-table [dataSource]="dataSource" class="w-100">
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">
+                ID
+              </th>
+              <td mat-cell *matCellDef="let element" class="f-s-14">
+                {{ element.id }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="model">
+              <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">Model</th>
+              <td mat-cell *matCellDef="let element">
+                <div class="d-flex align-items-center">
+                  <img
+                  class="rounded-circle"
+                  [src]="element.img"
+                  width="40" />
+
+                  <div class="m-l-16">
+                    <p class="f-w-600 mat-subtitle-1 f-s-16 m-t-0" >
+                      {{ element.model }}
+                    </p>
+                    <small class="mat-body-1 f-s-14" style="margin-left: 25px; font-size: 16px;">{{ element.brand }}</small>
+                  </div>
+                </div>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="p_location">
+              <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">
+                PickUp Location
+              </th>
+              <td mat-cell *matCellDef="let element" class="f-s-14">
+                {{ element.pickup_Location }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="d_location">
+              <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">
+                DropOff Location
+              </th>
+              <td mat-cell *matCellDef="let element" class="f-s-14">
+                {{ element.dropoff_Location }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="p_date">
+              <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">
+                PickUp Date
+              </th>
+              <td mat-cell *matCellDef="let element" class="f-s-14">
+                {{ element.pickup_date }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="d_date">
+              <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">
+                DropOff Date
+              </th>
+              <td mat-cell *matCellDef="let element" class="f-s-14">
+                {{ element.return_date }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">
+                Action
+              </th>
+              <td mat-cell *matCellDef="let element" class="action-link">
+                <!-- <a (click)="openDialog('Update', element)" class="m-r-10 cursor-pointer">
+                  <i-tabler name="edit" class="icon-18"></i-tabler>
+                  </a> -->
+                <a (click)="openDialog('Delete', element)" class="m-r-10 cursor-pointer" style="color: black; font-size: 16px;">
+                  <i class="fa-regular fa-trash-can"></i>
+                </a>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+          <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </section>
 
 
   <section id="footer">
