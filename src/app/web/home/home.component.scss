@@ -136,7 +136,7 @@ button:hover {
 #hero-img {
   background: url('../../../assets/images/nature-car.jpg');
   background-size: 100% 100%;
-
+  margin-top: 80px;
 }
 .explore-text {
   color: #2F2F2F;
@@ -151,7 +151,10 @@ button:hover {
   width: 66.66666667;
   // align-content: center;
 }
-
+.text-center {
+  text-align: center!important;
+  padding: 20px;
+}
 .form {
   background: $white-color;
   margin-bottom: 30px;

@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/api.service';
 // import {moment} from 'moment/moment';
 import * as moment from 'moment/moment';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -16,7 +17,7 @@ export class HomeComponent implements OnInit {
   model = '';
   brand = '';
 
-  constructor(private formBuilder: FormBuilder, private api:ApiService, private toastr:ToastrService) { }
+  constructor(private formBuilder: FormBuilder, private api:ApiService, private toastr:ToastrService, private route:Router) { }
 
   ngOnInit(): void {
     this.bookForm = this.formBuilder.group({
@@ -56,6 +57,7 @@ export class HomeComponent implements OnInit {
     // console.log("payload====>>>",payload);
     this.api.saveBooking(payload).subscribe((res:any) => {
       if(res.message){
+        this.route.navigate(['/web/booking-detail'])
         this.toastr.success(res.message);
         console.log("res--->",res);
       }

@@ -21,7 +21,7 @@ export class PopularfleetsComponent implements OnInit {
           ele['img'] = '../../../assets/images/' + ele.Image;
         });
         this.cars = res.data;
-        // console.log("responce--->>>", this.cars);
+        console.log("responce--->>>", this.cars);
       }
     });
   }

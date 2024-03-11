@@ -15,6 +15,7 @@ $black-color: #000;
   position: fixed;
   width: 100%;
   z-index: 1;
+  overflow: hidden;
 }
 .main-matmenu{
   text-transform: uppercase;
@@ -117,6 +118,7 @@ button:hover{
 #hero-img {
   background: url('../../../assets/images/slider-bg.jpg');
   background-size: cover;
+
 }
 .col-sm-8 {
   flex: 0 0 auto;
@@ -434,6 +436,7 @@ button:hover{
   padding: 100px 0;
   color: $white-color;
   background-position: center center;
+  padding-top: 170px;
 }
 
 .divider {

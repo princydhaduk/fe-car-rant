@@ -43,7 +43,7 @@ export class BookingDetailComponent implements OnInit {
 
   getBookingList(){
     this.api.getbooking().subscribe((data:any) => {
-      // debugger
+      debugger
       if(data){
         data.bookings.forEach((ele: any, index: number) => {
           const car =  data.cars.find((item:any)=> ele.car_id === item._id)
@@ -98,7 +98,7 @@ export class BookingDetailComponent implements OnInit {
 
   deleteRowData(row_obj: any): boolean | any {
     this.dataSource.data = this.dataSource.data.filter((value: any) => {
-      return value.id !== row_obj.id;
+      return value.plate_number !== row_obj.plate_number;
     });
   }
 }

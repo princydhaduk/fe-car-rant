@@ -132,15 +132,13 @@ export class ForgotpassComponent implements OnInit {
 
     }
     this.api.saveUpdatePass(payload).subscribe((res:any) => {
-      if(res && res.status === 200){
-        this.toastr.success(res.message);
+      if(res.message){
         this.router.navigate(['/login']);
-        console.log("res---",res);
+        this.toastr.success(res.message);
       }
-      else{
-        this.toastr.error(res.message);
-      }
-      console.log("payload===>",payload);
+      // else{
+      //   this.toastr.error(res.message);
+      // }
     })
   }
 
