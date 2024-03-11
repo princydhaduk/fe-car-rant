@@ -58,10 +58,13 @@ export class SignupComponent implements OnInit {
     }
 
     this.api.saveData(payload).subscribe((res: any) => {
+      debugger
       if (res.message) {
         this.toastr.success(res.message);
       }
+      console.log("res:::",res);
     })
+
     this.signupForm.reset();
   }
 
