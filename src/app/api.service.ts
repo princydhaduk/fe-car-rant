@@ -70,8 +70,8 @@ export class ApiService {
     return this.http.post(url,payload,options);
   }
 
-  getCar(): Observable<any>{
-    let url = "http://localhost:5000/api/cardisplay";
+  getCar(select : any): Observable<any>{
+    let url = "http://localhost:5000/api/cardisplay" + select;
     return this.http.get(url);
   }
 

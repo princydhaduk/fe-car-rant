@@ -78,32 +78,31 @@
 
   <section class="sortby-sec">
     <div class="sorting-select select-three">
-      <select class="form-controls select">
-        <option>Brand</option>
-        <option>Mahindra</option>
-        <option>Tata Harrier</option>
-        <option>Kia</option>
-        <option>Audi</option>
-        <option>Ford</option>
-        <option>Chevrolet Camaro</option>
-        <option>Toyota</option>
-        <option>Skoda</option>
-        <option>Honda</option>
+      <select class="form-controls select" value="Brand" [(ngModel)]="selectFilter.brand">
+        <option value="Brand">Brand</option>
+        <option>mahindra</option>
+        <option>tata harrier</option>
+        <option>kia</option>
+        <option>audi</option>
+        <option>ford</option>
+        <option>chevrolet Camaro</option>
+        <option>toyota</option>
+        <option>skoda</option>
+        <option>honda</option>
       </select>
 
-      <select class="form-controls select">
+      <select class="form-controls select" [(ngModel)]="selectFilter.price">
         <option>Price</option>
-        <option>100 - 200</option>
-        <option>200 - 300</option>
-        <option>300 - 400</option>
-        <option>400 - 500</option>
-        <option>500 - 600</option>
-        <option>600 - 700</option>
-        <option>700 - 800 </option>
-        <option>Above 800</option>
+        <option>100 - 300</option>
+        <option>400 - 600</option>
+        <option>700 - 900</option>
+        <option>1000 - 1300</option>
+        <option>1400 - 1600</option>
+        <option>1700 - 1900</option>
+        <option>Above 2000</option>
       </select>
 
-      <select class="form-controls select">
+      <select class="form-controls select" [(ngModel)]="selectFilter.seats">
         <option>Seats</option>
         <option>2</option>
         <option>4</option>
@@ -113,12 +112,14 @@
         <option>10</option>
       </select>
 
-      <select class="form-controls select">
+      <select class="form-controls select" [(ngModel)]="selectFilter.fuel">
         <option>Fuel</option>
-        <option>Petrol</option>
-        <option>Diesel</option>
+        <option>petrol</option>
+        <option>diesel</option>
         <option>CNG</option>
       </select>
+
+        <button class="apply-btn" (click)="applyFilter()">Apply<i class="fa-solid fa-filter"></i></button>
 
     </div>
   </section>

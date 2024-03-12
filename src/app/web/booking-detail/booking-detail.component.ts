@@ -1,3 +1,4 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
@@ -30,7 +31,7 @@ export class BookingDetailComponent implements OnInit {
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator = Object.create(null);
 
-  constructor(public dialog: MatDialog, private api:ApiService, private toastr:ToastrService) { }
+  constructor(public dialog: MatDialog, private api:ApiService, private toastr:ToastrService, private http:HttpClient) { }
 
   ngOnInit(): void {
     this.getBookingList();
@@ -43,7 +44,7 @@ export class BookingDetailComponent implements OnInit {
 
   getBookingList(){
     this.api.getbooking().subscribe((data:any) => {
-      debugger
+      // debugger
       if(data){
         data.bookings.forEach((ele: any, index: number) => {
           const car =  data.cars.find((item:any)=> ele.car_id === item._id)
@@ -96,9 +97,25 @@ export class BookingDetailComponent implements OnInit {
     // });
   }
 
-  deleteRowData(row_obj: any): boolean | any {
-    this.dataSource.data = this.dataSource.data.filter((value: any) => {
-      return value.plate_number !== row_obj.plate_number;
+  // deleteRowData(row_obj: any): boolean | any {
+  //   this.dataSource.data = this.dataSource.data.filter((value: any) => {
+  //     return value.plate_number !== row_obj.plate_number;
+  //   });
+  // }
+
+  deleteRecords(element:any): void {
+    // debugger
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('token')}`,
     });
+    const options = {
+      headers
+    };
+    this.http.post('http://localhost:5000/api/cardelete',{car_id: element.car_id},options).subscribe((res:any) => {
+      if(res.message){
+        this.toastr.success(res.message);
+      }
+    });
+    // this.getCarDisplay();
   }
 }
