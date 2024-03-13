@@ -101,6 +101,28 @@ export class ApiService {
     return this.http.get(url,options);
   }
 
+  sendPayment(payload :any): Observable<any>{
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('token')}`,
+    });
+    const options = {
+      headers
+    };
+    let url = 'http://localhost:5000/api/payment';
+    return this.http.post(url, payload ,options);
+  }
+
+  capturePayment(payload :any): Observable<any>{
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('token')}`,
+    });
+    const options = {
+      headers
+    };
+    let url = 'http://localhost:5000/api/capture_payment';
+    return this.http.post(url, payload ,options);
+  }
+
   set(item: any){
     this.data = item;
   }

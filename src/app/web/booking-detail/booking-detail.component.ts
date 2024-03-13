@@ -6,6 +6,9 @@ import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/api.service';
 
+declare var Razorpay: any;
+
+
 @Component({
   selector: 'app-booking-detail',
   templateUrl: './booking-detail.component.html',
@@ -19,6 +22,7 @@ export class BookingDetailComponent implements OnInit {
   img= '';
   brand= '';
   model= '';
+  price = '';
   displayedColumns: string[] = [
     'id',
     'model',
@@ -26,8 +30,10 @@ export class BookingDetailComponent implements OnInit {
     'd_location',
     'p_date',
     'd_date',
+    'price',
     'action',
   ];
+  razorpay :any
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator = Object.create(null);
 
@@ -117,5 +123,59 @@ export class BookingDetailComponent implements OnInit {
       }
     });
     // this.getCarDisplay();
+  }
+
+
+  payment(){
+    const payload = {
+      "amount":220,
+      "currency":"INR"
+      }
+    this.api.sendPayment(payload).subscribe((res:any) => {
+      if(res){
+        debugger
+        console.log("res===>",res);
+        this.razorpay = new Razorpay({
+          key: 'rzp_test_N1wGv58I7zlIrN',
+          order_id: res.data.orderId,
+          name: 'Demo Project ',
+          description: 'Purchase Description',
+          image: '',
+          handler: function (response: any) {
+            handlePaymentSuccess(response);
+          },
+          prefill: {
+            name: 'demo',
+            email: 'dhameliyamiral@gmail.com',
+            contact: '9978420331'
+          },
+          theme: {
+            color: '#3399cc'
+          },
+          modal: {
+            ondismiss: () => {
+              console.log("payment  dismissed");
+
+            }
+          }
+        });
+        const handlePaymentSuccess = (response :any) => {
+          const payload = {
+            paymentId : response.razorpay_payment_id,
+            orderId : response.razorpay_order_id
+          }
+
+          this.api.capturePayment(payload).subscribe((res:any) => {
+            if (res) {
+                console.log("res==>>>>" ,res);
+
+            }
+          })
+
+      }
+
+      this.razorpay.open()
+      }
+    });
   }
 }

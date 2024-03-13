@@ -5,14 +5,14 @@ import { SignupComponent } from './signup/signup.component';
 import { ForgotpassComponent } from './forgotpass/forgotpass.component';
 import { HomeComponent } from './web/home/home.component';
 import { BlogDetailComponent } from './web/blog-detail/blog-detail.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common';5
 
 const routes: Routes = [
-  {
-    path:'',
-    redirectTo:'login',
-    pathMatch:'full'
-  },
+  // {
+  //   path:'',
+  //   redirectTo:'login',
+  //   pathMatch:'full'
+  // },
   {
     path:'login',
     component:LoginComponent

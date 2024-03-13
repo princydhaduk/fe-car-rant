@@ -132,6 +132,28 @@ button:hover {
 
 }
 
+.img-fluid {
+  max-width: 100%;
+  height: 280px;
+}
+
+.fleet-icon{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0px 20px;
+}
+
+.title-price{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fa-icon,
+.text-dark1{
+  font-size: 26px;
+}
+
 .col-sm-8 {
   flex: 0 0 auto;
   width: 66.66666667%;
@@ -476,7 +498,7 @@ button:hover {
 }
 
 .cart-icon {
-  font-size: 20px;
+  // font-size: 20px;
   padding-top: 10px;
 }
 
@@ -484,8 +506,25 @@ button:hover {
   margin: 10px 0;
 }
 
-.fleet-title h6 {
+.fleet-title {
   margin-bottom: 30px;
+}
+
+.fleet-title h6{
+  font-size: 20px;
+  margin: 0px;
+}
+
+.fleet-icon,
+.img{
+  color: rgb(104, 103, 103);
+}
+
+.fa-indian-rupee-sign:before, .fa-indian-rupee:before, .fa-inr:before {
+  content: "\e1bc";
+  padding: 4px;
+  text-align: center;
+  align-items: center;
 }
 
 .fleet-specs {

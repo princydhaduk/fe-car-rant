@@ -27,7 +27,7 @@ export class ContactComponent implements OnInit {
       "name":this.contactForm.value.name,
       "email":this.contactForm.value.email,
       "mobile_number":this.contactForm.value.mobile_no,
-      "message":this.contactForm.value.mobile_no,
+      "message":this.contactForm.value.message,
     }
     this.api.saveContact(payload).subscribe((res:any)=>{
       if(res.message){

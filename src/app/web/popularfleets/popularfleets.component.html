@@ -79,7 +79,7 @@
   <section class="sortby-sec">
     <div class="sorting-select select-three">
       <select class="form-controls select" [(ngModel)]="selectFilter.brand">
-        <option value="Brand">Brand</option>
+        <option selected>Brand</option>
         <option>mahindra</option>
         <option>tata harrier</option>
         <option>kia</option>
@@ -147,7 +147,10 @@
             <div class="fleet-title">
               <div class="title">
                 <h4 class="text-dark">{{item.model}}</h4>
-                <h6 class="text-dark">{{item.mileage}} KM</h6>
+                <div class="title-price">
+                  <i class="fa-solid fa-indian-rupee-sign fa-icon " style="font-size: 21px;"></i>
+                  <h6 class="text-drak1">{{item.price}} / Day</h6>
+                </div>
               </div>
               <div class="cart-icon">
                 <i class="fa-regular fa-heart"></i>
@@ -174,10 +177,39 @@
 
               <div class="fleet-icon">
                 <div class="icon">
+                  <!-- <i class="fa fa-snowflake" aria-hidden="true"></i> -->
+                  <img src="../../../assets/images/car-parts-06.svg" alt="" width="18px" height="18px">
+                </div>
+                <div class="text">
+                  <p>{{item.seats}} Persons</p>
+                </div>
+              </div>
+
+              <div class="fleet-icon">
+                <div class="icon">
                   <i class="fa-solid fa-suitcase-rolling"></i>
                 </div>
                 <div class="text">
                   <p>{{item.luggage}}</p>
+                </div>
+              </div>
+
+              <div class="fleet-icon">
+                <div class="icon">
+                  <!-- <i class="fa-solid fa-gauge"></i> -->
+                  <img src="../../../assets/images/car-parts-03.svg" alt="" width="18px" height="18px">
+                </div>
+                <div class="text">
+                  <p>{{item.mileage}} KM</p>
+                </div>
+              </div>
+
+              <div class="fleet-icon">
+                <div class="icon">
+                  <i class="fa-solid fa-indian-rupee-sign"></i>
+                </div>
+                <div class="text">
+                  <p>{{item.price}} / Day</p>
                 </div>
               </div>
             </div>
