@@ -65,6 +65,7 @@ export class HomeComponent implements OnInit {
 
     const payload = {
       "car_id": this.id,
+      "price": this.price,
       "pickup_Location": this.bookForm.value.p_location,
       "dropoff_Location": this.bookForm.value.d_location,
       "date_time_range": `${pick_date}-${drop_date}`,

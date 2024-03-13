@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { elementAt } from 'rxjs';
 import { ApiService } from 'src/app/api.service';
@@ -12,20 +13,14 @@ import { ApiService } from 'src/app/api.service';
 export class PopularfleetsComponent implements OnInit {
   cars: any = [];
   selectFilter: any = {
-    brand: 'Brand',
-    price: 'Price',
-    seats: 'Seats',
-    fuel: 'Fuel'
+    brand: '',
+    price: '',
+    seats: '',
+    fuel: ''
   }
   ele: any = [];
-  url = ''
-  // filters: any = {
-  //   brand: this.cars.brand,
-  //   price: this.cars.price,
-  //   seats: this.cars.seats,
-  //   fuel: this.cars.fuel,
-  // };
-  constructor(private api: ApiService, private toastr: ToastrService) { }
+  url = '';
+  constructor(private api: ApiService, private toastr: ToastrService, private route:Router) { }
 
   ngOnInit(): void {
     this.getData();
@@ -45,7 +40,7 @@ export class PopularfleetsComponent implements OnInit {
 
   applyFilter() {
     // debugger
-    this.url = ""
+    this.url = "";
     if (this.selectFilter.brand !== '') {
       this.url = this.url + "?brand=" + this.selectFilter.brand
     }
@@ -65,6 +60,15 @@ export class PopularfleetsComponent implements OnInit {
 
   sendBooking(item: any): void {
     console.log("item--->>", item);
+
+    debugger
+    if(!localStorage.getItem('token')){
+      debugger
+      this.route.navigate(['/login']);
+    }
+    else{
+      this.route.navigate(['/web/home']);
+    }
 
     this.api.set(item);
   }

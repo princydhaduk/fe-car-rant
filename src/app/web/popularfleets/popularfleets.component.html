@@ -79,7 +79,7 @@
   <section class="sortby-sec">
     <div class="sorting-select select-three">
       <select class="form-controls select" [(ngModel)]="selectFilter.brand">
-        <option value="Brand">Brand</option>
+        <option selected>Brand</option>
         <option>mahindra</option>
         <option>tata harrier</option>
         <option>kia</option>
@@ -148,8 +148,8 @@
               <div class="title">
                 <h4 class="text-dark">{{item.model}}</h4>
                 <div class="title-price">
-                  <i class="fa-solid fa-indian-rupee-sign"></i>
-                  <h6 class="text-dark">{{item.price}} / Day</h6>
+                  <i class="fa-solid fa-indian-rupee-sign fa-icon " style="font-size: 21px;"></i>
+                  <h6 class="text-drak1">{{item.price}} / Day</h6>
                 </div>
               </div>
               <div class="cart-icon">
@@ -178,7 +178,7 @@
               <div class="fleet-icon">
                 <div class="icon">
                   <!-- <i class="fa fa-snowflake" aria-hidden="true"></i> -->
-                  <img src="../../../assets/images/seat.png" alt="" width="18px" height="18px">
+                  <img src="../../../assets/images/car-parts-06.svg" alt="" width="18px" height="18px">
                 </div>
                 <div class="text">
                   <p>{{item.seats}} Persons</p>
@@ -196,7 +196,8 @@
 
               <div class="fleet-icon">
                 <div class="icon">
-                  <i class="fa-solid fa-gauge"></i>
+                  <!-- <i class="fa-solid fa-gauge"></i> -->
+                  <img src="../../../assets/images/car-parts-03.svg" alt="" width="18px" height="18px">
                 </div>
                 <div class="text">
                   <p>{{item.mileage}} KM</p>
@@ -211,10 +212,7 @@
                   <p>{{item.price}} / Day</p>
                 </div>
               </div>
-
-
             </div>
-
 
             <div class="fleet-button">
               <a [routerLink]="['/web/home']" class="btn btn-custom-primary" (click)="sendBooking(item)">Book Now</a>
