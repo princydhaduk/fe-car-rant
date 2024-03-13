@@ -25,6 +25,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
+import { PaymentComponent } from './payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { MatInputModule } from '@angular/material/input';
     ContactComponent,
     TermConditionComponent,
     BookingDetailComponent,
-    CartComponent
+    CartComponent,
+    PaymentComponent
   ],
   imports: [
     CommonModule,

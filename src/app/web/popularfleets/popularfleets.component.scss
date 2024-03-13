@@ -132,6 +132,28 @@ button:hover {
 
 }
 
+.img-fluid {
+  max-width: 100%;
+  height: 300px;
+}
+
+.fleet-icon{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0px 20px;
+}
+
+.title-price{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fa-solid,
+.text-dark{
+  font-size: 26px;
+}
+
 .col-sm-8 {
   flex: 0 0 auto;
   width: 66.66666667%;

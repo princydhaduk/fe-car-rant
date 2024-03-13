@@ -78,17 +78,17 @@
 
   <section class="sortby-sec">
     <div class="sorting-select select-three">
-      <select class="form-controls select" value="Brand" [(ngModel)]="selectFilter.brand">
-        <option value="Brand">Brand</option>
-        <option>mahindra</option>
-        <option>tata harrier</option>
-        <option>kia</option>
-        <option>audi</option>
-        <option>ford</option>
-        <option>chevrolet Camaro</option>
-        <option>toyota</option>
-        <option>skoda</option>
-        <option>honda</option>
+      <select class="form-controls select" name="Brand" [(ngModel)]="selectFilter.brand">
+        <option value="brand" selected>Brand</option>
+        <option value="mahindra" >mahindra</option>
+        <option value="tata harrier" >tata harrier</option>
+        <option value="kia" >kia</option>
+        <option value="audi" >audi</option>
+        <option value="ford" >ford</option>
+        <option value="chevrolet Camaro" >chevrolet Camaro</option>
+        <option value="toyota" >toyota</option>
+        <option value="skoda" >skoda</option>
+        <option value="honda" >honda</option>
       </select>
 
       <select class="form-controls select" [(ngModel)]="selectFilter.price">
@@ -147,7 +147,10 @@
             <div class="fleet-title">
               <div class="title">
                 <h4 class="text-dark">{{item.model}}</h4>
-                <h6 class="text-dark">{{item.mileage}} KM</h6>
+                <div class="title-price">
+                  <i class="fa-solid fa-indian-rupee-sign"></i>
+                  <h6 class="text-dark">{{item.price}} / Day</h6>
+                </div>
               </div>
               <div class="cart-icon">
                 <i class="fa-regular fa-heart"></i>
@@ -174,13 +177,44 @@
 
               <div class="fleet-icon">
                 <div class="icon">
+                  <!-- <i class="fa fa-snowflake" aria-hidden="true"></i> -->
+                  <img src="../../../assets/images/seat.png" alt="" width="18px" height="18px">
+                </div>
+                <div class="text">
+                  <p>{{item.seats}} Persons</p>
+                </div>
+              </div>
+
+              <div class="fleet-icon">
+                <div class="icon">
                   <i class="fa-solid fa-suitcase-rolling"></i>
                 </div>
                 <div class="text">
                   <p>{{item.luggage}}</p>
                 </div>
               </div>
+
+              <div class="fleet-icon">
+                <div class="icon">
+                  <i class="fa-solid fa-gauge"></i>
+                </div>
+                <div class="text">
+                  <p>{{item.mileage}} KM</p>
+                </div>
+              </div>
+
+              <div class="fleet-icon">
+                <div class="icon">
+                  <i class="fa-solid fa-indian-rupee-sign"></i>
+                </div>
+                <div class="text">
+                  <p>{{item.price}} / Day</p>
+                </div>
+              </div>
+
+
             </div>
+
 
             <div class="fleet-button">
               <a [routerLink]="['/web/home']" class="btn btn-custom-primary" (click)="sendBooking(item)">Book Now</a>

@@ -12,6 +12,7 @@ import { PopularfleetsComponent } from './popularfleets/popularfleets.component'
 import { ContactComponent } from './contact/contact.component';
 import { BookingDetailComponent } from './booking-detail/booking-detail.component';
 import { CartComponent } from './cart/cart.component';
+import { PaymentComponent } from './payment/payment.component';
 
 const routes: Routes = [
   {
@@ -55,8 +56,8 @@ const routes: Routes = [
         component:ContactComponent
       },
       {
-        path:'cart',
-        component:CartComponent
+        path:'payment',
+        component:PaymentComponent
       }
     ]
   }

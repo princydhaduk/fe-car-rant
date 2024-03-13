@@ -24,7 +24,7 @@
           <div class="logo">
             <h4>QUICK CARRENT</h4>
             <a [routerLink]="['/web/home']">
-              <!-- <img src="../../../assets/images/Logo 02.png" class="img-fluid" style="height: 50px;"> -->
+              <!-- <img src="../../../assets/images/carlogo.png" class="img-fluid" style="height: 50px;"> -->
             </a>
           </div>
 
@@ -93,7 +93,7 @@
               <div class="row" style="width: 100%;">
                 <label>Drop off Location *</label>
                 <input type="text" name="d_location" class="form-field" placeholder="Car pickup location" formControlName="d_location"/>
-                <span style="color: red; font-size: 13px;" *ngIf="d_locationControl && d_locationControl.touched"> * DropOff location is required..!</span>
+                <span style="color: red; font-size: 13px;" *ngIf="d_locationControl && d_locationControl.invalid &&  d_locationControl.touched"> * DropOff location is required..!</span>
               </div>
 
               <div class="row" style="width: 100%;">
@@ -112,7 +112,7 @@
               <mat-form-field appearance="outline">
                 <mat-label>Enter a date range</mat-label>
                 <mat-date-range-input [rangePicker]="rangePicker" >
-                  <input matStartDate placeholder="Pickup date" formControlName="p_date">
+                  <input matStartDate placeholder="Pickup date" formControlName="p_date" >
                   <input matEndDate placeholder="Dropoff date" formControlName="d_date">
                   <!-- <mat-error *ngIf="checkError('d_date', 'required')">DropOff date is required..!</mat-error> -->
                 </mat-date-range-input>
