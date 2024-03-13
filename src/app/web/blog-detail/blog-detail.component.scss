@@ -11,7 +11,14 @@ $black-color: #000;
 
 body {
   background-color: #5380fc;
+  font-family: 'Roboto', Arial, sans-serif;
 }
+// body {
+//   font-family: 'Roboto', Arial, sans-serif;
+// }
+
+/* Add this declaration to override the existing font-family settings */
+
 
 #navbar {
   background: $light-color;

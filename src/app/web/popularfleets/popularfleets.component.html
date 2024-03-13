@@ -113,10 +113,10 @@
       </select>
 
       <select class="form-controls select" [(ngModel)]="selectFilter.fuel">
-        <option>Fuel</option>
-        <option>petrol</option>
-        <option>diesel</option>
-        <option>CNG</option>
+        <option [ngValue]="'Fuel'">Fuel</option>
+        <option [ngValue]="'petrol'">petrol</option>
+        <option [ngValue]="'diesel'">diesel</option>
+        <option [ngValue]="'CNG'">CNG</option>
       </select>
 
         <button class="apply-btn" (click)="applyFilter()">Apply<i class="fa-solid fa-filter"></i></button>

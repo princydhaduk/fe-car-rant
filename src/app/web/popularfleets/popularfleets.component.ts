@@ -12,9 +12,9 @@ import { ApiService } from 'src/app/api.service';
 export class PopularfleetsComponent implements OnInit {
   cars: any = [];
   selectFilter: any = {
-    brand: 'Brand',
-    price: 'Price',
-    seats: 'Seats',
+    brand: '',
+    price: '',
+    seats: '',
     fuel: 'Fuel'
   }
   ele: any = [];

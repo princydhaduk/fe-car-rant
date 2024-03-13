@@ -8,7 +8,9 @@ $white-color: #fff;
 $primary-rgba: rgba(255, 211, 42, 0.6);
 $secondary-rgba: rgba(255, 63, 52, 0.6);
 $black-color: #000;
-
+// body{
+//   font-family: 'Times New Roman', Times, serif;
+// }
 #navbar {
   background: $light-color;
   padding: 10px 0;
@@ -347,3 +349,49 @@ body{
   background: $secondary-color;
   color: $white-color;
 }
+
+// --------------------
+
+/* Add or modify the following CSS rules in your blog.component.scss file */
+
+// body {
+//   font-family: 'Roboto', Arial, sans-serif; /* Change 'Roboto' to your desired font family */
+// }
+
+// /* Apply font family to specific elements if needed */
+// h1, h2, h3, h4, h5, h6 {
+//   font-family: 'Roboto', Arial, sans-serif; /* Change 'Roboto' to your desired font family */
+// }
+
+// p {
+//   font-family: 'Roboto', Arial, sans-serif; /* Change 'Roboto' to your desired font family */
+// }
+
+// a {
+//   font-family: 'Roboto', Arial, sans-serif; /* Change 'Roboto' to your desired font family */
+// }
+
+// /* Apply font family to the footer section */
+// #footer {
+//   font-family: 'Roboto', Arial, sans-serif; /* Change 'Roboto' to your desired font family */
+// }
+
+// /* Apply font family to specific footer elements if needed */
+// #footer .footer-title,
+// #footer .footer-title-primary,
+// #footer .footer-link,
+// #footer p {
+//   font-family: 'Roboto', Arial, sans-serif; /* Change 'Roboto' to your desired font family */
+// }
+
+// /* Optionally, apply font family to the header section if needed */
+// #navbar {
+//   font-family: 'Roboto', Arial, sans-serif; /* Change 'Roboto' to your desired font family */
+// }
+
+// /* Optionally, apply font family to specific header elements if needed */
+// #navbar h4,
+// #navbar h6,
+// #navbar a {
+//   font-family: 'Roboto', Arial, sans-serif; /* Change 'Roboto' to your desired font family */
+// }
