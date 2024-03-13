@@ -8,13 +8,14 @@ import { ApiService } from 'src/app/api.service';
   templateUrl: './popularfleets.component.html',
   styleUrls: ['./popularfleets.component.scss']
 })
+
 export class PopularfleetsComponent implements OnInit {
   cars: any = [];
   selectFilter: any = {
-    brand: '',
-    price: '',
-    seats: '',
-    fuel: ''
+    brand: 'Brand',
+    price: 'Price',
+    seats: 'Seats',
+    fuel: 'Fuel'
   }
   ele: any = [];
   url = ''
