@@ -58,11 +58,11 @@ export class SignupComponent implements OnInit {
       "gender": this.signupForm.value.gender
     }
 
+    debugger
     this.api.saveData(payload).subscribe((res: any) => {
-      debugger
       if (res.message) {
-        this.route.navigate(['/login'])
         this.toastr.success(res.message);
+        this.route.navigate(['/login']);
       }
       console.log("res:::",res);
     })
