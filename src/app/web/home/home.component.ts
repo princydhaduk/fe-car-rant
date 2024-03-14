@@ -55,12 +55,14 @@ export class HomeComponent implements OnInit {
 
     const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
     const firstDate: any = new Date(pick_date);
-    const secondDate : any= new Date(drop_date);
+    const secondDate : any = new Date(drop_date);
+    let priceMulti : any = this.price;
 
     const daysDifference = Math.round(Math.abs((firstDate - secondDate) / oneDay));
     console.log("days---",daysDifference);
 
-    // const priceDifference = daysDifference * this.price;
+    let priceDifference = daysDifference * priceMulti;
+    console.log("Multi-price---->>",priceDifference);
 
 
     const payload = {
@@ -74,9 +76,9 @@ export class HomeComponent implements OnInit {
     }
     console.log("payload====>>>", payload);
     this.api.saveBooking(payload).subscribe((res: any) => {
-      if (res.message && res.status === 200) {
+      if (res.status === 200) {
         this.toastr.success(res.message);
-        this.route.navigate(['/web/booking-detail'])
+        this.route.navigate(['/web/booking-detail']);
         console.log("res--->", res);
       }
       else {

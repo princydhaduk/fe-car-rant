@@ -16,11 +16,13 @@ export class PopularfleetsComponent implements OnInit {
     brand: '',
     price: '',
     seats: '',
-<<<<<<< HEAD
-    fuel: 'Fuel'
-=======
     fuel: ''
->>>>>>> ca47c89a2de10b2c84d3f158c40c98e7a6431ed8
+  }
+  filters: any = {
+    brand:'Brand',
+    price: 'Price',
+    seats: 'Seats',
+    fuel: 'Fuel'
   }
   ele: any = [];
   url = '';
@@ -65,14 +67,14 @@ export class PopularfleetsComponent implements OnInit {
   sendBooking(item: any): void {
     console.log("item--->>", item);
 
-    debugger
-    if(!localStorage.getItem('token')){
-      debugger
-      this.route.navigate(['/login']);
-    }
-    else{
-      this.route.navigate(['/web/home']);
-    }
+    // debugger
+    // if(!localStorage.getItem('token')){
+    //   debugger
+    //   this.route.navigate(['/login']);
+    // }
+    // else{
+    //   this.route.navigate(['/web/home']);
+    // }
 
     this.api.set(item);
   }

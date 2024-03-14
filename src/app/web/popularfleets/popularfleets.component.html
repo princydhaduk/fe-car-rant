@@ -78,7 +78,7 @@
 
   <section class="sortby-sec">
     <div class="sorting-select select-three">
-      <select class="form-controls select" [(ngModel)]="selectFilter.brand">
+      <select class="form-controls select" [(ngModel)]="selectFilter.brand" [(ngModel)]="filters.brand">
         <option selected>Brand</option>
         <option>mahindra</option>
         <option>tata harrier</option>
@@ -91,7 +91,7 @@
         <option>honda</option>
       </select>
 
-      <select class="form-controls select" [(ngModel)]="selectFilter.price">
+      <select class="form-controls select" [(ngModel)]="selectFilter.price" [(ngModel)]="filters.price">
         <option>Price</option>
         <option>100 - 300</option>
         <option>400 - 600</option>
@@ -102,7 +102,7 @@
         <option>Above 2000</option>
       </select>
 
-      <select class="form-controls select" [(ngModel)]="selectFilter.seats">
+      <select class="form-controls select" [(ngModel)]="selectFilter.seats" [(ngModel)]="filters.seats">
         <option>Seats</option>
         <option>2</option>
         <option>4</option>
@@ -112,7 +112,7 @@
         <option>10</option>
       </select>
 
-      <select class="form-controls select" [(ngModel)]="selectFilter.fuel">
+      <select class="form-controls select" [(ngModel)]="selectFilter.fuel" [(ngModel)]="filters.fuel">
         <option [ngValue]="'Fuel'">Fuel</option>
         <option [ngValue]="'petrol'">petrol</option>
         <option [ngValue]="'diesel'">diesel</option>
