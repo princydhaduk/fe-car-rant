@@ -58,7 +58,7 @@ export class SignupComponent implements OnInit {
       "gender": this.signupForm.value.gender
     }
 
-    debugger
+    // debugger
     this.api.saveData(payload).subscribe((res: any) => {
       if (res.message) {
         this.toastr.success(res.message);

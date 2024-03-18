@@ -8,11 +8,11 @@ import { BlogDetailComponent } from './web/blog-detail/blog-detail.component';
 import { CommonModule } from '@angular/common';5
 
 const routes: Routes = [
-  // {
-  //   path:'',
-  //   redirectTo:'login',
-  //   pathMatch:'full'
-  // },
+  {
+    path:'',
+    redirectTo:'login',
+    pathMatch:'full'
+  },
   {
     path:'login',
     component:LoginComponent

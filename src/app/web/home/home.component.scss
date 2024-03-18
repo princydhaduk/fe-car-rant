@@ -37,6 +37,14 @@ button:hover {
   color: $primary-color;
 }
 
+.btn:disabled, fieldset:disabled .btn {
+  color: var(--bs-btn-disabled-color);
+  pointer-events: none;
+  background-color: #c6c3c3;
+  border-color: var(--bs-btn-disabled-border-color);
+  opacity: var(--bs-btn-disabled-opacity);
+}
+
 .side-nav {
   color: #fff;
   margin-top: 18px;
