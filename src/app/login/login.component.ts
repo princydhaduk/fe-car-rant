@@ -29,10 +29,10 @@ export class LoginComponent implements OnInit {
       "password": this.loginForm.value.password
     }
     this.api.saveLoginData(payload).subscribe((res: any) => {
-      if (res && res.status === 200) {
+      if (res.message) {
         localStorage.setItem('token',res?.token);
-        this.router.navigate(['/web/home']);
         this.toastr.success(res.message);
+        this.router.navigate(['/web/home']);
       }
       else{
         this.toastr.error(res.message);

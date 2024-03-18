@@ -128,7 +128,7 @@
               </mat-form-field>
 
               <button type="submit" name="submit" class="btn btn-custom-dark mt-3"
-                (click)="submitBooking()">PROCEED</button>
+                (click)="submitBooking()" [disabled]="bookForm.invalid">PROCEED</button>
             </form>
           </div>
         </div>
@@ -392,11 +392,11 @@
 
         <div class="col-sm-3">
           <h4 class="footer-title">Newsletter</h4>
-          <form action="#" method="post">
+          <form [formGroup]="subscribeForm">
             <label for="email">Email</label>
-            <input type="email" name="email" placeholder="Email address" class="form-control" required>
+            <input type="email" name="email" placeholder="Email address" class="form-control" formControlName="email">
 
-            <button class="btn btn-custom-primary mt-2" style="width: 100%;">Subscribe Now</button>
+            <button class="btn btn-custom-primary mt-2" style="width: 100%;" (click)="sendSubscribe()">Subscribe Now</button>
           </form>
         </div>
       </div>

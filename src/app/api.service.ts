@@ -123,6 +123,11 @@ export class ApiService {
     return this.http.post(url, payload ,options);
   }
 
+  saveSubscribe(payload: any): Observable<any>{
+    let url = "http://localhost:5000/api/subscribation";
+    return this.http.post(url, payload);    
+  }
+
   set(item: any){
     this.data = item;
   }

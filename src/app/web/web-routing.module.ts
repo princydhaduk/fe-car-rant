@@ -19,11 +19,11 @@ const routes: Routes = [
     path:'',
     component:WebComponent,
     children: [
-      {
-        path:'',
-        redirectTo:'cars',
-        pathMatch:'full'
-      },
+      // {
+      //   path:'',
+      //   redirectTo:'cars',
+      //   pathMatch:'full'
+      // },
       {
         path:'home',
         component:HomeComponent

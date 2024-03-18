@@ -36,7 +36,8 @@ export class BookingDetailComponent implements OnInit {
     'status',
     'action',
   ];
-  razorpay: any
+  razorpay: any;
+  statusColor: String = 'red'; 
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator = Object.create(null);
 
@@ -52,10 +53,9 @@ export class BookingDetailComponent implements OnInit {
     console.log('res_data:::===', this.api.get());
   }
 
-  getBookingList() {
-
+  getBookingList(): void {
+    // debugger
     this.api.getbooking().subscribe((data: any) => {
-      // debugger
       if (data) {
         data.bookings.forEach((ele: any, index: number) => {
           // console.log("price---", ele);
@@ -65,10 +65,20 @@ export class BookingDetailComponent implements OnInit {
           let priceMulti: any = ele.price;
 
           const daysDifference = Math.round(Math.abs((firstDate - secondDate) / oneDay));
-          // console.log("days---", daysDifference);
-
           let priceDifference = daysDifference * priceMulti;
-          // console.log("Multi-price---->>", priceDifference);
+
+          // debugger
+          if(data.status ==='success'){
+            this.statusColor = 'green';
+          }
+          else if(data.status === 'pending'){
+            this.statusColor = 'yellow';
+          }
+          else if(data.status === 'cencel'){
+            this.statusColor = 'red';
+          }
+          console.log("color==",this.statusColor);
+          
 
           const car = data.cars.find((item: any) => ele.car_id === item._id)
           ele['id'] = index + 1;
@@ -107,26 +117,7 @@ export class BookingDetailComponent implements OnInit {
   }
 
   updateRowData(row_obj: any): boolean | any {
-    // this.dataSource.data = this.dataSource.data.filter((value: any) => {
-    //   if (value.id === row_obj.id) {
-    //     value.Name = row_obj.Name;
-    //     value.Position = row_obj.Position;
-    //     value.Email = row_obj.Email;
-    //     value.Mobile = row_obj.Mobile;
-    //     value.DateOfJoining = row_obj.DateOfJoining;
-    //     value.Salary = row_obj.Salary;
-    //     value.Projects = row_obj.Projects;
-    //     value.imagePath = row_obj.imagePath;
-    //   }
-    //   return true;
-    // });
   }
-
-  // deleteRowData(row_obj: any): boolean | any {
-  //   this.dataSource.data = this.dataSource.data.filter((value: any) => {
-  //     return value.plate_number !== row_obj.plate_number;
-  //   });
-  // }
 
   deleteRecords(element: any): void {
     // debugger
@@ -136,23 +127,22 @@ export class BookingDetailComponent implements OnInit {
     const options = {
       headers
     };
-    this.http.post('http://localhost:5000/api/cardelete', { car_id: element.car_id }, options).subscribe((res: any) => {
+    this.http.post('http://localhost:5000/api/bookingcancel', { car_id: element.car_id }, options).subscribe((res: any) => {
       if (res.message) {
         this.toastr.success(res.message);
       }
     });
-    // this.getCarDisplay();
+    // this.getBookingList();
   }
 
-
-  payment(element: any) {
+  payment(element: any): void {
     const payload = {
       "amount": element.price,
       "currency": "INR"
     }
     this.api.sendPayment(payload).subscribe((res: any) => {
       if (res) {
-        debugger
+        // debugger
         console.log("res===>", res);
         this.razorpay = new Razorpay({
           key: 'rzp_test_N1wGv58I7zlIrN',
@@ -173,8 +163,7 @@ export class BookingDetailComponent implements OnInit {
           },
           modal: {
             ondismiss: () => {
-              console.log("payment  dismissed");
-
+              console.log("payment dismissed");
             }
           }
         });
@@ -187,12 +176,9 @@ export class BookingDetailComponent implements OnInit {
           this.api.capturePayment(payload).subscribe((res: any) => {
             if (res) {
               console.log("res==>>>>", res);
-
             }
           })
-
         }
-
         this.razorpay.open()
       }
     });

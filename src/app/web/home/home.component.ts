@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/api.service';
 // import {moment} from 'moment/moment';
@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   bookForm!: FormGroup;
+  subscribeForm!: FormGroup;
   id = '';
   img = '';
   model = '';
@@ -21,7 +22,11 @@ export class HomeComponent implements OnInit {
   secondDate: any;
   daysDifference: any;
 
-  constructor(private formBuilder: FormBuilder, private api: ApiService, private toastr: ToastrService, private route: Router) { }
+  constructor(private formBuilder: FormBuilder, private api: ApiService, private toastr: ToastrService, private route: Router) { 
+    this.subscribeForm = new FormGroup({
+      email: new FormControl('',Validators.required),
+    })
+  }
 
   ngOnInit(): void {
     this.bookForm = this.formBuilder.group({
@@ -48,8 +53,8 @@ export class HomeComponent implements OnInit {
     this.bookForm.controls['p_date'].setValue('');
     this.bookForm.controls['d_date'].setValue('');
   }
-  submitBooking(): void {
 
+  submitBooking(): void {
     const pick_date = moment(this.bookForm.value.p_date).format("YYYY/MM/DD");
     const drop_date = moment(this.bookForm.value.d_date).format("YYYY/MM/DD");
 
@@ -64,7 +69,6 @@ export class HomeComponent implements OnInit {
     let priceDifference = daysDifference * priceMulti;
     console.log("Multi-price---->>",priceDifference);
 
-
     const payload = {
       "car_id": this.id,
       "price": this.price,
@@ -76,16 +80,30 @@ export class HomeComponent implements OnInit {
     }
     console.log("payload====>>>", payload);
     this.api.saveBooking(payload).subscribe((res: any) => {
-      if (res.status === 200) {
-        this.toastr.success(res.message);
+      if (res.message) {
         this.route.navigate(['/web/booking-detail']);
+        this.toastr.success(res.message);
         console.log("res--->", res);
       }
-      else {
-        this.toastr.error(res.message);
-      }
+      // else {
+      //   this.toastr.error(res.message);
+      // }
     });
     this.bookForm.reset();
+  }
+
+  sendSubscribe(): void{
+    const payload = { 
+      "email" : this.subscribeForm.value.email,
+    }
+    console.log("payload....",payload);
+    
+    this.api.saveSubscribe(payload).subscribe((res: any) => {
+      if(res){
+        console.log("responce===",res);
+      }
+    });
+    this.subscribeForm.reset();
   }
 
   public checkError = (controlName: string, errorName: string) => {
