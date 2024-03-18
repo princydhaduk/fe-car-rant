@@ -152,6 +152,15 @@
               </td>
             </ng-container>
 
+            <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">
+                Status
+              </th>
+              <td mat-cell *matCellDef="let element" class="f-s-14">
+                {{ element.status }}
+              </td>
+            </ng-container>
+
             <ng-container matColumnDef="action">
               <th mat-header-cell *matHeaderCellDef class="f-s-16 f-w-600">
                 Action
@@ -160,7 +169,7 @@
                 <a (click)="deleteRecords(element)" class="m-r-10 cursor-pointer" style="color: black; font-size: 16px;">
                   <i class="fa-regular fa-trash-can"></i>
                 </a>
-                <a (click)="payment()" class="m-r-10 cursor-pointer" style="color: black; font-size: 16px; margin-left: 1px;">
+                <a (click)="payment(element)" class="m-r-10 cursor-pointer" style="color: black; font-size: 16px; margin-left: 1px;">
                   <i class="fa-solid fa-money-check"></i>
                 </a>
               </td>
