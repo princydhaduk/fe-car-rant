@@ -26,7 +26,14 @@ export class PopularfleetsComponent implements OnInit {
   }
   ele: any = [];
   url = '';
-  constructor(private api: ApiService, private toastr: ToastrService, private route:Router) { }
+  constructor(private api: ApiService, private toastr: ToastrService, private route:Router) { 
+    // if(this.cars.length == 0){
+    //   this.cars.push('Data is not Found');
+    // }
+    // else{
+    //   this.cars = this.applyFilter;
+    // }
+  }
 
   ngOnInit(): void {
     this.getData();
@@ -59,8 +66,7 @@ export class PopularfleetsComponent implements OnInit {
     if (this.selectFilter.fuel !== '') {
       this.url = this.url + "&fuel=" + this.selectFilter.fuel
     }
-    console.log("this.url::", this.url);
-
+    // console.log("this.url::", this.url);
     this.getData()
   }
 
@@ -78,6 +84,4 @@ export class PopularfleetsComponent implements OnInit {
 
     this.api.set(item);
   }
-
-
 }

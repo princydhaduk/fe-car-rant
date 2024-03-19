@@ -40,8 +40,8 @@ button:hover {
 .btn:disabled, fieldset:disabled .btn {
   color: var(--bs-btn-disabled-color);
   pointer-events: none;
-  background-color: #c6c3c3;
-  border-color: var(--bs-btn-disabled-border-color);
+  background-color: rgb(223, 222, 222);
+  // border-color: var(--bs-btn-disabled-border-color);
   opacity: var(--bs-btn-disabled-opacity);
 }
 

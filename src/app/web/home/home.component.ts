@@ -100,6 +100,7 @@ export class HomeComponent implements OnInit {
     
     this.api.saveSubscribe(payload).subscribe((res: any) => {
       if(res){
+        this.toastr.success(res.message);
         console.log("responce===",res);
       }
     });

@@ -41,7 +41,7 @@
                   <button mat-menu-item [routerLink]="['/web/term-condition']">TERMS
                     & CONDITION</button>
                   <button mat-menu-item [routerLink]="['/web/booking-detail']">MY BOOKING</button>
-                  <button mat-menu-item [routerLink]="['/web/payment']">PAYMENT</button>
+                  <!-- <button mat-menu-item [routerLink]="['/web/payment']">PAYMENT</button> -->
                 </mat-menu>
               </li>
 
@@ -85,13 +85,13 @@
             <form [formGroup]="bookForm">
               <h4 class="text-center">Book Now !!</h4>
               <div class="row" style="width: 100%;">
-                <label class="">Pickup Location *</label>
+                <label class="">Pickup Location*</label>
                 <input type="text" name="p_location"  class="form-field" placeholder="Car pickup location" formControlName="p_location">
                 <span style="color: red; font-size: 13px;" *ngIf="p_locationControl && p_locationControl.invalid && p_locationControl.touched"> * PickUp location is required..!</span>
               </div>
 
               <div class="row" style="width: 100%;">
-                <label>Drop off Location *</label>
+                <label>Drop off Location*</label>
                 <input type="text" name="d_location" class="form-field" placeholder="Car pickup location" formControlName="d_location"/>
                 <span style="color: red; font-size: 13px;" *ngIf="d_locationControl && d_locationControl.invalid &&  d_locationControl.touched"> * DropOff location is required..!</span>
               </div>
@@ -108,7 +108,7 @@
                 <span style="color: red; font-size: 13px;" *ngIf="d_timeControl && d_timeControl.invalid && d_timeControl.touched"> *  DropOff time is required..!</span>
               </div>
 
-              <label>Pickup - Dropoff Date *</label>
+              <label>Pickup - Dropoff Date*</label>
               <mat-form-field appearance="outline">
                 <mat-label>Enter a date range</mat-label>
                 <mat-date-range-input [rangePicker]="rangePicker" >
