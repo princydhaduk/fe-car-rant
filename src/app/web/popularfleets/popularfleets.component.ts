@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { elementAt } from 'rxjs';
@@ -26,7 +27,11 @@ export class PopularfleetsComponent implements OnInit {
   }
   ele: any = [];
   url = '';
+  subscribeForm: FormGroup;
   constructor(private api: ApiService, private toastr: ToastrService, private route:Router) { 
+    this.subscribeForm = new FormGroup({
+      email: new FormControl('',[Validators.required, Validators.email]),
+    })
     // if(this.cars.length == 0){
     //   this.cars.push('Data is not Found');
     // }
@@ -49,6 +54,21 @@ export class PopularfleetsComponent implements OnInit {
         console.log("responce--->>>", this.cars);
       }
     });
+  }
+
+  sendSubscribe(): void{
+    const payload = { 
+      "email" : this.subscribeForm.value.email,
+    }
+    // console.log("payload....",payload);
+    
+    this.api.saveSubscribe(payload).subscribe((res: any) => {
+      if(res.message){
+        this.toastr.success(res.message);
+        console.log("responce===",res);
+      }
+    });
+    this.subscribeForm.reset();
   }
 
   applyFilter() {

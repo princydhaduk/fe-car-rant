@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../api.service';
 import { ToastrService } from 'ngx-toastr';
 import { Route, Router } from '@angular/router';
@@ -22,7 +22,7 @@ export class SignupComponent implements OnInit {
       fname: ['', [Validators.required]],
       lname: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      phoneno: ['', [Validators.required, Validators.minLength(10)]],
+      phoneno: ['', [Validators.required,  phoneNumberValidator()]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       cpassword: ['', [Validators.required]],
       gender: ['', [Validators.required]],
@@ -101,4 +101,16 @@ export class SignupComponent implements OnInit {
       }
     }
   }
+}
+export function phoneNumberValidator() {
+  return (control: AbstractControl): { [key: string]: any } | null => {
+    const mobileControl = control.value;
+    const minLength = 10;
+    const maxLength = 10;
+
+    if (!mobileControl || mobileControl.length < minLength || mobileControl.length > maxLength) {
+      return { 'invalidPhoneNumber': { value: control.value } };
+    }
+    return null;
+  };
 }

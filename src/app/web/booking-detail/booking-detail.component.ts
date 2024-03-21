@@ -1,6 +1,7 @@
 import { NgFor, NgForOf } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
@@ -43,9 +44,13 @@ export class BookingDetailComponent implements OnInit {
   statusColor: String = 'red';
   dataSource: any = [];
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator = Object.create(null);
+  subscribeForm: FormGroup;
 
   constructor(public dialog: MatDialog, private api: ApiService, private toastr: ToastrService, private http: HttpClient) {
     this.filteredItems = this.dataSource?.slice();
+    this.subscribeForm = new FormGroup({
+      email: new FormControl('',[Validators.required, Validators.email]),
+    })
   }
 
   ngOnInit(): void {
@@ -118,6 +123,21 @@ export class BookingDetailComponent implements OnInit {
       }
       console.log("array:::---", this.dataSource);
     });
+  }
+
+  sendSubscribe(): void{
+    const payload = { 
+      "email" : this.subscribeForm.value.email,
+    }
+    // console.log("payload....",payload);
+    
+    this.api.saveSubscribe(payload).subscribe((res: any) => {
+      if(res){
+        // this.toastr.success(res.message);
+        console.log("responce===",res);
+      }
+    });
+    this.subscribeForm.reset();
   }
 
   openDialog(action: string, obj: any): void {

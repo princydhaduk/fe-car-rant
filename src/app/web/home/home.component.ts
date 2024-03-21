@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private api: ApiService, private toastr: ToastrService, private route: Router) { 
     this.subscribeForm = new FormGroup({
-      email: new FormControl('',Validators.required),
+      email: new FormControl('',[Validators.required, Validators.email]),
     })
   }
 

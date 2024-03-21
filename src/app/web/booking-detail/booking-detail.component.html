@@ -6,7 +6,7 @@
           <div class="logo">
             <!-- <h4>QUICK CARRENT</h4> -->
             <a [routerLink]="['/web/home']">
-              <img src="../../../assets/images/carlogo01.png" class="img-fluid" style="height: 50px;">
+              <img src="../../../assets/images/carlogo1.png" class="img-fluid" style="height: 64px;">
             </a>
           </div>
 
@@ -221,11 +221,11 @@
 
         <div class="col-sm-3">
           <h4 class="footer-title">Newsletter</h4>
-          <form action="#" method="post">
+          <form [formGroup]="subscribeForm">
             <label for="email">Email</label>
-            <input type="email" name="email" placeholder="Email address" class="form-control" required>
+            <input type="email" name="email" placeholder="Email address" class="form-control" formControlName="email" required>
 
-            <button class="btn btn-custom-primary mt-2" style="width: 100%;">Subscribe Now</button>
+            <button class="btn btn-custom-primary mt-2" style="width: 100%;" (click)="sendSubscribe()">Subscribe Now</button>
           </form>
         </div>
       </div>

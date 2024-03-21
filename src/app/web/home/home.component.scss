@@ -193,7 +193,7 @@ button:hover {
 }
 .form-field{
   margin-left: 12px;
-  padding: 13px;
+  padding: 13px 13px;
   border: none;
   border: 1px solid rgb(152, 151, 151);
   border-radius: 4px;
@@ -202,6 +202,17 @@ button:hover {
   -ms-border-radius: 4px;
   -o-border-radius: 4px;
 }
+// input{
+//   position: relative;
+// }
+// .loc-icon{
+//   position: absolute;
+//   top: 70.8%;
+//   padding-left: 22px;
+//   font-size: 15px;
+//   color: gray;
+// }
+
 .form-field:hover{
   border: 1px solid $black-color;
 }
@@ -576,12 +587,5 @@ button:hover {
 mat-form-field{
   width: 100%;
   // background-color: #fff;
-
-}
-mat-date-range-input{
-
 }
 
-input{
-
-}

@@ -56,9 +56,7 @@ export class ForgotpassComponent implements OnInit {
         this.otpDailogBox = true;
         this.dailogBox = false;
         this.passDailogBox = false;
-
         console.log("res---",res);
-
       }
     });
     console.log("payload===>>",payload);
@@ -115,9 +113,9 @@ export class ForgotpassComponent implements OnInit {
         this.toastr.success(res.message);
         console.log("res---",res);
       }
-      else{
-        this.toastr.error(res.message);
-      }
+      // else{
+      //   this.toastr.error(res.message);
+      // }
       console.log("payload===>",payload);
     });
   }

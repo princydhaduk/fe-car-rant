@@ -24,10 +24,15 @@
           </div>
           <div class="input-box">
             <input type="text" placeholder="Phone number" formControlName="phoneno">
-            <div class="error-content"
+            <div class="error-content" *ngIf="phonenoValidators && phonenoValidators.dirty && phonenoValidators.touched">
+              <div class="error" *ngIf="phonenoValidators.errors?.['required']"><i class='bx bx-error-circle'></i> Phone number is required.</div>
+              <div class="error" *ngIf="phonenoValidators.errors?.['invalidPhoneNumber']"><i class='bx bx-error-circle'></i> Phone number must be between 10 and 10 characters.</div>
+              <!-- <div *ngIf="mobileControl.errors?.['pattern']">* Only Number is required.</div> -->
+            </div>
+            <!-- <div class="error-content"
               *ngIf="phonenoValidators && phonenoValidators.invalid && phonenoValidators.touched">
               <span class="error"><i class='bx bx-error-circle'></i> Please fill up your phone no..!</span>
-            </div>
+            </div> -->
           </div>
           <div class="input-box">
             <input [type]="show ? 'text' : 'password'" placeholder="Password" formControlName="password"
