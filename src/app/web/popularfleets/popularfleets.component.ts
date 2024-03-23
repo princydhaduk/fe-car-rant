@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
-=======
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
->>>>>>> 17d50bf9f8a4795765885d2e983bc34da5cf21c6
 import { ToastrService } from 'ngx-toastr';
 import { elementAt } from 'rxjs';
 import { ApiService } from 'src/app/api.service';
@@ -20,7 +17,7 @@ export class PopularfleetsComponent implements OnInit {
     brand: '',
     price: '',
     seats: '',
-    fuel: '',
+    fuel: ''
   }
   filters: any = {
     brand:'Brand',
@@ -29,16 +26,6 @@ export class PopularfleetsComponent implements OnInit {
     fuel: 'Fuel'
   }
   ele: any = [];
-<<<<<<< HEAD
-  url = ''
-  // filters: any = {
-  //   brand: this.cars.brand,
-  //   price: this.cars.price,
-  //   seats: this.cars.seats,
-  //   fuel: this.cars.fuel,
-  // };
-  constructor(private api: ApiService, private toastr: ToastrService) { }
-=======
   url = '';
   subscribeForm: FormGroup;
   constructor(private api: ApiService, private toastr: ToastrService, private route:Router) { 
@@ -52,7 +39,6 @@ export class PopularfleetsComponent implements OnInit {
     //   this.cars = this.applyFilter;
     // }
   }
->>>>>>> 17d50bf9f8a4795765885d2e983bc34da5cf21c6
 
   ngOnInit(): void {
     this.getData();
@@ -90,7 +76,7 @@ export class PopularfleetsComponent implements OnInit {
 
   applyFilter() {
     // debugger
-    this.url = ""
+    this.url = "";
     if (this.selectFilter.brand !== '') {
       this.url = this.url + "?brand=" + this.selectFilter.brand
     }
