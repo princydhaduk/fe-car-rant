@@ -61,21 +61,21 @@
 
   <div class="blog-container">
 
-    <div class="blog-box">
+    <div class="blog-box" *ngFor="let item of blog">
       <div class="blog-img">
-        <img alt="blog" src="../../assets/images/kia.jpg">
+        <img alt="blog" [src]="item.img">
       </div>
       <div class="blog-text">
-        <span>18 July 2021 / Web Design</span>
-        <a href="#" class="blog-title">What Has Happened to All of the Web Design Ideas?</a>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate facilis modi veritatis adipisci omnis perferendis deleniti tempore quasi? Explicabo recusandae soluta vel cum perspiciatis consequuntur dolorum distinctio minima voluptate quae?</p>
+        <span>Publish Date / {{item.createdAt | date: 'dd - MM - YYY'}}</span>
+        <a href="#" class="blog-title">{{item.heading}}</a>
+        <p>{{item.details}}</p>
         <div class="link">
-          <a [routerLink]="['/web/blogdetail']">Continue --> </a>
+          <a [routerLink]="['/web/blogdetail']">Continue <i class="fa-solid fa-arrow-right"></i> </a>
         </div>
       </div>
     </div>
 
-    <div class="blog-box">
+    <!-- <div class="blog-box">
       <div class="blog-img">
         <img alt="blog" src="../../assets/images/etios.png">
       </div>
@@ -84,7 +84,7 @@
         <a href="#" class="blog-title">What Has Happened to All of the Web Design Ideas?</a>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate facilis modi veritatis adipisci omnis perferendis deleniti tempore quasi? Explicabo recusandae soluta vel cum perspiciatis consequuntur dolorum distinctio minima voluptate quae?</p>
         <div class="link">
-          <a [routerLink]="['/web/blogdetail']">Continue --> </a>
+          <a [routerLink]="['/web/blogdetail']">Continue </a>
         </div>
       </div>
     </div>
@@ -98,10 +98,10 @@
         <a href="#" class="blog-title">What Has Happened to All of the Web Design Ideas?</a>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate facilis modi veritatis adipisci omnis perferendis deleniti tempore quasi? Explicabo recusandae soluta vel cum perspiciatis consequuntur dolorum distinctio minima voluptate quae?</p>
         <div class="link">
-        <a [routerLink]="['/web/blogdetail']">Continue --> </a>
+        <a [routerLink]="['/web/blogdetail']">Continue </a>
       </div>
       </div>
-    </div>
+    </div> -->
   </div>
 
 </section>

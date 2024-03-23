@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-
   data:any;
+  carlist: any;
   constructor(private http: HttpClient) {
   }
 
@@ -128,6 +128,16 @@ export class ApiService {
     return this.http.post(url, payload);    
   }
 
+  saveCarFilter(payload: any): Observable<any>{
+    let url = "http://localhost:5000/api/carsfilter";
+    return this.http.post(url, payload);
+  }
+
+  getBlog(): Observable<any> {
+    let url = "http://localhost:5000/api/displayBlog";
+    return this.http.get(url);
+  }
+
   set(item: any){
     this.data = item;
   }
@@ -136,4 +146,11 @@ export class ApiService {
     return this.data;
   }
 
+  setData(item: any){
+    this.carlist = item;
+  }
+
+  getData(){
+    return this.carlist;
+  }
 }

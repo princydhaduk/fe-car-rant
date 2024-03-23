@@ -13,6 +13,7 @@ import { ContactComponent } from './contact/contact.component';
 import { BookingDetailComponent } from './booking-detail/booking-detail.component';
 import { CartComponent } from './cart/cart.component';
 import { PaymentComponent } from './payment/payment.component';
+import { BookcarComponent } from './bookcar/bookcar.component';
 
 const routes: Routes = [
   {
@@ -59,6 +60,10 @@ const routes: Routes = [
       {
         path:'contact',
         component:ContactComponent
+      },
+      {
+        path:'bookcar',
+        component:BookcarComponent
       },
       // {
       //   path:'payment',
