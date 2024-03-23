@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   bookForm!: FormGroup;
   subscribeForm!: FormGroup;
+  carFilterForm!: FormGroup;
   id = '';
   img = '';
   model = '';
@@ -24,19 +25,27 @@ export class HomeComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private api: ApiService, private toastr: ToastrService, private route: Router) { 
     this.subscribeForm = new FormGroup({
-      email: new FormControl('',[Validators.required, Validators.email]),
+      email: new FormControl('',(Validators.required, Validators.email)),
     })
   }
 
   ngOnInit(): void {
-    this.bookForm = this.formBuilder.group({
-      p_location: ['', Validators.required],
-      d_location: ['', (Validators.required, Validators.minLength(4))],
-      p_time: ['', Validators.required],
-      d_time: ['', Validators.required],
-      p_date: ['', Validators.required],
-      d_date: ['', Validators.required],
-    })
+    // this.bookForm = this.formBuilder.group({
+    //   p_location: ['', Validators.required],
+    //   d_location: ['', (Validators.required, Validators.minLength(4))],
+    //   p_time: ['', Validators.required],
+    //   d_time: ['', Validators.required],
+    //   p_date: ['', Validators.required],
+    //   d_date: ['', Validators.required],
+    // });
+
+    this.carFilterForm = this.formBuilder.group({
+      p_location: ['',Validators.required],
+      d_location: ['',Validators.required],
+      pickDate: ['',Validators.required],
+      dropDate: ['',Validators.required],
+    });
+    
     this.id = this.api.get()._id;
     this.price = this.api.get().price;
     console.log("getdata--->", this.api.get());
@@ -55,61 +64,79 @@ export class HomeComponent implements OnInit {
   }
 
   submitBooking(): void {
-    const pick_date = moment(this.bookForm.value.p_date).format("YYYY/MM/DD");
-    const drop_date = moment(this.bookForm.value.d_date).format("YYYY/MM/DD");
+    // const pick_date = moment(this.bookForm.value.p_date).format("YYYY/MM/DD");
+    // const drop_date = moment(this.bookForm.value.d_date).format("YYYY/MM/DD");
 
-    const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
-    const firstDate: any = new Date(pick_date);
-    const secondDate : any = new Date(drop_date);
-    let priceMulti : any = this.price;
+    // const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+    // const firstDate: any = new Date(pick_date);
+    // const secondDate : any = new Date(drop_date);
+    // let priceMulti : any = this.price;
 
-    const daysDifference = Math.round(Math.abs((firstDate - secondDate) / oneDay));
-    console.log("days---",daysDifference);
+    // const daysDifference = Math.round(Math.abs((firstDate - secondDate) / oneDay));
+    // console.log("days---",daysDifference);
 
-    let priceDifference = daysDifference * priceMulti;
-    console.log("Multi-price---->>",priceDifference);
+    // let priceDifference = daysDifference * priceMulti;
+    // console.log("Multi-price---->>",priceDifference);
 
-    const payload = {
-      "car_id": this.id,
-      "price": this.price,
-      "pickup_Location": this.bookForm.value.p_location,
-      "dropoff_Location": this.bookForm.value.d_location,
-      "date_time_range": `${pick_date}-${drop_date}`,
-      "pickup_time": this.bookForm.value.p_time,
-      "return_time": this.bookForm.value.d_time,
-    }
-    console.log("payload====>>>", payload);
-    this.api.saveBooking(payload).subscribe((res: any) => {
-      if (res.message) {
-        this.route.navigate(['/web/booking-detail']);
-        this.toastr.success(res.message);
-        console.log("res--->", res);
-      }
+    // const payload = {
+    //   "car_id": this.id,
+    //   "price": this.price,
+    //   "pickup_Location": this.bookForm.value.p_location,
+    //   "dropoff_Location": this.bookForm.value.d_location,
+    //   "date_time_range": `${pick_date}-${drop_date}`,
+    //   "pickup_time": this.bookForm.value.p_time,
+    //   "return_time": this.bookForm.value.d_time,
+    // }
+    // this.api.saveBooking(payload).subscribe((res: any) => {
+    //   if (res.message) {
+    //     this.route.navigate(['/web/booking-detail']);
+    //     this.toastr.success(res.message);
+    //     // console.log("res--->", res);
+    //   }
       // else {
       //   this.toastr.error(res.message);
       // }
+    // });
+    // this.bookForm.reset();
+  }
+
+  searchCar(): void{
+    // console.log("setdata--",item);
+    
+    const p_date = moment(this.carFilterForm.value.pickDate).format("DD/MM/YYYY");
+    const d_date = moment(this.carFilterForm.value.dropDate).format("DD/MM/YYYY");
+    
+    const payload = {
+      "pickup_Location": this.carFilterForm.value.p_location,
+      "dropoff_Location": this.carFilterForm.value.d_location,
+      "date_time_range": `${p_date}-${d_date}`
+    }
+    this.api.saveCarFilter(payload).subscribe((res: any) => {
+      if(res){
+        this.route.navigate(['/web/cars']);
+        console.log("res====",res);
+      }
+      this.api.setData(res);
     });
-    this.bookForm.reset();
+    this.carFilterForm.reset();
   }
 
   sendSubscribe(): void{
     const payload = { 
       "email" : this.subscribeForm.value.email,
     }
-    console.log("payload....",payload);
-    
     this.api.saveSubscribe(payload).subscribe((res: any) => {
       if(res){
         this.toastr.success(res.message);
-        console.log("responce===",res);
+        // console.log("responce===",res);
       }
     });
     this.subscribeForm.reset();
   }
 
-  public checkError = (controlName: string, errorName: string) => {
-    return this.bookForm.controls[controlName].hasError(errorName);
-  }
+  // public checkError = (controlName: string, errorName: string) => {
+  //   return this.bookForm.controls[controlName].hasError(errorName);
+  // }
   get p_locationControl() {
     return this.bookForm.get('p_location');
   }

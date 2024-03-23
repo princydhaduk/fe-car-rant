@@ -26,6 +26,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { PaymentComponent } from './payment/payment.component';
+import { BookcarComponent } from './bookcar/bookcar.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { PaymentComponent } from './payment/payment.component';
     TermConditionComponent,
     BookingDetailComponent,
     CartComponent,
-    PaymentComponent
+    PaymentComponent,
+    BookcarComponent
   ],
   imports: [
     CommonModule,

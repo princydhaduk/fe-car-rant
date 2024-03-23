@@ -47,11 +47,15 @@ export class PopularfleetsComponent implements OnInit {
   getData() {
     this.api.getCar(this.url).subscribe((res: any) => {
       if (res) {
-        res.forEach((ele: any) => {
+        this.cars = res;
+        if(this.api.getData() !== undefined){
+          this.cars = this.api.getData().carlist; 
+        }
+        this.cars.forEach((ele: any) => {
           ele['img'] = '../../../assets/images/' + ele.Image;
         });
-        this.cars = res;
         console.log("responce--->>>", this.cars);
+        // console.log("getdata-->",this.api.getData());
       }
     });
   }
@@ -61,7 +65,6 @@ export class PopularfleetsComponent implements OnInit {
       "email" : this.subscribeForm.value.email,
     }
     // console.log("payload....",payload);
-    
     this.api.saveSubscribe(payload).subscribe((res: any) => {
       if(res.message){
         this.toastr.success(res.message);
@@ -91,7 +94,7 @@ export class PopularfleetsComponent implements OnInit {
   }
 
   sendBooking(item: any): void {
-    console.log("item--->>", item);
+    console.log("items--->>", item);
 
     // debugger
     // if(!localStorage.getItem('token')){

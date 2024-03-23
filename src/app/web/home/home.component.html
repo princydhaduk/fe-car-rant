@@ -40,6 +40,7 @@
                   <button mat-menu-item [routerLink]="['/web/services']">SERVICES</button>
                   <button mat-menu-item [routerLink]="['/web/term-condition']">TERMS
                     & CONDITION</button>
+                  <button mat-menu-item [routerLink]="['/web/bookcar']">BOOK CAR</button>
                   <button mat-menu-item [routerLink]="['/web/booking-detail']">MY BOOKING</button>
                   <!-- <button mat-menu-item [routerLink]="['/web/payment']">PAYMENT</button> -->
                 </mat-menu>
@@ -77,47 +78,54 @@
           <p class="text-light">Book a ride anytime, anywhere – our services are available round the clock,Car rental
             services provide individuals or businesses with the option to temporarily use a vehicle for a specified
             period, typically ranging from a few hours to several days or weeks.</p>
-          <a [routerLink]="['/web/cars']" class="btn btn-custom-primary">View all cars</a>
+            <button [routerLink]="['/web/cars']" class="btn btn-custom-dark">View All Cars<i class="fa-solid fa-arrow-right" style="padding-left: 10px;"></i></button>
         </div>
 
-        <div class="col-sm-5">
+        <!-- <div class="col-sm-5">
           <div class="form">
             <form [formGroup]="bookForm">
               <h4 class="text-center">Book Now !!</h4>
               <div class="row" style="width: 100%;">
                 <label class="">Pickup Location*</label>
-                <input type="text" name="p_location"  class="form-field"  placeholder="Enter pickup location" formControlName="p_location">
-                <!-- <i class="fa-solid fa-location-dot"></i> -->
+                <input type="text" name="p_location" class="form-field" placeholder="Enter pickup location"
+                  formControlName="p_location">
                 <i class="fa-solid fa-location-dot" class="loc-icon"></i>
-                <span style="color: red; font-size: 13px;" *ngIf="p_locationControl && p_locationControl.invalid && p_locationControl.touched"> * PickUp location is required..!</span>
+                <span style="color: red; font-size: 13px;"
+                  *ngIf="p_locationControl && p_locationControl.invalid && p_locationControl.touched"> * PickUp location
+                  is required..!</span>
               </div>
 
               <div class="row" style="width: 100%;">
                 <label>Drop off Location*</label>
-                <input type="text" name="d_location" class="form-field" placeholder="Enter Drop location" formControlName="d_location"/>
-                <!-- <i class="fa-solid fa-location-dot"></i> -->
-                <span style="color: red; font-size: 13px;" *ngIf="d_locationControl && d_locationControl.invalid &&  d_locationControl.touched"> * DropOff location is required..!</span>
+                <input type="text" name="d_location" class="form-field" placeholder="Enter Drop location"
+                  formControlName="d_location" />
+                <span style="color: red; font-size: 13px;"
+                  *ngIf="d_locationControl && d_locationControl.invalid &&  d_locationControl.touched"> * DropOff
+                  location is required..!</span>
               </div>
 
               <div class="row" style="width: 100%;">
                 <label>Pickup Time* </label>
                 <input type="time" name="p_time" class="form-field" placeholder="HH:MM" formControlName="p_time">
-                <span style="color: red; font-size: 13px;" *ngIf="p_timeControl && p_timeControl.invalid && p_timeControl.touched"> *   pickUp time is required..!</span>
+                <span style="color: red; font-size: 13px;"
+                  *ngIf="p_timeControl && p_timeControl.invalid && p_timeControl.touched"> * pickUp time is
+                  required..!</span>
               </div>
 
               <div class="row" style="width: 100%;">
                 <label>Return Time* </label><br>
-                <input type="time" name="d_time"  class="form-field" formControlName="d_time">
-                <span style="color: red; font-size: 13px;" *ngIf="d_timeControl && d_timeControl.invalid && d_timeControl.touched"> *  DropOff time is required..!</span>
+                <input type="time" name="d_time" class="form-field" formControlName="d_time">
+                <span style="color: red; font-size: 13px;"
+                  *ngIf="d_timeControl && d_timeControl.invalid && d_timeControl.touched"> * DropOff time is
+                  required..!</span>
               </div>
 
               <label>Pickup - Dropoff Date*</label>
               <mat-form-field appearance="outline">
                 <mat-label>Enter a date range</mat-label>
-                <mat-date-range-input [rangePicker]="rangePicker" >
-                  <input matStartDate placeholder="Pickup date" formControlName="p_date" >
+                <mat-date-range-input [rangePicker]="rangePicker">
+                  <input matStartDate placeholder="Pickup date" formControlName="p_date">
                   <input matEndDate placeholder="Dropoff date" formControlName="d_date">
-                  <!-- <mat-error *ngIf="checkError('d_date', 'required')">DropOff date is required..!</mat-error> -->
                 </mat-date-range-input>
                 <mat-datepicker-toggle matSuffix [for]="rangePicker"></mat-datepicker-toggle>
                 <mat-date-range-picker #rangePicker>
@@ -130,14 +138,68 @@
                 <mat-error *ngIf="checkError('p_date', 'required')">* Enter valid date range..!</mat-error>
               </mat-form-field>
 
-              <button type="submit" name="submit" class="btn btn-custom-dark mt-3"
-                (click)="submitBooking()" [disabled]="bookForm.invalid">PROCEED</button>
+              <button type="submit" name="submit" class="btn btn-custom-dark mt-3" (click)="submitBooking()"
+                [disabled]="bookForm.invalid">PROCEED</button>
             </form>
           </div>
-        </div>
+        </div> -->
+
       </div>
     </div>
   </section>
+  <div class="container">
+    <div class="search-box-banner">
+      <form [formGroup]="carFilterForm">
+        <ul>
+          <li>
+            <div class="inline-block">
+              <label for="" style="margin-left: 10px;">PickUp Location</label>
+            </div>
+            <div class="group-img">
+              <input type="text" name="p_location" class="form-field-set" placeholder="Enter PickUp Location" formControlName="p_location">
+            </div>
+          </li>
+          <li>
+            <div class="inline-block">
+              <label for="" style="margin-left: 10px;">DropOff Location</label>
+            </div>
+            <div class="group-img">
+              <input type="text" name="d_location" class="form-field-set" placeholder="Enter DropOff Location" formControlName="d_location">
+            </div>
+          </li>
+          <li>
+            <div class="inline-block">
+              <label for="" style="margin-top: 23px;">PickUp - DropOff Date</label>
+            </div>
+            <div class="group-img">
+              <mat-form-field appearance="outline">
+                <mat-label>Enter a date range</mat-label>
+                <mat-date-range-input [rangePicker]="rangePicker">
+                  <input matStartDate placeholder="Pickup date" formControlName="pickDate">
+                  <input matEndDate placeholder="Dropoff date" formControlName="dropDate">
+                </mat-date-range-input>
+                <mat-datepicker-toggle matSuffix [for]="rangePicker"></mat-datepicker-toggle>
+                <mat-date-range-picker #rangePicker>
+                  <mat-date-range-picker-actions>
+                    <button mat-button matDateRangePickerCancel>Cancel</button>
+                    <button mat-raised-button color="primary" matDateRangePickerApply>Apply</button>
+                  </mat-date-range-picker-actions>
+                </mat-date-range-picker>
+                <!-- <mat-error *ngIf="checkError('pickDate', 'required')">* Enter valid date range..!</mat-error> -->
+              </mat-form-field>
+            </div>
+          </li>
+          <li>
+            <div class="inline-block">
+              <div class="search-btn">
+                <button type="submit" class="btn search-button" (click)="searchCar()"><i class="fa-solid fa-magnifying-glass"></i>Search Car</button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </div>
 
   <section id="about">
     <div class="container pt-5">
@@ -397,9 +459,11 @@
           <h4 class="footer-title">Newsletter</h4>
           <form [formGroup]="subscribeForm">
             <label for="email">Email</label>
-            <input type="email" name="email" placeholder="Email address" class="form-control" formControlName="email" required>
+            <input type="email" name="email" placeholder="Email address" class="form-control" formControlName="email"
+              required>
 
-            <button class="btn btn-custom-primary mt-2" style="width: 100%;" (click)="sendSubscribe()">Subscribe Now</button>
+            <button class="btn btn-custom-primary mt-2" style="width: 100%;" (click)="sendSubscribe()">Subscribe
+              Now</button>
           </form>
         </div>
       </div>

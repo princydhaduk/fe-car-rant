@@ -138,7 +138,6 @@
 
       <div class="row pb-5">
         <div class="col-sm-4 mb-2" *ngFor="let item of cars;">
-          <!-- vnksdjkfdjs {{ item }} -->
           <div class="fleet-box text-center">
             <div class="fleet-img">
               <img [src]="item.img" class="img-fluid">
@@ -176,7 +175,6 @@
 
               <div class="fleet-icon">
                 <div class="icon">
-                  <!-- <i class="fa fa-snowflake" aria-hidden="true"></i> -->
                   <img src="../../../assets/images/car-parts-06.svg" alt="" width="18px" height="18px">
                 </div>
                 <div class="text">
@@ -195,7 +193,6 @@
 
               <div class="fleet-icon">
                 <div class="icon">
-                  <!-- <i class="fa-solid fa-gauge"></i> -->
                   <img src="../../../assets/images/car-parts-03.svg" alt="" width="18px" height="18px">
                 </div>
                 <div class="text">
@@ -214,7 +211,7 @@
             </div>
 
             <div class="fleet-button">
-              <a [routerLink]="['/web/home']" class="btn btn-custom-primary" (click)="sendBooking(item)">Book Now</a>
+              <a [routerLink]="['/web/bookcar']" class="btn btn-custom-primary" (click)="sendBooking(item)">Book Now</a>
             </div>
           </div>
         </div>
