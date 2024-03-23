@@ -22,9 +22,9 @@
       <div class="row">
         <div class="col-sm-12 d-flex" style="justify-content: space-between; align-items: center;">
           <div class="logo">
-            <h4>QUICK CARRENT</h4>
+            <!-- <h4>QUICK CARRENT</h4> -->
             <a [routerLink]="['/web/home']">
-              <!-- <img src="../../../assets/images/Logo 02.png" class="img-fluid" style="height: 50px;"> -->
+              <img src="../../../assets/images/carlogo1.png" class="img-fluid" style="height: 64px;">
             </a>
           </div>
 
@@ -41,7 +41,7 @@
                   <button mat-menu-item [routerLink]="['/web/term-condition']">TERMS
                     & CONDITION</button>
                   <button mat-menu-item [routerLink]="['/web/booking-detail']">MY BOOKING</button>
-                  <button mat-menu-item [routerLink]="['/web/payment']">PAYMENT</button>
+                  <!-- <button mat-menu-item [routerLink]="['/web/payment']">PAYMENT</button> -->
                 </mat-menu>
               </li>
 
@@ -136,7 +136,12 @@
                     <span style="color: red; font-size: 13px;" *ngIf="emailControl && emailControl.invalid && emailControl.touched"> * Please enter valid email..!</span>
                     <input type="email" class="field" placeholder="Your Email" formControlName="email">
 
-                    <span style="color: red; font-size: 13px;" *ngIf="mobileControl && mobileControl.invalid && mobileControl.touched"> * Please enter valid phone no..!</span>
+                    <div style="color: red; font-size: 13px;" *ngIf="mobileControl && mobileControl.dirty && mobileControl.touched">
+                      <div *ngIf="mobileControl.errors?.['required']">* Phone number is required.</div>
+                      <div *ngIf="mobileControl.errors?.['invalidPhoneNumber']">* Phone number must be between 10 and 10 characters.</div>
+                      <!-- <div *ngIf="mobileControl.errors?.['pattern']">* Only Number is required.</div> -->
+                    </div>
+                    <!-- <span style="color: red; font-size: 13px;" *ngIf="mobileControl && mobileControl.invalid && mobileControl.touched"> * Please enter valid phone no..!</span> -->
                     <input type="text" class="field" placeholder="Phone" formControlName="mobile_no">
 
                     <span style="color: red; font-size: 13px;" *ngIf="msgControl && msgControl.invalid && msgControl.touched"> * Message is required..!</span>
@@ -188,11 +193,11 @@
 
             <div class="col-sm-3">
               <h4 class="footer-title">Newsletter</h4>
-              <form action="#" method="post">
+              <form [formGroup]="subscribeForm">
                 <label for="email">Email</label>
-                <input type="email" name="email" placeholder="Email address" class="form-control" required>
-
-                <button class="btn btn-custom-primary mt-2" style="width: 100%;">Subscribe Now</button>
+                <input type="email" name="email" placeholder="Email address" class="form-control" formControlName="email" required>
+    
+                <button class="btn btn-custom-primary mt-2" style="width: 100%;" (click)="sendSubscribe()">Subscribe Now</button>
               </form>
             </div>
           </div>

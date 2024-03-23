@@ -22,9 +22,9 @@
       <div class="row">
         <div class="col-sm-12 d-flex" style="justify-content: space-between; align-items: center;">
           <div class="logo">
-            <h4>QUICK CARRENT</h4>
+            <!-- <h4>QUICK CARRENT</h4> -->
             <a [routerLink]="['/web/home']">
-              <!-- <img src="../../../assets/images/Logo 02.png" class="img-fluid" style="height: 50px;"> -->
+              <img src="../../../assets/images/carlogo1.png" class="img-fluid" style="height: 64px;">
             </a>
           </div>
 
@@ -41,7 +41,7 @@
                   <button mat-menu-item [routerLink]="['/web/term-condition']">TERMS
                     & CONDITION</button>
                   <button mat-menu-item [routerLink]="['/web/booking-detail']">MY BOOKING</button>
-                  <button mat-menu-item [routerLink]="['/web/payment']">PAYMENT</button>
+                  <!-- <button mat-menu-item [routerLink]="['/web/payment']">PAYMENT</button> -->
                 </mat-menu>
               </li>
 
@@ -94,17 +94,16 @@
       <select class="form-controls select" [(ngModel)]="selectFilter.price" [(ngModel)]="filters.price">
         <option>Price</option>
         <option>100 - 300</option>
-        <option>400 - 600</option>
-        <option>700 - 900</option>
-        <option>1000 - 1300</option>
-        <option>1400 - 1600</option>
-        <option>1700 - 1900</option>
+        <option>300 - 600</option>
+        <option>600 - 900</option>
+        <option>900 - 1300</option>
+        <option>1500 - 1600</option>
+        <option>1600 - 1900</option>
         <option>Above 2000</option>
       </select>
 
       <select class="form-controls select" [(ngModel)]="selectFilter.seats" [(ngModel)]="filters.seats">
         <option>Seats</option>
-        <option>2</option>
         <option>4</option>
         <option>5</option>
         <option>6</option>
@@ -570,11 +569,8 @@
         </div>
       </div> -->
 
-
     </div>
   </section>
-
-
 
   <section id="testimonials">
     <div class="container">
@@ -670,11 +666,11 @@
 
         <div class="col-sm-3">
           <h4 class="footer-title">Newsletter</h4>
-          <form action="#" method="post">
+          <form [formGroup]="subscribeForm">
             <label for="email">Email</label>
-            <input type="email" name="email" placeholder="Email address" class="form-control" required>
+            <input type="email" name="email" placeholder="Email address" class="form-control" formControlName="email" required>
 
-            <button class="btn btn-custom-primary mt-2" style="width: 100%;">Subscribe Now</button>
+            <button class="btn btn-custom-primary mt-2" style="width: 100%;" (click)="sendSubscribe()">Subscribe Now</button>
           </form>
         </div>
       </div>

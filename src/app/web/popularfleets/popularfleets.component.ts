@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
+=======
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+>>>>>>> 17d50bf9f8a4795765885d2e983bc34da5cf21c6
 import { ToastrService } from 'ngx-toastr';
 import { elementAt } from 'rxjs';
 import { ApiService } from 'src/app/api.service';
@@ -24,6 +29,7 @@ export class PopularfleetsComponent implements OnInit {
     fuel: 'Fuel'
   }
   ele: any = [];
+<<<<<<< HEAD
   url = ''
   // filters: any = {
   //   brand: this.cars.brand,
@@ -32,6 +38,21 @@ export class PopularfleetsComponent implements OnInit {
   //   fuel: this.cars.fuel,
   // };
   constructor(private api: ApiService, private toastr: ToastrService) { }
+=======
+  url = '';
+  subscribeForm: FormGroup;
+  constructor(private api: ApiService, private toastr: ToastrService, private route:Router) { 
+    this.subscribeForm = new FormGroup({
+      email: new FormControl('',[Validators.required, Validators.email]),
+    })
+    // if(this.cars.length == 0){
+    //   this.cars.push('Data is not Found');
+    // }
+    // else{
+    //   this.cars = this.applyFilter;
+    // }
+  }
+>>>>>>> 17d50bf9f8a4795765885d2e983bc34da5cf21c6
 
   ngOnInit(): void {
     this.getData();
@@ -49,6 +70,21 @@ export class PopularfleetsComponent implements OnInit {
     });
   }
 
+  sendSubscribe(): void{
+    const payload = { 
+      "email" : this.subscribeForm.value.email,
+    }
+    // console.log("payload....",payload);
+    
+    this.api.saveSubscribe(payload).subscribe((res: any) => {
+      if(res.message){
+        this.toastr.success(res.message);
+        console.log("responce===",res);
+      }
+    });
+    this.subscribeForm.reset();
+  }
+
   applyFilter() {
     // debugger
     this.url = ""
@@ -64,8 +100,7 @@ export class PopularfleetsComponent implements OnInit {
     if (this.selectFilter.fuel !== '') {
       this.url = this.url + "&fuel=" + this.selectFilter.fuel
     }
-    console.log("this.url::", this.url);
-
+    // console.log("this.url::", this.url);
     this.getData()
   }
 
@@ -83,6 +118,4 @@ export class PopularfleetsComponent implements OnInit {
 
     this.api.set(item);
   }
-
-
 }
