@@ -64,7 +64,6 @@
     </div>
   </section>
 
-
   <section id="page-header">
     <div class="container">
       <div class="row">
@@ -112,17 +111,16 @@
       </select>
 
       <select class="form-controls select" [(ngModel)]="selectFilter.fuel" [(ngModel)]="filters.fuel">
-        <option>Fuel</option>
-        <option>petrol</option>
-        <option>diesel</option>
-        <option>CNG</option>
+        <option [ngValue]="'Fuel'">Fuel</option>
+        <option [ngValue]="'petrol'">petrol</option>
+        <option [ngValue]="'diesel'">diesel</option>
+        <option [ngValue]="'CNG'">CNG</option>
       </select>
 
         <button class="apply-btn" (click)="applyFilter()">Apply<i class="fa-solid fa-filter"></i></button>
 
     </div>
   </section>
-
 
   <section id="fleets" class="car-listing">
     <div class="container">
@@ -145,7 +143,10 @@
             <div class="fleet-title">
               <div class="title">
                 <h4 class="text-dark">{{item.model}}</h4>
-                <h6 class="text-dark">{{item.mileage}} KM</h6>
+                <div class="title-price">
+                  <i class="fa-solid fa-indian-rupee-sign fa-icon " style="font-size: 21px;"></i>
+                  <h6 class="text-drak1">{{item.price}} / Day</h6>
+                </div>
               </div>
               <div class="cart-icon">
                 <i class="fa-regular fa-heart"></i>
@@ -190,7 +191,6 @@
 
               <div class="fleet-icon">
                 <div class="icon">
-                  <!-- <i class="fa-solid fa-gauge"></i> -->
                   <img src="../../../assets/images/car-parts-03.svg" alt="" width="18px" height="18px">
                 </div>
                 <div class="text">
@@ -672,24 +672,22 @@
         </div>
 
         <div class="col-sm-3">
-          <h4 class="footer-title">Quick Links</h4>
-          <!-- E:\NodeJs_Prc_FOLDER\git project\FE-CAR-RENT-USER\fe-car-rant\src\app\web\about\about.component.html -->
-          <a href="../../about/about.component.html" class="footer-link">HOME</a>
-          <a href="popular-fleets.php" class="footer-link">PAGES</a>
-          <a href="self-drive.php" class="footer-link">BLOGS</a>
-          <a href="pay-now.php" class="footer-link">ALL CARS</a>
-          <a href="contact-us.php" class="footer-link">CONTACT</a>
-      </div>
+          <h4 class="footer-title">Usefull Links</h4>
+          <a [routerLink]="['/web/home']" class="footer-link">HOME</a>
+          <a [routerLink]="['/web/about']" class="footer-link">PAGES</a>
+          <a [routerLink]="['/web/bloglist']" class="footer-link">BLOGS</a>
+          <a [routerLink]="['/web/cars']" class="footer-link">ALL CARS</a>
+          <a [routerLink]="['/web/contact']" class="footer-link">CONTACT</a>
+        </div>
 
-
-      <div class="col-sm-3">
-        <h4 class="footer-title">Our Office</h4>
-        <h6 class="footer-title-primary">Location:</h6>
-        <p>Lala Devidayal Rd, Mulund West, Mumbai, Maharashtra-400080</p>
-        <h6 class="footer-title-primary">Join us</h6>
-        <p>SpeedyWheels.com</p>
-        <p><a href="tel:+917063086847" style="color: #fff; text-decoration: none;">+91-8167540298</a></p>
-      </div>
+        <div class="col-sm-3">
+          <h4 class="footer-title">Head Office</h4>
+          <h6 class="footer-title-primary">Location:</h6>
+          <p>Lala Devidayal Rd, Mulund West, Mumbai, Maharashtra - 400080</p>
+          <h6 class="footer-title-primary">Join us</h6>
+          <p>info@jaincarrentals.com</p>
+          <p><a href="tel:+917063086847" style="color: #fff; text-decoration:overline none;">+91-8167540298</a></p>
+        </div>
 
         <div class="col-sm-3">
           <h4 class="footer-title">Newsletter</h4>
@@ -721,3 +719,5 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
+	

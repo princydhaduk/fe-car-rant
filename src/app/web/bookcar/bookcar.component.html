@@ -2,364 +2,363 @@
 
 <body>
 
-    <section id="navbar">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 d-flex" style="justify-content: space-between; align-items: center;">
-                    <div class="logo">
-                        <!-- <h4>QUICK CARRENT</h4> -->
-                        <a [routerLink]="['/web/home']">
-                            <img src="../../../assets/images/carlogo1.png" class="img-fluid" style="height: 64px;">
-                        </a>
-                    </div>
+  <section id="navbar">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 d-flex" style="justify-content: space-between; align-items: center;">
+          <div class="logo">
+            <!-- <h4>QUICK CARRENT</h4> -->
+            <a [routerLink]="['/web/home']">
+              <img src="../../../assets/images/carlogo1.png" class="img-fluid" style="height: 64px;">
+            </a>
+          </div>
 
-                    <div class="side-nav">
-                        <ul style="display: flex; justify-content: center;">
+          <div class="side-nav">
+            <ul style="display: flex; justify-content: center;">
 
-                            <li><a [routerLink]="['/web/home']" class="side-nav-link">Home</a></li>
+              <li><a [routerLink]="['/web/home']" class="side-nav-link">Home</a></li>
 
-                            <li class="dropdown a">
-                                <button mat-button [matMenuTriggerFor]="menu" class="main-matmenu">Pages</button>
-                                <mat-menu #menu="matMenu" class="matmenu">
-                                    <button mat-menu-item [routerLink]="['/web/about']">ABOUT</button>
-                                    <button mat-menu-item [routerLink]="['/web/services']">SERVICES</button>
-                                    <button mat-menu-item [routerLink]="['/web/term-condition']">TERMS
-                                        & CONDITION</button>
-                                    <button mat-menu-item [routerLink]="['/web/booking-detail']">MY BOOKING</button>
-                                    <!-- <button mat-menu-item [routerLink]="['/web/payment']">PAYMENT</button> -->
-                                </mat-menu>
-                            </li>
+              <li class="dropdown a">
+                <button mat-button [matMenuTriggerFor]="menu" class="main-matmenu">Pages</button>
+                <mat-menu #menu="matMenu" class="matmenu">
+                  <button mat-menu-item [routerLink]="['/web/about']">ABOUT</button>
+                  <button mat-menu-item [routerLink]="['/web/services']">SERVICES</button>
+                  <button mat-menu-item [routerLink]="['/web/term-condition']">TERMS
+                    & CONDITION</button>
+                  <button mat-menu-item [routerLink]="['/web/booking-detail']">MY BOOKING</button>
+                  <!-- <button mat-menu-item [routerLink]="['/web/payment']">PAYMENT</button> -->
+                </mat-menu>
+              </li>
 
-                            <li class="dropdown a">
-                                <button mat-button [matMenuTriggerFor]="aboveMenu" class="main-matmenu">Blogs</button>
-                                <mat-menu #aboveMenu="matMenu" class="matmenu">
-                                    <button mat-menu-item [routerLink]="['/web/bloglist']">BLOG LIST</button>
-                                    <button mat-menu-item [routerLink]="['/web/blogdetail']">BLOG DETAILS</button>
-                                </mat-menu>
-                            </li>
+              <li class="dropdown a">
+                <button mat-button [matMenuTriggerFor]="aboveMenu" class="main-matmenu">Blogs</button>
+                <mat-menu #aboveMenu="matMenu" class="matmenu">
+                  <button mat-menu-item [routerLink]="['/web/bloglist']">BLOG LIST</button>
+                  <button mat-menu-item [routerLink]="['/web/blogdetail']">BLOG DETAILS</button>
+                </mat-menu>
+              </li>
 
-                            <li><a [routerLink]="['/web/cars']" class="side-nav-link">All Cars</a></li>
-                            <li><a [routerLink]="['/web/contact']" class="side-nav-link">Contact</a></li>
-                            <li><a [routerLink]="['/login']" class="side-nav-link">Logout</a></li>
-                            <!-- <li><a [routerLink]="['/web/cart']" style="color: black; font-size: 20px;"><i class="fa-solid fa-cart-plus"></i></a></li> -->
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="page-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 text-center">
-                    <h2>Book car</h2>
-                    <h6>Book Your Dream Car and Enjoy..!</h6>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="hero-img">
-        <div class="container py-5">
-            <div class="row">
-                <div class="col-sm-7">
-                    <div class="main-img">
-                        <img src="../../../assets/images/car-book.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-sm-5">
-                    <div class="form">
-                        <form [formGroup]="bookForm">
-                            <h4 class="text-center">Book Now !!</h4>
-                            <div class="row" style="width: 100%;">
-                                <label class="">Pickup Location*</label>
-                                <input type="text" name="p_location" class="form-field"
-                                    placeholder="Enter pickup location" formControlName="p_location">
-                                <i class="fa-solid fa-location-dot" class="loc-icon"></i>
-                                <span style="color: red; font-size: 13px;"
-                                    *ngIf="p_locationControl && p_locationControl.invalid && p_locationControl.touched">
-                                    * PickUp location
-                                    is required..!</span>
-                            </div>
-
-                            <div class="row" style="width: 100%;">
-                                <label>Drop off Location*</label>
-                                <input type="text" name="d_location" class="form-field"
-                                    placeholder="Enter Drop location" formControlName="d_location" />
-                                <span style="color: red; font-size: 13px;"
-                                    *ngIf="d_locationControl && d_locationControl.invalid &&  d_locationControl.touched">
-                                    * DropOff
-                                    location is required..!</span>
-                            </div>
-
-                            <div class="row" style="width: 100%;">
-                                <label>Pickup Time* </label>
-                                <input type="time" name="p_time" class="form-field" placeholder="HH:MM"
-                                    formControlName="p_time">
-                                <span style="color: red; font-size: 13px;"
-                                    *ngIf="p_timeControl && p_timeControl.invalid && p_timeControl.touched"> * pickUp
-                                    time is
-                                    required..!</span>
-                            </div>
-
-                            <div class="row" style="width: 100%;">
-                                <label>Return Time* </label><br>
-                                <input type="time" name="d_time" class="form-field" formControlName="d_time">
-                                <span style="color: red; font-size: 13px;"
-                                    *ngIf="d_timeControl && d_timeControl.invalid && d_timeControl.touched"> * DropOff
-                                    time is
-                                    required..!</span>
-                            </div>
-
-                            <label>Pickup - Dropoff Date*</label>
-                            <mat-form-field appearance="outline">
-                                <mat-label>Enter a date range</mat-label>
-                                <mat-date-range-input [rangePicker]="rangePicker">
-                                    <input matStartDate placeholder="Pickup date" formControlName="p_date">
-                                    <input matEndDate placeholder="Dropoff date" formControlName="d_date">
-                                </mat-date-range-input>
-                                <mat-datepicker-toggle matSuffix [for]="rangePicker"></mat-datepicker-toggle>
-                                <mat-date-range-picker #rangePicker>
-                                    <mat-date-range-picker-actions>
-                                        <button mat-button matDateRangePickerCancel>Cancel</button>
-                                        <button mat-raised-button color="primary" matDateRangePickerApply>Apply</button>
-                                    </mat-date-range-picker-actions>
-                                </mat-date-range-picker>
-
-                                <mat-error style="color: red; font-size: 13px;"
-                                    *ngIf="checkError('p_date', 'required')">* Enter valid date
-                                    range..!</mat-error>
-                            </mat-form-field>
-
-                            <button type="submit" name="submit" class="btn btn-custom-dark mt-3"
-                                (click)="submitBooking()" [disabled]="bookForm.invalid">PROCEED</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('../../assets/images/blog-kia.jpg'); background-size: 100% 100%; width: 100%; height: 100vh; padding-top: 170px;">
-    </section> -->
-
-    <!-- <section class="ftco-section ftco-degree-bg">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 ftco-animate">
-            <h1>Read Our Blog</h1>
-            <h2 class="mb-3">It is a long established fact a reader be distracted</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, eius mollitia suscipit, quisquam doloremque distinctio perferendis et doloribus unde architecto optio laboriosam porro adipisci sapiente officiis nemo accusamus ad praesentium? Esse minima nisi et. Dolore perferendis, enim praesentium omnis, iste doloremque quia officia optio deserunt molestiae voluptates soluta architecto tempora.</p>
-            <p>
-              <img src="../../assets/images/kia-2.jpg" alt="" class="img-fluid">
-            </p>
-            <p>Molestiae cupiditate inventore animi, maxime sapiente optio, illo est nemo veritatis repellat sunt doloribus nesciunt! Minima laborum magni reiciendis qui voluptate quisquam voluptatem soluta illo eum ullam incidunt rem assumenda eveniet eaque sequi deleniti tenetur dolore amet fugit perspiciatis ipsa, odit. Nesciunt dolor minima esse vero ut ea, repudiandae suscipit!</p>
-            <h2 class="mb-3 mt-5">#2. Creative WordPress Themes</h2>
-            <p>Temporibus ad error suscipit exercitationem hic molestiae totam obcaecati rerum, eius aut, in. Exercitationem atque quidem tempora maiores ex architecto voluptatum aut officia doloremque. Error dolore voluptas, omnis molestias odio dignissimos culpa ex earum nisi consequatur quos odit quasi repellat qui officiis reiciendis incidunt hic non? Debitis commodi aut, adipisci.</p>
-            <p>
-              <img src="../../../assets/images/kia1.jpg" alt="" class="img-fluid">
-            </p>
-            <p>Quisquam esse aliquam fuga distinctio, quidem delectus veritatis reiciendis. Nihil explicabo quod, est eos ipsum. Unde aut non tenetur tempore, nisi culpa voluptate maiores officiis quis vel ab consectetur suscipit veritatis nulla quos quia aspernatur perferendis, libero sint. Error, velit, porro. Deserunt minus, quibusdam iste enim veniam, modi rem maiores.</p>
-            <p>Odit voluptatibus, eveniet vel nihil cum ullam dolores laborum, quo velit commodi rerum eum quidem pariatur! Quia fuga iste tenetur, ipsa vel nisi in dolorum consequatur, veritatis porro explicabo soluta commodi libero voluptatem similique id quidem? Blanditiis voluptates aperiam non magni. Reprehenderit nobis odit inventore, quia laboriosam harum excepturi ea.</p>
-            <p>Adipisci vero culpa, eius nobis soluta. Dolore, maxime ullam ipsam quidem, dolor distinctio similique asperiores voluptas enim, exercitationem ratione aut adipisci modi quod quibusdam iusto, voluptates beatae iure nemo itaque laborum. Consequuntur et pariatur totam fuga eligendi vero dolorum provident. Voluptatibus, veritatis. Beatae numquam nam ab voluptatibus culpa, tenetur recusandae!</p>
-            <p>Voluptas dolores dignissimos dolorum temporibus, autem aliquam ducimus at officia adipisci quasi nemo a perspiciatis provident magni laboriosam repudiandae iure iusto commodi debitis est blanditiis alias laborum sint dolore. Dolores, iure, reprehenderit. Error provident, pariatur cupiditate soluta doloremque aut ratione. Harum voluptates mollitia illo minus praesentium, rerum ipsa debitis, inventore?</p>
-            <div class="tag-widget post-tag-container mb-5 mt-5">
-              <div class="tagcloud">
-                <a href="#" class="tag-cloud-link">Life</a>
-                <a href="#" class="tag-cloud-link">Sport</a>
-                <a href="#" class="tag-cloud-link">Tech</a>
-                <a href="#" class="tag-cloud-link">Travel</a>
-              </div>
-            </div>
-  
-            <div class="about-author d-flex p-4 bg-light">
-              <div class="bio mr-5">
-                <img src="../../assets/images/person_1.jpg" alt="Image placeholder" class="img-fluid mb-4">
-              </div>
-              <div class="desc">
-                <h3>George Washington</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
-              </div>
-            </div>
-   -->
-
-    <!-- <div class="pt-5 mt-5" >
-              <h3 class="mb-5">All User Comments</h3>
-              <ul class="comment-list">
-                <li class="comment" *ngFor="let item of comments; let i = index">
-                  <div class="vcard bio">
-                    <i class="fa-solid fa-comments" style="font-size: 25px;"></i>
-                  </div>
-                  <div class="comment-body" >
-                    <h4>{{ item.name }}</h4>
-                    <div class="meta">Oct. 29, 2019 at 1:21pm</div>
-                    <p>{{ item.message }}</p>
-                    <p><a href="#" class="reply">Reply</a></p>
-                  </div>
-                </li>
-              </ul>
-  
-              <div class="comment-form-wrap pt-5">
-                <h3 class="mb-5">Leave a comment</h3>
-                <form action="#" class="p-5 bg-light" [formGroup]="commentForm">
-                  <div class="form-group">
-                    <label for="name">Name *</label>
-                    <input type="text" class="form-control" id="name" formControlName="name" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" class="form-control" id="email" formControlName="email" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea name="" id="message" cols="30" rows="10" class="form-control" formControlName="message"></textarea>
-                  </div>
-                  <div class="form-group">
-                    <input type="submit" value="Post Comment" class="btn py-3 px-4 btn-primary" (click)="sendComment()">
-                  </div>
-  
-                </form>
-              </div>
-            </div> -->
-
-    <!-- </div>
-          <div class="col-md-4 sidebar ftco-animate">
-            <div class="sidebar-box">
-              <form action="#" class="search-form">
-                <div class="form-group">
-                  <span class="icon icon-search"></span>
-                </div>
-              </form>
-            </div>
-            <div class="sidebar-box ftco-animate">
-              <div class="categories">
-                <h3>Categories</h3>
-                <li><a href="#">Ferrari <span>(12)</span></a></li>
-                <li><a href="#">Cheverolet <span>(22)</span></a></li>
-                <li><a href="#">Ford <span>(37)</span></a></li>
-                <li><a href="#">Subaru <span>(42)</span></a></li>
-                <li><a href="#">Toyota <span>(14)</span></a></li>
-                <li><a href="#">Mistsubishi <span>(140)</span></a></li>
-              </div>
-            </div>
-   -->
-    <!-- <div class="sidebar-box ftco-animate">
-              <h3>Recent Blog</h3>
-              <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(../../assets/images/image_1.jpg);"></a>
-                <div class="text">
-                  <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-                  <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span>Oct. 29, 2019</a></div>
-                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                  </div>
-                </div>
-              </div>
-              <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
-                <div class="text">
-                  <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-                  <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span>Oct. 29, 2019</a></div>
-                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                  </div>
-                </div>
-              </div>
-              <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(images/image_3.jpg);"></a>
-                <div class="text">
-                  <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-                  <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span>Oct. 29, 2019</a></div>
-                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                  </div>
-                </div>
-              </div>
-            </div> -->
-
-    <!-- <div class="sidebar-box ftco-animate">
-              <h3>Tag Cloud</h3>
-              <div class="tagcloud">
-                <a href="#" class="tag-cloud-link">dish</a>
-                <a href="#" class="tag-cloud-link">menu</a>
-                <a href="#" class="tag-cloud-link">food</a>
-                <a href="#" class="tag-cloud-link">sweet</a>
-                <a href="#" class="tag-cloud-link">tasty</a>
-                <a href="#" class="tag-cloud-link">delicious</a>
-                <a href="#" class="tag-cloud-link">desserts</a>
-                <a href="#" class="tag-cloud-link">drinks</a>
-              </div>
-            </div> -->
-
-    <!-- <div class="sidebar-box ftco-animate">
-              <h3>Paragraph</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
-            </div> -->
-    <!-- </div>
-  
+              <li><a [routerLink]="['/web/cars']" class="side-nav-link">All Cars</a></li>
+              <li><a [routerLink]="['/web/contact']" class="side-nav-link">Contact</a></li>
+              <li><a [routerLink]="['/login']" class="side-nav-link">Logout</a></li>
+              <!-- <li><a [routerLink]="['/web/cart']" style="color: black; font-size: 20px;"><i class="fa-solid fa-cart-plus"></i></a></li> -->
+            </ul>
+          </div>
         </div>
       </div>
-    </section> -->
+    </div>
+  </section>
 
-    <section id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3">
-                    <h4 class="footer-title">Working Hours</h4>
-                    <h6 class="footer-title-primary">Monday-Saturday</h6>
-                    <p>9:00 AM - 10:00 PM</p>
-
-                    <h6 class="footer-title-primary">Sunday</h6>
-                    <p>10:00 AM - 9:00 PM</p>
-                </div>
-
-                <div class="col-sm-3">
-                    <h4 class="footer-title">Usefull Links</h4>
-                    <a [routerLink]="['/about']" class="footer-link">About us</a>
-                    <a href="popular-fleets.php" class="footer-link">Popular Fleets</a>
-                    <a href="self-drive.php" class="footer-link">Self Drive</a>
-                    <a href="pay-now.php" class="footer-link">Pay Now</a>
-                    <a href="contact-us.php" class="footer-link">Contact Us</a>
-                </div>
-
-                <div class="col-sm-3">
-                    <h4 class="footer-title">Head Office</h4>
-                    <h6 class="footer-title-primary">Location:</h6>
-                    <p>Lala Devidayal Rd, Mulund West, Mumbai, Maharashtra - 400080</p>
-                    <h6 class="footer-title-primary">Join us</h6>
-                    <p>info@jaincarrentals.com</p>
-                    <p><a href="tel:+917063086847" style="color: #fff; text-decoration: none;">+91-8167540298</a></p>
-                </div>
-
-                <div class="col-sm-3">
-                    <h4 class="footer-title">Newsletter</h4>
-                    <form action="#" method="post">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" placeholder="Email address" class="form-control" required>
-
-                        <button class="btn btn-primary mt-2" style="width: 100%;">Subscribe Now</button>
-                    </form>
-                </div>
-            </div>
+  <section id="page-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <h2>Book car</h2>
+          <h6>Book Your Dream Car and Enjoy..!</h6>
         </div>
-    </section>
-    <section id="footer-anim">
-        <img src="../../assets/images/truck-1.png" class="img-fluid truck-1">
-        <img src="../../assets/images/truck-2.png" class="img-fluid truck-2">
-        <img src="../../assets/images/truck-3.png" class="img-fluid truck-3">
-    </section>
-    <section id="copyright">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 text-center">
-                    <p>&copy; Copyright 2012-2023 | All Right Reserved</p>
-                </div>
-            </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero-img">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-sm-7">
+          <div class="main-img">
+            <img src="../../../assets/images/car-book.jpg" alt="">
+          </div>
         </div>
-    </section>
+        <div class="col-sm-5">
+          <div class="form">
+            <form [formGroup]="bookForm">
+              <h4 class="text-center">Book Now !!</h4>
+              <div class="row" style="width: 100%;">
+                <label class="">Pickup Location*</label>
+                <input type="text" name="p_location" class="form-field" placeholder="Enter pickup location"
+                  formControlName="p_location">
+                <i class="fa-solid fa-location-dot" class="loc-icon"></i>
+                <span style="color: red; font-size: 13px;"
+                  *ngIf="p_locationControl && p_locationControl.invalid && p_locationControl.touched">
+                  * PickUp location
+                  is required..!</span>
+              </div>
+
+              <div class="row" style="width: 100%;">
+                <label>Drop off Location*</label>
+                <input type="text" name="d_location" class="form-field" placeholder="Enter Drop location"
+                  formControlName="d_location" />
+                <span style="color: red; font-size: 13px;"
+                  *ngIf="d_locationControl && d_locationControl.invalid &&  d_locationControl.touched">
+                  * DropOff
+                  location is required..!</span>
+              </div>
+
+              <div class="row" style="width: 100%;">
+                <label>Pickup Time* </label>
+                <input type="time" name="p_time" class="form-field" placeholder="HH:MM" formControlName="p_time">
+                <span style="color: red; font-size: 13px;"
+                  *ngIf="p_timeControl && p_timeControl.invalid && p_timeControl.touched"> * pickUp
+                  time is
+                  required..!</span>
+              </div>
+
+              <div class="row" style="width: 100%;">
+                <label>Return Time* </label><br>
+                <input type="time" name="d_time" class="form-field" formControlName="d_time">
+                <span style="color: red; font-size: 13px;"
+                  *ngIf="d_timeControl && d_timeControl.invalid && d_timeControl.touched"> * DropOff
+                  time is
+                  required..!</span>
+              </div>
+
+              <label>Pickup - Dropoff Date*</label>
+              <mat-form-field appearance="outline">
+                <mat-label>Enter a date range</mat-label>
+                <mat-date-range-input [rangePicker]="rangePicker">
+                  <input matStartDate placeholder="Pickup date" formControlName="p_date">
+                  <input matEndDate placeholder="Dropoff date" formControlName="d_date">
+                </mat-date-range-input>
+                <mat-datepicker-toggle matSuffix [for]="rangePicker"></mat-datepicker-toggle>
+                <mat-date-range-picker #rangePicker>
+                  <mat-date-range-picker-actions>
+                    <button mat-button matDateRangePickerCancel>Cancel</button>
+                    <button mat-raised-button color="primary" matDateRangePickerApply>Apply</button>
+                  </mat-date-range-picker-actions>
+                </mat-date-range-picker>
+
+                <mat-error style="color: red; font-size: 13px;" *ngIf="checkError('p_date', 'required')">* Enter valid
+                  date
+                  range..!</mat-error>
+              </mat-form-field>
+
+              <button type="submit" name="submit" class="btn btn-custom-dark mt-3" (click)="submitBooking()"
+                [disabled]="bookForm.invalid">PROCEED</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('../../assets/images/blog-kia.jpg'); background-size: 100% 100%; width: 100%; height: 100vh; padding-top: 170px;">
+  </section> -->
+
+  <!-- <section class="ftco-section ftco-degree-bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 ftco-animate">
+          <h1>Read Our Blog</h1>
+          <h2 class="mb-3">It is a long established fact a reader be distracted</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, eius mollitia suscipit, quisquam doloremque distinctio perferendis et doloribus unde architecto optio laboriosam porro adipisci sapiente officiis nemo accusamus ad praesentium? Esse minima nisi et. Dolore perferendis, enim praesentium omnis, iste doloremque quia officia optio deserunt molestiae voluptates soluta architecto tempora.</p>
+          <p>
+            <img src="../../assets/images/kia-2.jpg" alt="" class="img-fluid">
+          </p>
+          <p>Molestiae cupiditate inventore animi, maxime sapiente optio, illo est nemo veritatis repellat sunt doloribus nesciunt! Minima laborum magni reiciendis qui voluptate quisquam voluptatem soluta illo eum ullam incidunt rem assumenda eveniet eaque sequi deleniti tenetur dolore amet fugit perspiciatis ipsa, odit. Nesciunt dolor minima esse vero ut ea, repudiandae suscipit!</p>
+          <h2 class="mb-3 mt-5">#2. Creative WordPress Themes</h2>
+          <p>Temporibus ad error suscipit exercitationem hic molestiae totam obcaecati rerum, eius aut, in. Exercitationem atque quidem tempora maiores ex architecto voluptatum aut officia doloremque. Error dolore voluptas, omnis molestias odio dignissimos culpa ex earum nisi consequatur quos odit quasi repellat qui officiis reiciendis incidunt hic non? Debitis commodi aut, adipisci.</p>
+          <p>
+            <img src="../../../assets/images/kia1.jpg" alt="" class="img-fluid">
+          </p>
+          <p>Quisquam esse aliquam fuga distinctio, quidem delectus veritatis reiciendis. Nihil explicabo quod, est eos ipsum. Unde aut non tenetur tempore, nisi culpa voluptate maiores officiis quis vel ab consectetur suscipit veritatis nulla quos quia aspernatur perferendis, libero sint. Error, velit, porro. Deserunt minus, quibusdam iste enim veniam, modi rem maiores.</p>
+          <p>Odit voluptatibus, eveniet vel nihil cum ullam dolores laborum, quo velit commodi rerum eum quidem pariatur! Quia fuga iste tenetur, ipsa vel nisi in dolorum consequatur, veritatis porro explicabo soluta commodi libero voluptatem similique id quidem? Blanditiis voluptates aperiam non magni. Reprehenderit nobis odit inventore, quia laboriosam harum excepturi ea.</p>
+          <p>Adipisci vero culpa, eius nobis soluta. Dolore, maxime ullam ipsam quidem, dolor distinctio similique asperiores voluptas enim, exercitationem ratione aut adipisci modi quod quibusdam iusto, voluptates beatae iure nemo itaque laborum. Consequuntur et pariatur totam fuga eligendi vero dolorum provident. Voluptatibus, veritatis. Beatae numquam nam ab voluptatibus culpa, tenetur recusandae!</p>
+          <p>Voluptas dolores dignissimos dolorum temporibus, autem aliquam ducimus at officia adipisci quasi nemo a perspiciatis provident magni laboriosam repudiandae iure iusto commodi debitis est blanditiis alias laborum sint dolore. Dolores, iure, reprehenderit. Error provident, pariatur cupiditate soluta doloremque aut ratione. Harum voluptates mollitia illo minus praesentium, rerum ipsa debitis, inventore?</p>
+          <div class="tag-widget post-tag-container mb-5 mt-5">
+            <div class="tagcloud">
+              <a href="#" class="tag-cloud-link">Life</a>
+              <a href="#" class="tag-cloud-link">Sport</a>
+              <a href="#" class="tag-cloud-link">Tech</a>
+              <a href="#" class="tag-cloud-link">Travel</a>
+            </div>
+          </div>
+
+          <div class="about-author d-flex p-4 bg-light">
+            <div class="bio mr-5">
+              <img src="../../assets/images/person_1.jpg" alt="Image placeholder" class="img-fluid mb-4">
+            </div>
+            <div class="desc">
+              <h3>George Washington</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
+            </div>
+          </div>
+ -->
+
+  <!-- <div class="pt-5 mt-5" >
+            <h3 class="mb-5">All User Comments</h3>
+            <ul class="comment-list">
+              <li class="comment" *ngFor="let item of comments; let i = index">
+                <div class="vcard bio">
+                  <i class="fa-solid fa-comments" style="font-size: 25px;"></i>
+                </div>
+                <div class="comment-body" >
+                  <h4>{{ item.name }}</h4>
+                  <div class="meta">Oct. 29, 2019 at 1:21pm</div>
+                  <p>{{ item.message }}</p>
+                  <p><a href="#" class="reply">Reply</a></p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="comment-form-wrap pt-5">
+              <h3 class="mb-5">Leave a comment</h3>
+              <form action="#" class="p-5 bg-light" [formGroup]="commentForm">
+                <div class="form-group">
+                  <label for="name">Name *</label>
+                  <input type="text" class="form-control" id="name" formControlName="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email *</label>
+                  <input type="email" class="form-control" id="email" formControlName="email" required>
+                </div>
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea name="" id="message" cols="30" rows="10" class="form-control" formControlName="message"></textarea>
+                </div>
+                <div class="form-group">
+                  <input type="submit" value="Post Comment" class="btn py-3 px-4 btn-primary" (click)="sendComment()">
+                </div>
+
+              </form>
+            </div>
+          </div> -->
+
+  <!-- </div>
+        <div class="col-md-4 sidebar ftco-animate">
+          <div class="sidebar-box">
+            <form action="#" class="search-form">
+              <div class="form-group">
+                <span class="icon icon-search"></span>
+              </div>
+            </form>
+          </div>
+          <div class="sidebar-box ftco-animate">
+            <div class="categories">
+              <h3>Categories</h3>
+              <li><a href="#">Ferrari <span>(12)</span></a></li>
+              <li><a href="#">Cheverolet <span>(22)</span></a></li>
+              <li><a href="#">Ford <span>(37)</span></a></li>
+              <li><a href="#">Subaru <span>(42)</span></a></li>
+              <li><a href="#">Toyota <span>(14)</span></a></li>
+              <li><a href="#">Mistsubishi <span>(140)</span></a></li>
+            </div>
+          </div>
+ -->
+  <!-- <div class="sidebar-box ftco-animate">
+            <h3>Recent Blog</h3>
+            <div class="block-21 mb-4 d-flex">
+              <a class="blog-img mr-4" style="background-image: url(../../assets/images/image_1.jpg);"></a>
+              <div class="text">
+                <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
+                <div class="meta">
+                  <div><a href="#"><span class="icon-calendar"></span>Oct. 29, 2019</a></div>
+                  <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                  <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="block-21 mb-4 d-flex">
+              <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
+              <div class="text">
+                <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
+                <div class="meta">
+                  <div><a href="#"><span class="icon-calendar"></span>Oct. 29, 2019</a></div>
+                  <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                  <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="block-21 mb-4 d-flex">
+              <a class="blog-img mr-4" style="background-image: url(images/image_3.jpg);"></a>
+              <div class="text">
+                <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
+                <div class="meta">
+                  <div><a href="#"><span class="icon-calendar"></span>Oct. 29, 2019</a></div>
+                  <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                  <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+  <!-- <div class="sidebar-box ftco-animate">
+            <h3>Tag Cloud</h3>
+            <div class="tagcloud">
+              <a href="#" class="tag-cloud-link">dish</a>
+              <a href="#" class="tag-cloud-link">menu</a>
+              <a href="#" class="tag-cloud-link">food</a>
+              <a href="#" class="tag-cloud-link">sweet</a>
+              <a href="#" class="tag-cloud-link">tasty</a>
+              <a href="#" class="tag-cloud-link">delicious</a>
+              <a href="#" class="tag-cloud-link">desserts</a>
+              <a href="#" class="tag-cloud-link">drinks</a>
+            </div>
+          </div> -->
+
+  <!-- <div class="sidebar-box ftco-animate">
+            <h3>Paragraph</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
+          </div> -->
+  <!-- </div>
+
+      </div>
+    </div>
+  </section> -->
+
+  <section id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3">
+          <h4 class="footer-title">Working Hours</h4>
+          <h6 class="footer-title-primary">Monday-Saturday</h6>
+          <p>9:00 AM - 10:00 PM</p>
+
+          <h6 class="footer-title-primary">Sunday</h6>
+          <p>10:00 AM - 9:00 PM</p>
+        </div>
+
+        <div class="col-sm-3">
+          <h4 class="footer-title">Usefull Links</h4>
+          <a [routerLink]="['/web/home']" class="footer-link">HOME</a>
+          <a [routerLink]="['/web/about']" class="footer-link">PAGES</a>
+          <a [routerLink]="['/web/bloglist']" class="footer-link">BLOGS</a>
+          <a [routerLink]="['/web/cars']" class="footer-link">ALL CARS</a>
+          <a [routerLink]="['/web/contact']" class="footer-link">CONTACT</a>
+        </div>
+
+        <div class="col-sm-3">
+          <h4 class="footer-title">Head Office</h4>
+          <h6 class="footer-title-primary">Location:</h6>
+          <p>Lala Devidayal Rd, Mulund West, Mumbai, Maharashtra - 400080</p>
+          <h6 class="footer-title-primary">Join us</h6>
+          <p>info@jaincarrentals.com</p>
+          <p><a href="tel:+917063086847" style="color: #fff; text-decoration: none;">+91-8167540298</a></p>
+        </div>
+
+        <div class="col-sm-3">
+          <h4 class="footer-title">Newsletter</h4>
+          <form action="#" method="post">
+            <label for="email">Email</label>
+            <input type="email" name="email" placeholder="Email address" class="form-control" required>
+
+            <button class="btn btn-primary mt-2" style="width: 100%;">Subscribe Now</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="footer-anim">
+    <img src="../../assets/images/truck-1.png" class="img-fluid truck-1">
+    <img src="../../assets/images/truck-2.png" class="img-fluid truck-2">
+    <img src="../../assets/images/truck-3.png" class="img-fluid truck-3">
+  </section>
+  <section id="copyright">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <p>&copy; Copyright 2012-2023 | All Right Reserved</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
 </body>

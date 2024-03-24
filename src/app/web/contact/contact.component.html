@@ -95,7 +95,7 @@
               <!-- <a href="/cdn-cgi/l/email-protection#0b616463657866627f634b6e736a667b676e25686466"><span
                   class="__cf_email__"
                   data-cfemail="6f050007011c02061b072f0a170e021f030a410c0002">[email&#160;protected]</span></a> -->
-                  <a href="">speedywheels_info@gmail.com</a>
+              <a href="">speedywheels_info@gmail.com</a>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 col-12 d-flex" data-aos="fade-down" data-aos-duration="1200"
@@ -120,105 +120,113 @@
   </section>
 
   <section id="booking">
-        <div class="container py-5">
-          <div class="row">
-            <div class="col-sm-12">
-              <!-- <h4 class="text-center">Have Any Question, Get in Touch Now.</h4> -->
-              <div class="container contact-div">
-                <div class="contact-box">
-                  <div class="left"></div>
-                  <div class="right">
-                    <h2>Get in Touch !</h2>
-                    <form [formGroup]="contactForm">
-                      <span style="color: red; font-size: 13px;" *ngIf="fnameControl && fnameControl.invalid && fnameControl.touched"> * Name is required..!</span>
-                    <input type="text" class="field" placeholder="Your Name" formControlName="name">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-sm-12">
+          <!-- <h4 class="text-center">Have Any Question, Get in Touch Now.</h4> -->
+          <div class="container contact-div">
+            <div class="contact-box">
+              <div class="left"></div>
+              <div class="right">
+                <h2>Get in Touch !</h2>
+                <form [formGroup]="contactForm">
+                  <span style="color: red; font-size: 13px;"
+                    *ngIf="fnameControl && fnameControl.invalid && fnameControl.touched"> * Name is required..!</span>
+                  <input type="text" class="field" placeholder="Your Name" formControlName="name">
 
-                    <span style="color: red; font-size: 13px;" *ngIf="emailControl && emailControl.invalid && emailControl.touched"> * Please enter valid email..!</span>
-                    <input type="email" class="field" placeholder="Your Email" formControlName="email">
+                  <span style="color: red; font-size: 13px;"
+                    *ngIf="emailControl && emailControl.invalid && emailControl.touched"> * Please enter valid
+                    email..!</span>
+                  <input type="email" class="field" placeholder="Your Email" formControlName="email">
 
-                    <div style="color: red; font-size: 13px;" *ngIf="mobileControl && mobileControl.dirty && mobileControl.touched">
-                      <div *ngIf="mobileControl.errors?.['required']">* Phone number is required.</div>
-                      <div *ngIf="mobileControl.errors?.['invalidPhoneNumber']">* Phone number must be between 10 and 10 characters.</div>
-                      <!-- <div *ngIf="mobileControl.errors?.['pattern']">* Only Number is required.</div> -->
-                    </div>
-                    <!-- <span style="color: red; font-size: 13px;" *ngIf="mobileControl && mobileControl.invalid && mobileControl.touched"> * Please enter valid phone no..!</span> -->
-                    <input type="text" class="field" placeholder="Phone" formControlName="mobile_no">
-
-                    <span style="color: red; font-size: 13px;" *ngIf="msgControl && msgControl.invalid && msgControl.touched"> * Message is required..!</span>
-                    <textarea placeholder="Message" class="field" formControlName="message"></textarea>
-
-                    <button class="btn" (click)="sendMessage()">Send Enquiry </button>
-                  </form>
+                  <div style="color: red; font-size: 13px;"
+                    *ngIf="mobileControl && mobileControl.dirty && mobileControl.touched">
+                    <div *ngIf="mobileControl.errors?.['required']">* Phone number is required.</div>
+                    <div *ngIf="mobileControl.errors?.['invalidPhoneNumber']">* Phone number must be between 10 and 10
+                      characters.</div>
+                    <!-- <div *ngIf="mobileControl.errors?.['pattern']">* Only Number is required.</div> -->
                   </div>
-                </div>
+                  <!-- <span style="color: red; font-size: 13px;" *ngIf="mobileControl && mobileControl.invalid && mobileControl.touched"> * Please enter valid phone no..!</span> -->
+                  <input type="text" class="field" placeholder="Phone" formControlName="mobile_no">
+
+                  <span style="color: red; font-size: 13px;"
+                    *ngIf="msgControl && msgControl.invalid && msgControl.touched"> * Message is required..!</span>
+                  <textarea placeholder="Message" class="field" formControlName="message"></textarea>
+
+                  <button class="btn" (click)="sendMessage()">Send Enquiry </button>
+                </form>
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
   </section>
 
   <div class="divider"></div>
 
 
   <section id="footer">
-        <!-- <a href="tel:+918167540298" class="btn-call"><i class="fa fa-phone"></i></a> -->
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-3">
-              <h4 class="footer-title">Working Hours</h4>
-              <h6 class="footer-title-primary">Monday-Saturday</h6>
-              <p>9:00 AM - 10:00 PM</p>
+    <!-- <a href="tel:+918167540298" class="btn-call"><i class="fa fa-phone"></i></a> -->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3">
+          <h4 class="footer-title">Working Hours</h4>
+          <h6 class="footer-title-primary">Monday-Saturday</h6>
+          <p>9:00 AM - 10:00 PM</p>
 
-              <h6 class="footer-title-primary">Sunday</h6>
-              <p>10:00 AM - 9:00 PM</p>
-            </div>
-
-            <div class="col-sm-3">
-              <h4 class="footer-title">Quick Links</h4>
-              <a href="about-us.php" class="footer-link">HOME</a>
-              <a href="popular-fleets.php" class="footer-link">PAGES</a>
-              <a href="self-drive.php" class="footer-link">BLOGS</a>
-              <a href="pay-now.php" class="footer-link">ALL CARS</a>
-              <a href="contact-us.php" class="footer-link">CONTACT</a>
-          </div>
-
-          <div class="col-sm-3">
-            <h4 class="footer-title">Our Office</h4>
-            <h6 class="footer-title-primary">Location:</h6>
-            <p>Lala Devidayal Rd, Mulund West, Mumbai, Maharashtra-400080</p>
-            <h6 class="footer-title-primary">Join us</h6>
-            <p>SpeedyWheels.com</p>
-            <p><a href="tel:+917063086847" style="color: #fff; text-decoration: none;">+91-8167540298</a></p>
-          </div>
-
-            <div class="col-sm-3">
-              <h4 class="footer-title">Newsletter</h4>
-              <form [formGroup]="subscribeForm">
-                <label for="email">Email</label>
-                <input type="email" name="email" placeholder="Email address" class="form-control" formControlName="email" required>
-    
-                <button class="btn btn-custom-primary mt-2" style="width: 100%;" (click)="sendSubscribe()">Subscribe Now</button>
-              </form>
-            </div>
-          </div>
+          <h6 class="footer-title-primary">Sunday</h6>
+          <p>10:00 AM - 9:00 PM</p>
         </div>
+
+        <div class="col-sm-3">
+          <h4 class="footer-title">Quick Links</h4>
+          <a [routerLink]="['/web/home']" class="footer-link">HOME</a>
+          <a [routerLink]="['/web/about']" class="footer-link">PAGES</a>
+          <a [routerLink]="['/web/bloglist']" class="footer-link">BLOGS</a>
+          <a [routerLink]="['/web/cars']" class="footer-link">ALL CARS</a>
+          <a [routerLink]="['/web/contact']" class="footer-link">CONTACT</a>
+        </div>
+
+        <div class="col-sm-3">
+          <h4 class="footer-title">Our Office</h4>
+          <h6 class="footer-title-primary">Location:</h6>
+          <p>Lala Devidayal Rd, Mulund West, Mumbai, Maharashtra-400080</p>
+          <h6 class="footer-title-primary">Join us</h6>
+          <p>SpeedyWheels.com</p>
+          <p><a href="tel:+917063086847" style="color: #fff; text-decoration: none;">+91-8167540298</a></p>
+        </div>
+
+        <div class="col-sm-3">
+          <h4 class="footer-title">Newsletter</h4>
+          <form [formGroup]="subscribeForm">
+            <label for="email">Email</label>
+            <input type="email" name="email" placeholder="Email address" class="form-control" formControlName="email"
+              required>
+
+            <button class="btn btn-custom-primary mt-2" style="width: 100%;" (click)="sendSubscribe()">Subscribe
+              Now</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </section>
   <section id="footer-anim">
-        <img src="../../assets/images/truck-1.png" class="img-fluid truck-1">
-        <img src="../../assets/images/truck-2.png" class="img-fluid truck-2">
-        <img src="../../assets/images/truck-3.png" class="img-fluid truck-3">
+    <img src="../../assets/images/truck-1.png" class="img-fluid truck-1">
+    <img src="../../assets/images/truck-2.png" class="img-fluid truck-2">
+    <img src="../../assets/images/truck-3.png" class="img-fluid truck-3">
   </section>
   <section id="copyright">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-12 text-center">
-              <p>&copy; Copyright 2012-2023 | All Right Reserved</p>
-            </div>
-          </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <p>&copy; Copyright 2012-2023 | All Right Reserved</p>
         </div>
+      </div>
+    </div>
   </section>
-      <script src="js/main.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 
 </body>

@@ -108,7 +108,7 @@ export class BookingDetailComponent implements OnInit {
           const car = data.cars.find((item: any) => ele.car_id === item._id)
           ele['id'] = index + 1;
           if (car) {
-            ele['img'] = '../../../assets/images' + car.Image;
+            ele['img'] = '../../../assets/images/' + car.Image;
             ele['brand'] = car.brand;
             ele['model'] = car.model;
             ele['price'] = priceDifference;

@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
   bookForm!: FormGroup;
   subscribeForm!: FormGroup;
   carFilterForm!: FormGroup;
@@ -152,3 +151,5 @@ export class HomeComponent implements OnInit {
   }
 
 }
+
+
