@@ -97,13 +97,13 @@ export class PopularfleetsComponent implements OnInit {
     console.log("items--->>", item);
 
     // debugger
-    // if(!localStorage.getItem('token')){
-    //   debugger
-    //   this.route.navigate(['/login']);
-    // }
-    // else{
-    //   this.route.navigate(['/web/home']);
-    // }
+    if(!localStorage.getItem('token')){
+      debugger
+      this.route.navigate(['/login']);
+    }
+    else{
+      this.route.navigate(['/web/home']); 
+    }
 
     this.api.set(item);
   }

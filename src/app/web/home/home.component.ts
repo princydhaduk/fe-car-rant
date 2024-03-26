@@ -150,6 +150,10 @@ export class HomeComponent implements OnInit {
     return this.bookForm.get('d_time')
   }
 
+  logoutPage(){
+    debugger
+    localStorage.removeItem('token');
+  } 
 }
 
 
