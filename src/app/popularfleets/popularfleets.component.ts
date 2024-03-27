@@ -97,19 +97,15 @@ export class PopularfleetsComponent implements OnInit {
     console.log("items--->>", item);
 
     // debugger
-    // if(!localStorage.getItem('token')){
-    //   debugger
-    //   this.route.navigate(['/login']);
-    // }
-    // else{
-    //   this.route.navigate(['/web/cars']); 
-    // }
+    if(!localStorage.getItem('token')){
+      // debugger
+      this.route.navigate(['/login']);
+    }
+    else{
+      this.route.navigate(['/web/home']); 
+    }
 
     this.api.set(item);
-  }
-
-  logoutPage(): void{
-    localStorage.removeItem('token');
   }
 }
 

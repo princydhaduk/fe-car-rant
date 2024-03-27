@@ -41,7 +41,7 @@ export class BookingDetailComponent implements OnInit {
     'action',
   ];
   razorpay: any;
-  statusColor: String = 'red';
+  // statusColor: boolean = true;
   dataSource: any = [];
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator = Object.create(null);
   subscribeForm: FormGroup;
@@ -93,17 +93,16 @@ export class BookingDetailComponent implements OnInit {
           let priceDifference = daysDifference * priceMulti;
 
           // debugger
-          if (data.status === 'success') {
-            this.statusColor = 'green';
-          }
-          else if (data.status === 'pending') {
-            this.statusColor = 'yellow';
-          }
-          else if (data.status === 'cencel') {
-            this.statusColor = 'red';
-          }
-          console.log("color==", this.statusColor);
-
+          // if (data.status === 'success') {
+          //   this.statusColor = 'green';
+          // }
+          // else if (data.status === 'pending') {
+          //   this.statusColor = 'yellow';
+          // }
+          // else if (data.status === 'cencel') {
+          //   this.statusColor = 'red';
+          // }
+          // console.log("color==", this.statusColor);
 
           const car = data.cars.find((item: any) => ele.car_id === item._id)
           ele['id'] = index + 1;
@@ -163,6 +162,7 @@ export class BookingDetailComponent implements OnInit {
       if (res.message) {
         this.toastr.success(res.message);
       }
+      // this.statusColor  = !this.statusColor;
     });
     // this.getBookingList();
   }
@@ -217,5 +217,9 @@ export class BookingDetailComponent implements OnInit {
       }
     });
     this.getBookingList();
+  }
+
+  logoutPage(): void{
+    localStorage.removeItem('token');
   }
 }

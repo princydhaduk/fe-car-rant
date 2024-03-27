@@ -5,12 +5,14 @@ import { SignupComponent } from './signup/signup.component';
 import { ForgotpassComponent } from './forgotpass/forgotpass.component';
 import { HomeComponent } from './web/home/home.component';
 import { BlogDetailComponent } from './web/blog-detail/blog-detail.component';
-import { CommonModule } from '@angular/common';5
+import { CommonModule } from '@angular/common';
+import { PopularfleetsComponent } from './popularfleets/popularfleets.component';
+5
 
 const routes: Routes = [
   {
     path:'',
-    redirectTo:'login',
+    redirectTo:'cars',
     pathMatch:'full'
   },
   {
@@ -25,10 +27,10 @@ const routes: Routes = [
     path:'forgotpass',
     component:ForgotpassComponent
   },
-  // {
-  //   path:'home',
-  //   component:HomeComponent
-  // },
+  {
+    path:'cars',
+    component:PopularfleetsComponent
+  },
   {
     path:'blogdetails',
     component:BlogDetailComponent

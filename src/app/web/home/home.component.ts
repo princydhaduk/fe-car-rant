@@ -151,7 +151,6 @@ export class HomeComponent implements OnInit {
   }
 
   logoutPage(){
-    debugger
     localStorage.removeItem('token');
   } 
 }

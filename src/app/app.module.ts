@@ -17,6 +17,9 @@ import { NgOtpInputModule } from 'ng-otp-input';
 import { WebComponent } from './web/web.component';
 import { ToastrModule } from 'ngx-toastr';
 import { ApiService } from './api.service';
+import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { PopularfleetsComponent } from './popularfleets/popularfleets.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,7 @@ import { ApiService } from './api.service';
     SignupComponent,
     ForgotpassComponent,
     WebComponent,
+    PopularfleetsComponent
 
   ],
   imports: [
@@ -37,6 +41,8 @@ import { ApiService } from './api.service';
     MatInputModule,
     MatDividerModule,
     MatIconModule,
+    MatMenuModule,
+    MatButtonModule,
     HttpClientModule,
     NgOtpInputModule,
     ToastrModule.forRoot(),
